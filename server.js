@@ -22,13 +22,11 @@ const nextApp = next({ dev });
 //! this is a built in next router that will handle ALL requests made to the server
 const handler = nextApp.getRequestHandler();
 
-//* MIDDLEWARES */
+//* MIDDLEWARE */
 const { authMiddleware } = require("./server/middleware/auth");
 
 app.use(express.json());
 // app.use(fileUpload({ useTempFiles: true }));
-
-
 
 //*SOCKETS */
 // const { Server } = require("socket.io");
