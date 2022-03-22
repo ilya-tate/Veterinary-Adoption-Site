@@ -1,3 +1,4 @@
+//* EXPRESS APP SETUP */
 const express = require("express");
 const { connectDB } = require("./server/util/connect");
 const cloudinary = require("cloudinary").v2;
@@ -17,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 const next = require("next");
 //!create a check for development vs production
 const dev = process.env.NODE_ENV !== "production";
-//! there are giant error warnings that pop us when in dev.
+//! there are giant error warnings that pop up when in dev.
 const nextApp = next({ dev });
 //! this is a built in next router that will handle ALL requests made to the server
 const handler = nextApp.getRequestHandler();
@@ -49,5 +50,4 @@ nextApp.prepare().then(() => {
     else console.log(`Server listening @ ${PORT}`);
   });
 });
-
 
