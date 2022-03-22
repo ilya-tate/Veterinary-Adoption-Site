@@ -5,11 +5,11 @@ const cloudinary = require("cloudinary").v2;
 const fileUpload = require("express-fileupload");
 
 require("dotenv").config();
-// cloudinary.config({
-//   cloud_name: process.env.CLOUD_NAME,
-//   api_key: process.env.CLOUD_KEY,
-//   api_secret: process.env.CLOUD_SECRET,
-// });
+cloudinary.config({
+  cloud_name: process.env.cloud_name,
+  api_key: process.env.cloud_key,
+  api_secret: process.env.cloud_secret,
+});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,13 +23,11 @@ const nextApp = next({ dev });
 //! this is a built in next router that will handle ALL requests made to the server
 const handler = nextApp.getRequestHandler();
 
-//* MIDDLEWARES */
+//* MIDDLEWARE */
 const { authMiddleware } = require("./server/middleware/auth");
 
 app.use(express.json());
-// app.use(fileUpload({ useTempFiles: true }));
-
-
+app.use(fileUpload({ useTempFiles: true }));
 
 //*SOCKETS */
 // const { Server } = require("socket.io");
