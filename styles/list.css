@@ -1,0 +1,22 @@
+a{
+  color: white;
+  text-decoration: "none";
+}
+a:hover{
+  color: orange;
+  text-shadow: 0px 0px 10px black;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.navbar{
+  background-color: #e44d17;
+}
+
+.navbar:hover{
+  background-color: orangered;
+}
+
+.logo:hover{
+  filter: brightness(1.4);
+}
