@@ -29,18 +29,19 @@ const animalSchema = new Schema({
   },
   needs: [
     {
-      type: Array,
+      type: String,
       required: true,
     },
   ],
   description: [
     {
-      type: Array,
+      type: String,
       required: true,
     },
   ],
   vaccinations: [
     {
+      type: String,
       required: true,
     },
   ],
