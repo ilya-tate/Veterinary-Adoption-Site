@@ -1,0 +1,31 @@
+.animalBanner:hover{
+  /* border: 1.5px solid orange; */
+  color: orange;
+  box-shadow: 5px 5px orange;
+}
+
+.name{
+  margin-top: 88%;
+  margin-left: -70%;
+  font-size: 35px;
+}
+
+.text {
+  display: inline-flex;
+  font-size: 28px;
+  margin-top: -10%;
+}
+
+.name:hover{
+  color: orange;
+  font-size: 38px;
+}
+
+.text:hover{
+  color: orange;
+  font-size: 30px;
+}
+
+.breed{
+  margin-left: 8px;
+}
