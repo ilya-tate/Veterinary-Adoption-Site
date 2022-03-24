@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import React from "react";
+import { FooterMessage, HeaderMessage } from ""
+=======
 import React from 'react'
 import { Button, Form, Message, Segment } from 'semantic-ui-react'
 import Layout from './components/layout/Layout'
@@ -48,3 +52,4 @@ const signup = () => {
 }
 
 export default signup
+>>>>>>> af913abff1da4d012f444b59e0b5083e0086e5d3
