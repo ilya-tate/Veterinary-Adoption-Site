@@ -1,19 +1,17 @@
 .animalBanner:hover{
   /* border: 1.5px solid orange; */
   color: orange;
-  box-shadow: 5px 5px orange;
+  box-shadow: 4px 4px orange;
 }
 
 .name{
-  margin-top: 88%;
   margin-left: -70%;
   font-size: 35px;
 }
 
 .text {
   display: inline-flex;
-  font-size: 28px;
-  margin-top: -10%;
+  font-size: 40px;
 }
 
 .name:hover{
