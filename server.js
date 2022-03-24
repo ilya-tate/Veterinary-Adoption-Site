@@ -8,7 +8,7 @@ require("dotenv").config();
 cloudinary.config({
   cloud_name: process.env.cloud_name,
   api_key: process.env.cloud_key,
-  api_secret: process.env.cloud_secret,
+  api_secret: process.env.cloud_secret
 });
 
 const app = express();
@@ -48,4 +48,3 @@ nextApp.prepare().then(() => {
     else console.log(`Server listening @ ${PORT}`);
   });
 });
-
