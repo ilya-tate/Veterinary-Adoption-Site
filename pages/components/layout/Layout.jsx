@@ -10,7 +10,7 @@ const Layout = ({ children, user }) => {
     return (
      
           <>
-          <Nav />
+          
             
             <Container text style={{ paddingTop: "1rem" }}>
               {children}
