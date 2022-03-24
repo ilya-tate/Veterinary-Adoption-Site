@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Footer from "./components/layout/Footer";
-import {Divider} from "semantic-ui-react"
+import {Divider, Icon} from "semantic-ui-react"
 import Nav from "./components/layout/Nav";
 
 export default function Home() {
@@ -58,7 +58,7 @@ export default function Home() {
           marginTop: "13%"
         }}>
         <div className="event1 event" style={{border: "2px solid black", backgroundColor: "#ebeae8", width: "25%"}}>
-          
+          <div className="header" style={{display: "inline-flex", width: "100%"}}><h1 style={{marginLeft: "10%", fontSize: "30px"}}<Icon name="map marker alternate" /> <a href="" className="eventLinkLarge">West Mec Central</a></h1></div>
         </div>
         <div className="event1 event" style={{border: "2px solid black", backgroundColor: "#ebeae8", width: "25%", marginLeft: "5%"}}>
           
