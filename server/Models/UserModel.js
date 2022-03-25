@@ -3,24 +3,24 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
-    name: {
-      type: String,
-      required: true
-    },
     role: {
       type: String,
       enum: ["student", "teacher"],
       default: "student"
     },
-    password: {
-      type: String,
-      required: true,
-      select: false
-    },
     email: {
       type: String,
       unique: true,
       required: true
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    password: {
+      type: String,
+      required: true,
+      select: false
     },
     admin: {
       type: Boolean,

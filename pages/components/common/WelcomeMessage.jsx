@@ -39,7 +39,7 @@ export const FooterMessage = () => {
           </Message>
           <Message attached="bottom" warning>
             <Icon name="help" />
-            New User? <Link href="/signup"> Signup here </Link>
+            New User? <Link href="/signup"> Sign Up Here </Link>
           </Message>
         </>
       )}

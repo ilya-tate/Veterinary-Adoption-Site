@@ -12,7 +12,7 @@ import catchErrors from "./util/catchErrors";
 const login = () => {
   const [user, setUser] = useState({
     email: "",
-    password: "",
+    password: ""
   });
 
   const { email, password } = user;
@@ -25,8 +25,8 @@ const login = () => {
 
   //* HANDLERS */
   const handleChange = (e) => {
-      const { name, value } = e.target;
-      setUser((prev) => ({ ...prev, [name]: value }));
+    const { name, value } = e.target;
+    setUser((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -54,8 +54,8 @@ const login = () => {
   }, []);
 
   return (
-      <>
-        <HeaderMessage />
+    <>
+      <HeaderMessage />
       <Form
         loading={formLoading}
         error={errorMsg !== null}
@@ -99,7 +99,7 @@ const login = () => {
           />
           <Divider hidden />
           <Button
-            color="green"
+            color="orange"
             content="Login"
             icon="signup"
             type="submit"
@@ -108,8 +108,8 @@ const login = () => {
         </Segment>
       </Form>
       <FooterMessage />
-      </>
-  )
+    </>
+  );
 };
 
 export default login;
