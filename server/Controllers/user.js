@@ -1,5 +1,5 @@
 const UserModel = require("../models/UserModel");
-const defaultProfilePic = require("../util/defaultPic");
+const defaultProfilePic = require("../util/defaultProfilePic");
 
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");

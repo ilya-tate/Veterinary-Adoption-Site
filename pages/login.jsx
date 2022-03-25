@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
@@ -43,7 +42,7 @@ const login = () => {
     setFormLoading(false);
   };
 
-  //*EFFECTS */
+  //* EFFECTS */
   useEffect(() => {
     setSubmitDisabled(!(email && password));
   }, [user]);
@@ -114,14 +113,3 @@ const login = () => {
 };
 
 export default login;
-=======
-import React from 'react'
-
-const login = () => {
-  return (
-    <div>login</div>
-  )
-}
-
-export default login
->>>>>>> af913abff1da4d012f444b59e0b5083e0086e5d3
