@@ -58,7 +58,7 @@ export default function Home() {
           marginTop: "13%"
         }}>
         <div className="event1 event" style={{border: "2px solid black", backgroundColor: "#ebeae8", width: "25%"}}>
-          <div className="header" style={{display: "inline-flex", width: "100%"}}><h1 style={{marginLeft: "10%", fontSize: "30px"}}<Icon name="map marker alternate" /> </h1></div>
+          <div className="header" style={{display: "inline-flex", width: "100%"}}><h1 style={{marginLeft: "10%", fontSize: "30px"}}><a><Icon name="map marker alternate" /></a> <a>West Mec Central</a></h1></div>
         </div>
         <div className="event1 event" style={{border: "2px solid black", backgroundColor: "#ebeae8", width: "25%", marginLeft: "5%"}}>
           

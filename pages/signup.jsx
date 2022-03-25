@@ -39,6 +39,8 @@ const signup = () => {
           icon="eye"
           iconPosition="left"
         />
+
+        <Form.Dropdown placeholder='role' value = 'dog'/>
         <Button color='orange' content='Sign Up!' ></Button>
 
 
