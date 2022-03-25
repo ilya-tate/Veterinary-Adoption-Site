@@ -4,11 +4,24 @@
   font-size: 25px;
 }
 
+.footerItem{
+  color: white;
+  text-decoration: "none";
+  font-size: 10px;
+}
+
 .item:hover{
   color: orange;
   text-shadow: 0px 0px 10px black;
   font-size: 30px;
   font-weight: bold;
+}
+
+.footerItem:hover{
+  color: orange;
+  text-shadow: 0px 0px 10px black;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .navbar{
