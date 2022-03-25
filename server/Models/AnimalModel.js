@@ -2,63 +2,76 @@ const { truncate } = require("fs");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const animalSchema = new Schema({
+const AnimalSchema = new Schema({
   name: {
     type: String,
-    required: false,
+    required: false
   },
   age: {
     type: Number,
-    required: false,
+    required: true
+  },
+  type: {
+    type: String,
+    enum: ["dog", "cat"],
+    required: true
   },
   animal: {
     type: String,
-    required: true,
+    required: true
   },
   breed: {
     type: String,
-    required: true,
+    required: true
   },
   background: {
     type: String,
-    required: false,
+    required: false
   },
-  color: {
-    type: String,
-    required: true,
-  },
+  colors: [
+    {
+      type: String,
+      required: true
+    }
+  ],
   needs: [
     {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   ],
-  description: [
+  description: {
+    type: String,
+    required: true
+  },
+  details: [
     {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   ],
   vaccinations: [
     {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   ],
-  spade: {
+  spayed: {
     type: Boolean,
-    required: true,
+    required: true
   },
   pictures: [
     {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   ],
   videos: [
     {
       type: String,
-      required: true,
+      required: true
     }
-  ],
+  ]
 });
+
+module.exports = mongoose.model("Animal", AnimalSchema);
