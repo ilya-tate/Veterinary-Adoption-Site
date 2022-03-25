@@ -6,20 +6,25 @@ const Footer = () => {
       <Divider
         style={{ backgroundColor: "gray", color: "gray", height: "5px" }}
       />
-      <Grid>
-        <Grid.Row>&copy Copywrite West-MEC</Grid.Row>
+      <Grid centered>
+        <Grid.Row>{`\u00A9 ${new Date().getFullYear()} West-MEC`}</Grid.Row>
         <Grid.Row>
           <Grid.Column>
-            <h3>Other Links:</h3>
-            <ul style={{ listStyle: "none" }}>
-              <li></li>
+            <h3>Socials:</h3>
+            <ul style={{ listStyle: "none", paddingLeft: "0" }}>
+              <li>
+                <a href="https://www.instagram.com/westmecvetsciences/">
+                  Instagram
+                </a>
+              </li>
+              <li>Placeholder</li>
             </ul>
           </Grid.Column>
           <Grid.Column>
-            <h3>Socials:</h3>
-            <ul style={{ listStyle: "none" }}>
-              <li>Twitter</li>
-              <li>Facebook</li>
+            <h3>Other:</h3>
+            <ul style={{ listStyle: "none", paddingLeft: "0" }}>
+              <li>placeholder</li>
+              <li>placeholder</li>
             </ul>
           </Grid.Column>
         </Grid.Row>
