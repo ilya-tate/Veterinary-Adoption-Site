@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Form, Message, Segment } from 'semantic-ui-react'
-import Layout from './components/layout/Layout'
+import Layout from '../components/layout/Layout'
 
 const signup = () => {
   return (
