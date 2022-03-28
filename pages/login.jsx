@@ -5,9 +5,9 @@ import { Button, Divider, Form, Message, Segment } from "semantic-ui-react";
 import {
   FooterMessage,
   HeaderMessage,
-} from "./components/common/WelcomeMessage";
-import { setToken } from "./util/auth";
-import catchErrors from "./util/catchErrors";
+} from "../components/common/WelcomeMessage";
+import { setToken } from "../util/auth";
+import catchErrors from "../util/catchErrors";
 
 const login = () => {
   const [user, setUser] = useState({
