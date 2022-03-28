@@ -1,0 +1,16 @@
+@use "../utils/colors" as *;
+
+main.animals {
+
+    .filter {
+        display: flex;
+        gap: 3rem;
+        margin: 0 auto;
+        max-width: 65%;
+
+        .search {
+            width: 33.33%;
+
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Footer from "../components/layout/Footer";
-import { Divider, Icon } from "semantic-ui-react";
+import {Divider, Icon} from "semantic-ui-react";
 import Nav from "../components/layout/Nav";
 import Map from "../components/maps/Map";
 
@@ -14,14 +14,8 @@ export default function Home() {
   return (
     <div
       className="homeDiv"
-      style={{ overflowX: "hidden", background: "#00FFFF" }}
+      style={{overflowX: "hidden", background: "#00FFFF"}}
     >
-      <Head>
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-      </Head>
-
       <Nav />
       <div
         className="main"
@@ -53,9 +47,9 @@ export default function Home() {
       >
         <div
           className="animal1 animalBanner"
-          style={{ backgroundColor: "black", color: "white", width: "25%" }}
+          style={{backgroundColor: "black", color: "white", width: "25%"}}
         >
-          <h1 className="name" style={{ marginTop: "88%" }}>
+          <h1 className="name" style={{marginTop: "88%"}}>
             Henry
           </h1>
           <div className="text">
@@ -72,7 +66,7 @@ export default function Home() {
             marginLeft: "5%",
           }}
         >
-          <h1 className="name" style={{ marginTop: "88%" }}>
+          <h1 className="name" style={{marginTop: "88%"}}>
             Jim
           </h1>
           <div className="text">
@@ -89,7 +83,7 @@ export default function Home() {
             marginLeft: "5%",
           }}
         >
-          <h1 className="name" style={{ marginTop: "88%" }}>
+          <h1 className="name" style={{marginTop: "88%"}}>
             Tom
           </h1>
           <div className="text">
@@ -112,12 +106,12 @@ export default function Home() {
       >
         <div
           className="event1 event"
-          style={{ border: "2px solid black", width: "25%" }}
+          style={{border: "2px solid black", width: "25%"}}
         >
           <img src={image} className="eventImage" />
           <div
             className="header"
-            style={{ display: "inline-flex", width: "100%" }}
+            style={{display: "inline-flex", width: "100%"}}
           >
             <h1
               style={{
@@ -140,12 +134,12 @@ export default function Home() {
         </div>
         <div
           className="event1 event"
-          style={{ border: "2px solid black", width: "25%" }}
+          style={{border: "2px solid black", width: "25%"}}
         >
           <img src={image2} className="eventImage" />
           <div
             className="header"
-            style={{ display: "inline-flex", width: "100%", textAlign: "center" }}
+            style={{display: "inline-flex", width: "100%", textAlign: "center"}}
           >
             <h1
               style={{
@@ -166,7 +160,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div style={{ position: "relative", bottom: "0" }}>
+      <div style={{position: "relative", bottom: "0"}}>
         <Divider
           style={{
             backgroundColor: "gray",

@@ -1,0 +1,39 @@
+@use "../utils/colors" as *;
+
+.nav {
+    height: 5rem;
+    width: 100%;
+    background-color: #E9F7FA;
+    padding: 1rem 2rem;
+    border-bottom: $blue .25rem solid;
+    color: $black;
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-weight: 800;
+
+        .logo {
+            position: relative;
+            height: 3rem;
+            width: 3rem;
+        }
+
+        h1.h1 {
+            font-size: 1.125rem;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    ul.links {
+        display: flex;
+        align-items: center;
+        font-size: 1.25rem;
+        font-weight: 650;
+        gap: 3rem;
+    }
+}
