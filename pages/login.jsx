@@ -101,7 +101,7 @@ const login = () => {
           <Button
             color="orange"
             content="Login"
-            icon="signup"
+            icon="sign in"
             type="submit"
             disabled={submitDisabled}
           />
