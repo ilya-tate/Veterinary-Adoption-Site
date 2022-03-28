@@ -1,3 +1,20 @@
+.homeAdopt{
+  width: 180px;
+  height: 70px;
+  border-radius: 40px;
+  background-color: rgb(238, 193, 109);
+  color: black;
+}
+
+.homeAdopt:hover{
+  cursor: pointer;
+  border: 4px solid black;
+}
+
+.homeHeader{
+  font-size: 50px;
+}
+
 .animalBanner:hover{
   /* border: 1.5px solid orange; */
   color: orange;
@@ -29,13 +46,14 @@
 }
 
 .eventItemLarge {
-  color: rgb(105, 105, 105);
+  color: whitesmoke;
   text-decoration: none;
 }
 
 .eventItemLarge:hover{
   color: orange;
-  text-shadow: 0px 0px 5px white;
+  cursor: pointer;
+  text-shadow: 0px 0px 7px orangered;
   font-size: 30px;
   font-weight: bold;
 }
@@ -46,4 +64,13 @@
   object-fit: cover;
   z-index: -1;
   margin-bottom: -100%;
+}
+
+.eventText{
+  margin-top: 140px;
+}
+
+.eventP{
+  color: whitesmoke;
+  font-size: 20px;
 }
