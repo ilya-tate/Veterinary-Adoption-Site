@@ -29,6 +29,12 @@ const { authMiddleware } = require("./server/middleware/auth");
 app.use(express.json());
 app.use(fileUpload({ useTempFiles: true }));
 
+
+const userRoute = require('./server/Routes/userRoutes')
+
+
+app.use('/api/v1/user', userRoute)
+
 //*SOCKETS */
 // const { Server } = require("socket.io");
 // const io = new Server(3001);
