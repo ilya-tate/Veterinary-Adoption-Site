@@ -14,7 +14,7 @@ const Footer = () => {
                   Instagram
                 </a>
               </li>
-              <li><a className="item footerItem">Placeholder</a></li>
+              <li><a className="item footerItem" href="">Placeholder</a></li>
             </ul>
           </Grid.Column>
           <Grid.Column>

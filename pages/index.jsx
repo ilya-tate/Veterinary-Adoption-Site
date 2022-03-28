@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div
       className="homeDiv"
-      style={{ overflowX: "hidden", background: "#00FFFF" }}
+      style={{ overflowX: "hidden" }}
     >
       <Nav />
       <div
@@ -24,12 +24,16 @@ export default function Home() {
           display: "inline-flex",
           justifyContent: "center",
           textAlign: "center",
-          marginTop: "13%",
+          marginTop: "8%",
         }}
       >
-        <div className="mainContent">
+        <div className="mainContent" style={{background: "lightgray", width: "100%", display: "inline-flex"}}>
+          <img src="./bulldog.jfif" style={{width: "40%", height: "90%", marginTop: "1.5%", marginLeft: "20px", borderRadius: "36px"}}/>
+          <div style={{marginLeft: "5%"}}>
           <h1 className="homeHeader">West-Mec Veterinary Adoptions</h1>
+          <o style={{fontSize: "25px"}}>We are 2021-22s West Mec Veterinary Class</o><br/><br/>
           <button className="homeAdopt">Adopt Today</button>
+          </div>
         </div>
       </div>
       <div

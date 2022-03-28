@@ -11,13 +11,9 @@ const AnimalSchema = new Schema({
     type: Number,
     required: true
   },
-  type: {
-    type: String,
-    enum: ["dog", "cat"],
-    required: true
-  },
   animal: {
     type: String,
+    enum: ["dog", "cat"],
     required: true
   },
   breed: {
@@ -44,12 +40,6 @@ const AnimalSchema = new Schema({
     type: String,
     required: true
   },
-  details: [
-    {
-      type: String,
-      required: true
-    }
-  ],
   vaccinations: [
     {
       type: String,

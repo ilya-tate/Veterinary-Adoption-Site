@@ -1,3 +1,20 @@
+.homeAdopt{
+  width: 180px;
+  height: 70px;
+  border-radius: 40px;
+  background-color: rgb(238, 193, 109);
+  color: black;
+}
+
+.homeAdopt:hover{
+  cursor: pointer;
+  border: 4px solid black;
+}
+
+.homeHeader{
+  font-size: 50px;
+}
+
 .animalBanner:hover{
   /* border: 1.5px solid orange; */
   color: orange;
