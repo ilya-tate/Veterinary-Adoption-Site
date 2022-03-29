@@ -35,4 +35,6 @@
 
 .logo:hover{
   filter: brightness(1.4);
+  height: 50px;
+  width: 70px;
 }
