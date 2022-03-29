@@ -2,13 +2,13 @@
 
 .animal {
     min-width: 25rem;
-    flex-grow: 2;
     height: 35rem;
     border-radius: 1.5rem;
     display: grid;
     color: $white;
     box-shadow: $blue .5rem .5rem 0 0 ;
-    flex-basis: 25rem;
+    flex-basis: calc(33.33% - 2rem);
+    // flex-basis: 100%;
     cursor: pointer;
 
     .image {
@@ -91,10 +91,14 @@
     }
 }
 
-@media (min-width: 1440px) {
+@media (max-width: 1418px) {
     .animal {
-        &:last-child {
-            max-width: calc(33.33% - 2rem);
-        }
+        flex-basis: calc(50% - 2rem);
+    }
+}
+
+@media (max-width: 928px) {
+    .animal {
+        flex-basis: 100%;
     }
 }
