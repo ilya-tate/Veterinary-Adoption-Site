@@ -6,7 +6,6 @@ import Nav from "./components/layout/Nav";
 const events = () => {
   return (
     <>
-      <Nav />
       <Divider />
       <Grid stackable>
         <Grid.Row>

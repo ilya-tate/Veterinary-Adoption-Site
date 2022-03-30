@@ -42,7 +42,6 @@ export default function Home() {
     crossOrigin=""/>
       </Head> */}
 
-      <Nav />
       <div
         className="main"
         style={{
