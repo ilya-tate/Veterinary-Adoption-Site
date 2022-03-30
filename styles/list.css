@@ -2,7 +2,7 @@
   color: white;
   text-decoration: "none";
   font-size: 25px;
-  
+  transition: color 1s; 
 }
 
 .footerItem{
@@ -29,15 +29,8 @@
 .navbar{
   background-color: #e44d17;
   height: 9vh;
-  transition: color 2s; 
 }
 
-<<<<<<< HEAD
-=======
-.navbar:hover{
-  color: rgb(255, 81, 0);
-}
->>>>>>> 37cd2f9f15b4a20aadfc8647fb265ab9063080e8
 
 .logo:hover{
   filter: brightness(1.4);

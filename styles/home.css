@@ -1,3 +1,9 @@
+.homeDiv{
+  background-image: url("../public/bulldog.jfif");
+  background-size: cover;
+  background-position-x: center;
+}
+
 .homeAdopt{
   width: 180px;
   height: 70px;

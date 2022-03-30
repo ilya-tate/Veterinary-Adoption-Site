@@ -46,3 +46,6 @@ export const FooterMessage = () => {
     </>
   );
 };
+
+
+module.exports = {HeaderMessage, FooterMessage}
