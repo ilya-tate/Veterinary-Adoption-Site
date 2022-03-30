@@ -5,8 +5,8 @@ const UserSchema = new Schema(
   {
     role: {
       type: String,
-      enum: ["student", "teacher"],
-      default: "student",
+      enum: ["student", "teacher", "visitor"],
+      default: "visitor",
       required: true
     },
     email: {
