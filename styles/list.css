@@ -2,6 +2,7 @@
   color: white;
   text-decoration: "none";
   font-size: 25px;
+  transition: color 1s; 
 }
 
 .footerItem{
@@ -27,7 +28,6 @@
 .navbar{
   background-color: #e44d17;
   height: 9vh;
-  transition: color 2s; 
 }
 
 .navbar:hover{

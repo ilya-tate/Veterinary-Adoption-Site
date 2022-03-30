@@ -20,10 +20,10 @@ const removeAnimal = async (req, res) => {
     if (!animal) return res.status(403).send("Animal not found");
 
     const user = await UserModel.findById(userId);
-      if (user.role === "admin") {
+      if (user.role === "teacher" || user.role === "student") {
         await animal.remove();
         return res.status(200).send("Animal removed successfully");
-      } else {
+      } else if(user.role !== "teacher" && user.role !== "student") {
         return res.status(401).send("Unauthorized");
       }
 
@@ -47,7 +47,7 @@ const createEvent = async(req, res) => {
   }
 }
 
-const deletePost = async (req, res) => {
+const deleteEvent = async (req, res) => {
   try {
     const { userId } = req;
     const { animalId } = req.params;
@@ -57,10 +57,10 @@ const deletePost = async (req, res) => {
     if (!animal) return res.status(403).send("Animal not found");
 
     const user = await UserModel.findById(userId);
-      if (user.role === "admin") {
+      if (user.role === "teacher" || user.role === "student") {
         await animal.remove();
         return res.status(200).send("Animal removed successfully");
-      } else {
+      } else if(user.role !== "teacher" && user.role !== "student") {
         return res.status(401).send("Unauthorized");
       }
 
