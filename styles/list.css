@@ -27,14 +27,14 @@
 .navbar{
   background-color: #e44d17;
   height: 9vh;
+  transition: color 2s; 
 }
 
 .navbar:hover{
-  background-color: orangered;
+  color: rgb(255, 81, 0);
 }
 
 .logo:hover{
   filter: brightness(1.4);
-  height: 50px;
-  width: 70px;
+  scale: 5;
 }

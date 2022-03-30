@@ -14,13 +14,16 @@ export default function Home() {
   const [random, setRandom] = useState(0);
 
   useEffect(() => {
+    let timeout = setTimeout(()=>{
+      setImage(images[Math.floor(Math.random() * 5)]);
+    }, 1)
     const interval = setInterval(() => {
-      const lastImage = image;
       setImage(images[Math.floor(Math.random() * 5)])
     }, 2000);
 
     return () => {
       clearInterval(interval)
+      clearTimeout(timeout)
     }
   }, []);
 
@@ -52,7 +55,7 @@ export default function Home() {
           <div style={{marginLeft: "1%"}}>
           <h1 className="homeHeader">West-Mec Veterinary Adoptions</h1><br/>
           <p style={{fontSize: "25px"}}>Labore elit adipisicing quis voluptate veniam ullamco. Deserunt cupidatat laboris eu quis incididunt. Incididunt duis labore cupidatat irure ad excepteur. Id amet commodo ea adipisicing aute velit ut consectetur ad esse. Commodo nulla duis eiusmod ex laborum.</p><br/>
-          <button className="homeAdopt">Adopt Today</button>
+          <a href="/adoption"><button className="homeAdopt">Adopt Today</button></a>
           </div>
         </div>
       </div>
@@ -70,43 +73,40 @@ export default function Home() {
       >
         <div
           className="animal1 animalBanner"
-          style={{ backgroundColor: "black", color: "white", width: "25%" }}
+          style={{ color: "whitesmoke", width: "25%" }}
         >
-          <h1 className="name" style={{ marginTop: "88%" }}>
+          <img src={images[0]} style={{height: "100%", width: "100%"}}/>
+          <h1 className="name" style={{ marginTop: "-27%" }}>
             Henry
           </h1>
           <div className="text">
-            <p className="age">{Math.ceil(Math.random() * 7 + 3)} Years -</p>{" "}
+            <p className="age">{Math.ceil(Math.random() * 7 + 3)} Years -</p>
             <p className="breed">German Shepard</p>
           </div>
         </div>
         <div
           className="animal2 animalBanner"
-          style={{
-            backgroundColor: "black",
-            color: "white",
-            width: "25%",
-            marginLeft: "5%",
-          }}
+          style={{ color: "whitesmoke", width: "25%", marginLeft: "5%" }}
         >
-          <h1 className="name" style={{ marginTop: "88%" }}>
+          <img src={images[2]} style={{height: "100%", width: "100%"}}/>
+          <h1 className="name" style={{ marginTop: "-27%" }}>
             Jim
           </h1>
           <div className="text">
-            <p className="age">{Math.ceil(Math.random() * 7 + 3)} Years -</p>{" "}
-            <p className="breed"> Parrot</p>
+            <p className="age">{Math.ceil(Math.random() * 7 + 3)} Years -</p>
+            <p className="breed">Parrot </p>
           </div>
         </div>
         <div
           className="animal3 animalBanner"
           style={{
-            backgroundColor: "black",
-            color: "white",
+            color: "whitesmoke",
             width: "25%",
-            marginLeft: "5%",
+            marginLeft: "5%"
           }}
         >
-          <h1 className="name" style={{ marginTop: "88%" }}>
+          <img src={images[1]} style={{height: "100%", width: "100%"}}/>
+          <h1 className="name" style={{ marginTop: "-27%" }}>
             Tom
           </h1>
           <div className="text">

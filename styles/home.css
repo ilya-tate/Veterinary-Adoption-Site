@@ -15,10 +15,16 @@
   font-size: 50px;
 }
 
+.animalBanner{
+  border-radius: 20px;
+}
+.animalBanner img{
+  border-radius: 20px;
+}
+
 .animalBanner:hover{
   /* border: 1.5px solid orange; */
-  color: orange;
-  box-shadow: 4px 4px orange;
+  background-color: red;
 }
 
 .name{
@@ -28,17 +34,17 @@
 
 .text {
   display: inline-flex;
-  font-size: 27px;
+  font-size: 23px;
 }
 
 .name:hover{
-  color: orange;
+  color: white;
   font-size: 38px;
 }
 
 .text:hover{
-  color: orange;
-  font-size: 32px;
+  color: white;
+  font-size: 27px;
 }
 
 .breed{
