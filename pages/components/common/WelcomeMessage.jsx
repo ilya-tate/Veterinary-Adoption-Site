@@ -38,7 +38,7 @@ export const FooterMessage = () => {
             <Link href="/reset">Forgot password?</Link>
           </Message>
           <Message attached="bottom" warning>
-            <Icon name="help" />
+            <Icon name="signup" />
             New User? <Link href="/signup"> Sign Up Here </Link>
           </Message>
         </>

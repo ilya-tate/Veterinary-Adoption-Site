@@ -1,18 +1,55 @@
+import "../styles/globals.css";
 import "semantic-ui-css/semantic.min.css";
-import '../styles/globals.css'
-import "../styles/list.css"
-import "../public/logo.png"
-import "../public/DarkLogo.png"
-import "../styles/home.css"
+import "../styles/list.css";
+import "../public/logo.png";
+import "../public/DarkLogo.png";
+import "../styles/home.css";
+import Layout from "./components/layout/Layout";
+import { redirectUser } from "./util/auth";
+import { parseCookies, destroyCookie } from "nookies";
+import axios from "axios";
+import { baseURL } from "./util/baseURL";
 
-
-
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
-      
+    <Layout user={pageProps}>
       <Component {...pageProps} />
-    
+    </Layout>
   );
-}
+};
 
-export default MyApp
+MyApp.getInitialProps = async ({ ctx, Component }) => {
+  const { token } = parseCookies(ctx);
+  let pageProps = {};
+
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+
+  const protectedRoutes = ["/"];
+  const isProtectedRoute = protectedRoutes.includes(ctx.pathname);
+
+  if (!token) {
+    isProtectedRoute && redirectUser(ctx, "/login");
+  } else {
+    try {
+      const res = await axios.get(`${baseURL}/api/v1/auth`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const { user } = res.data;
+
+      if (user) !isProtectedRoute && redirectUser(ctx, "/");
+
+      pageProps.user = user;
+    } catch (error) {
+      destroyCookie(ctx, "token");
+      redirectUser(ctx, "/login");
+    }
+  }
+  return { pageProps };
+};
+
+export default MyApp;

@@ -16,6 +16,7 @@
   text-shadow: 0px 0px 10px black;
   font-size: 30px;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .footerItem:hover{
@@ -30,9 +31,6 @@
   height: 9vh;
 }
 
-.navbar:hover{
-  color: rgb(255, 81, 0);
-}
 
 .logo:hover{
   filter: brightness(1.4);

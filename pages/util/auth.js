@@ -1,6 +1,8 @@
 import Router from "next/router";
 import cookie from "js-cookie";
 
+export const baseURL = `http://localhost:${process.env.PORT || 3000}`;
+
 export const logoutUser = (email) => {
   cookie.set("userEmail", email);
   cookie.remove("token")
