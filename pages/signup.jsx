@@ -35,6 +35,7 @@ const signup = () => {
         user
       })
       setToken(res.data)
+      console.log(res.data)
     } catch (err) {
       console.log(err);
     }
