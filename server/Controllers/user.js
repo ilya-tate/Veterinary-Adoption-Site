@@ -5,29 +5,22 @@ const jwt = require("jsonwebtoken");
 const isEmail = require("validator/lib/isEmail");
 
 
+
 const createUser = async (req, res) => {
-  const {
-    name,
-    email,
-    password,
-    role
+  const { name, email, password, role } = req.body.user;
 
-  } = req.body.user
-
-
-  try{
-
-    let user
-    user = await UserModel.findOne({ email: email.toLowerCase() })
+  try {
+    let user;
+    user = await UserModel.findOne({ email: email.toLowerCase() });
     if (user) return res.status(401).send("Email already in use");
 
     user = new UserModel({
       name: name.toLowerCase(),
       email: email.toLowerCase(),
       password,
-      role
-
-    })
+      role,
+      
+    });
     user.password = await bcrypt.hash(password, 10);
     user = await user.save();
     const payload = { userId: user._id };
@@ -40,17 +33,17 @@ const createUser = async (req, res) => {
         res.status(200).json(token);
       }
     );
-
-  } catch (error){
+  } catch (error) {
     console.log(error);
   }
-}
-const postLoginUser = async (req, res) => {
+};
+
+const postUserLogin = async (req, res) => {
   const { email, password } = req.body.user;
 
   if (!isEmail(email)) return res.status(401).send("Invalid Email");
   if (password.length < 6)
-    return res.status(401).send("Password must be at least 6 chars long");
+    return res.status(401).send("Password must be at least 6 characters long");
 
   try {
     const user = await UserModel.findOne({
@@ -58,11 +51,10 @@ const postLoginUser = async (req, res) => {
     }).select("+password");
 
     if (!user) return res.status(401).send("Invalid Credentials");
-    const isPassword = await bcrypt.compare(password, user.password);
 
+    const isPassword = await bcrypt.compare(password, user.password);
     if (!isPassword) return res.status(401).send("Invalid Credentials");
 
-    
     const payload = { userId: user._id };
     jwt.sign(
       payload,
@@ -75,8 +67,8 @@ const postLoginUser = async (req, res) => {
     );
   } catch (error) {
     console.log(error);
-    return res.status(500).send("Sever Error");
+    return res.status(500).send("Server Error");
   }
 };
 
-module.exports = {createUser, postLoginUser}
+module.exports = { createUser, postUserLogin };

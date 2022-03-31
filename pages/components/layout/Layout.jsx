@@ -12,7 +12,7 @@ const Layout = ({ children, user }) => {
           <>
           <Nav />
             
-            <Container text style={{ paddingTop: "1rem" }}>
+            <Container text style={{ paddingTop: "6rem" }}>
               {children}
             </Container>
           </>
