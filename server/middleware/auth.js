@@ -2,21 +2,22 @@ const jwt = require("jsonwebtoken");
 
 const auth = (req, res, next) => {
   try {
-    if (
-      !req.headers.authorization ||
-      !req.headers.authorization.split(" ")[0] === "Bearer"
-    ) {
-      res.status(401).send("Unauthorized");
+    if (!req.headers.authorization) {
+      return res.status(401).send("Unautorized");
+    }
+    if (!req.headers.authorization.split(" ")[0] === "Bearer") {
+      return res.status(401).send("Unautorized");
     }
 
-    const token = req.headers.authorization.split(" ")[1];
-    const { userId } = jwt.verify(token, process.env.JWT_SECRET);
+    const auth = req.headers.authorization.split(" ")[1];
+    const { userId } = jwt.verify(auth, process.env.JWT_SECRET);
 
     req.userId = userId;
+
     next();
   } catch (error) {
     console.log(error);
-    return res.status(500).send("Server Error on Auth Middleware");
+    return res.status(401).send("Unauthorized");
   }
 };
 

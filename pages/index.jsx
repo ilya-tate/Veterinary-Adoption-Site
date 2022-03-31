@@ -5,6 +5,8 @@ import Image from "next/image";
 import Footer from "./components/layout/Footer";
 import { Divider, Icon } from "semantic-ui-react";
 import Map from "./components/maps/Map";
+import { parseCookies } from "nookies";
+import { baseURL } from "./util/auth";
 
 const images = [
   "/bulldog.jfif",
@@ -14,33 +16,17 @@ const images = [
   "/mastiffpuppy.jfif",
 ];
 
-export default function Home() {
-  const [image, setImage] = useState();
-  const [random, setRandom] = useState(0);
-  const [time, setTime] = useState(3500);
-
-  useEffect(() => {
-    let timeout = setTimeout(() => {
-      setImage(images[Math.floor(Math.random() * 5)]);
-    }, 1);
-    const interval = setInterval(() => {
-      setImage(images[Math.floor(Math.random() * 5)]);
-    }, time);
-
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-    };
-  }, []);
-
+  const home = ({ user, postData, errorLoading }) =>  {
   return (
+
     <div className="homeDiv" style={{ overflowX: "hidden" }}>
       {/* <Head>
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossOrigin=""/>
-      </Head> */}
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossOrigin=""/>
+    </Head> */}
 
+    <Nav />
       <div
         className="main"
         style={{
@@ -64,7 +50,7 @@ export default function Home() {
             style={{ width: "40vw", minWidth: "40vw", background: "orange" }}
           >
             <img
-              src={image}
+              
               onMouseOver={
                 ()=>{
                   // setTime(100000000000000000000000);
@@ -232,3 +218,21 @@ export default function Home() {
     </div>
   );
 }
+
+home.getInitialProps = async (ctx) => {
+  try {
+    const { token } = parseCookies(ctx);
+    const res = await axios.get(`${baseURL}/api/v1/posts`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return { postData: res.data };
+  } catch (error) {
+    console.log(error);
+    return { errorLoading: true };
+  }
+};
+
+export default home
