@@ -14,7 +14,7 @@ const Nav = ({user: email}) => {
         {admin && <li className="item"><a href="/admin" style={{marginLeft: "15px"}}>Admin</a></li>}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

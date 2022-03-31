@@ -1,4 +1,4 @@
-import { Container} from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import Nav from "./Nav";
 
 const Layout = ({ children, user }) => {
