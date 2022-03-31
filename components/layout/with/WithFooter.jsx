@@ -1,4 +1,6 @@
+import Head from '../Head';
 import Foot from './Foot'
+import styles from "../../../styles/components/layout/with/WithFooter.module.scss"
 
 // Probably won't ever be used but for coving all bases it's here
 

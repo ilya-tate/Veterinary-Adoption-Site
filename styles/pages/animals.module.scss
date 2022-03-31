@@ -1,10 +1,6 @@
 @use "../utils/colors" as *;
 
 main.animals {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-
     .content {
         width: 80%;
         margin: 0 auto;
