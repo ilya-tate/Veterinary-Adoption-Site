@@ -4,7 +4,6 @@ import Head from "next/head";
 import Image from "next/image";
 import Footer from "./components/layout/Footer";
 import { Divider, Icon } from "semantic-ui-react";
-import Nav from "./components/layout/Nav";
 import Map from "./components/maps/Map";
 
 const images = [
@@ -131,7 +130,7 @@ export default function Home() {
             Henry
           </h1>
           <div className="text">
-            <p className="age">5 Years -</p>
+            <p className="age">5 Years |</p>
             <p className="breed">German Shepard</p>
           </div>
         </div>

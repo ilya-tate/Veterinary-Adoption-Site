@@ -8,7 +8,6 @@ import {
 } from "./components/common/WelcomeMessage";
 import { setToken } from "./util/auth";
 import catchErrors from "./util/catchErrors";
-import Nav from "./components/layout/Nav";
 
 const login = () => {
   const [user, setUser] = useState({
