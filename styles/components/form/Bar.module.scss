@@ -1,32 +1,40 @@
-@use "../../utils/colors" as *;
+@use "../../utils/colors"as *;
+@use "../../utils/media"as *;
 
 .bar {
-    width: 100%;
-    height: 4rem;
     background-color: $light-blue;
     box-shadow: $blue .5rem .5rem 0 0;
     color: $black;
-    display: flex;
     border-radius: 2rem;
-    align-items: center;
-    padding: 1rem 2rem;
-    gap: 1rem;
-    position: relative;
+    padding: 1rem 1rem;
     z-index: 1;
+
+    @include lg {
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        position: relative;
+    }
 
     .icon {
         fill: $black;
         width: 2rem;
-        height: 100%;
+        height: 2rem;
     }
 
     .content {
-        display: flex;
-        justify-content: space-evenly;
-        width: 100%;
-        position: relative;        
-        z-index: 0;
-        
+        display: none;
+
+        @include lg {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            position: relative;
+            z-index: 0;
+        }
+
         .display {
             position: relative;
 
@@ -40,11 +48,11 @@
                 width: 100%;
                 position: relative;
                 z-index: 1;
-    
+
                 .icon {
                     width: 1rem;
                     transition: transform .5s;
-    
+
                     &.flipped {
                         transform: translateY(-.125rem) rotate(180deg);
                     }
@@ -68,19 +76,19 @@
                 padding: 1rem 2rem 2rem 2rem;
                 right: calc(-6.25rem + 50%);
 
-                
+
                 &.droped {
                     visibility: visible;
                     height: auto;
                     top: calc(100% + 1rem);
                 }
-    
+
                 li.item {
                     display: flex;
                     align-items: center;
                     gap: .5rem;
                     font-size: .85em;
-    
+
                     .check {
                         width: 1.5rem;
                         height: 1.5rem;
@@ -89,7 +97,7 @@
                         display: grid;
                         justify-content: center;
                         align-content: center;
-    
+
                         .checkbox {
                             grid-row: 1 / 2;
                             grid-column: 1 / 2;
@@ -97,9 +105,9 @@
                             appearance: none;
                             width: 1.5rem;
                             height: 1.5rem;
-        
+
                             &:checked {
-                                &~ .mark {
+                                &~.mark {
                                     width: 55%;
                                     height: 55%;
                                 }

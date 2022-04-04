@@ -7,6 +7,7 @@ import Search from "../assets/svgs/search.svg"
 import styles from "../styles/pages/animals.module.scss"
 import Animals from '../components/animal/Animals'
 import pig from "../assets/images/gentleman.png";
+import useDelayed from '../hooks/useDelayed'
 
 const barContent = {
     sex: ["Male", "Female"],
@@ -97,6 +98,10 @@ const animalsData = [{
 
 const animals = () => {
     const [filter, setFilter] = useState(barContent);
+    const [search, setSearch] = useState("");
+    const delayedFilter = useDelayed(filter, 2000);
+    const [display, setDisplay] = useState([...new Array(animalsData.length)].fill(true))
+
 
     const toggleFilter = (title, option) => {
         if (filter[title].includes(option)) {
@@ -105,6 +110,17 @@ const animals = () => {
             setFilter(f => ({...f, [title]: [...f[title], option]}))
         }
     }
+
+    useEffect(() => {
+        setDisplay(
+            animalsData.map(animal =>
+                Object.entries(filter).some(([title, options]) =>
+                    options.includes(animal[title])
+                )
+            )
+        )
+    }, [filter])
+
 
     return (
         <WithBoth className={styles.animals}>
@@ -121,17 +137,10 @@ const animals = () => {
                         name="search"
                         icon={<Search />}
                         className={styles.search}
+                        onChange={(val) => setSearch(val)}
                     />
                 </div>
-                <Animals data={
-                    animalsData.filter(items =>
-                        Object.entries(filter).some(([title, options]) =>
-                            options.some((opt) =>
-                                items[title]?.includes(opt)
-                            )
-                        )
-                    )}
-                />
+                <Animals data={animalsData} display={display} />
             </div>
         </WithBoth>
     )

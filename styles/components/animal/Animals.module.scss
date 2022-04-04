@@ -1,14 +1,13 @@
-@use "../../utils/colors" as *;
+@use "../../utils/colors"as *;
 
 .animals {
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
     width: 100%;
-    
-    .none {
-    width: 100%;
 
+    .none {
+        width: 100%;
         text-align: center;
         padding: 3rem;
         font-size: 2.5rem;

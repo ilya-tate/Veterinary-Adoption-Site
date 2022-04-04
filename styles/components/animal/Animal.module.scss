@@ -1,15 +1,47 @@
-@use "../../utils/colors" as *;
+@use "../../utils/colors"as *;
+@use "../../utils/media"as *;
 
 .animal {
-    min-width: 25rem;
     height: 35rem;
     border-radius: 1.5rem;
     display: grid;
     color: $white;
-    box-shadow: $blue .5rem .5rem 0 0 ;
-    flex-basis: calc(33.33% - 2rem);
-    // flex-basis: 100%;
+    box-shadow: $blue .5rem .5rem 0 0;
     cursor: pointer;
+    flex-basis: 100%;
+    flex-grow: 0;
+    transition: opacity 1s, flex-basis 1s ease 1s, transform .5s, max-width 1s ease 1s;
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0, 0);
+    max-width: 100%;
+
+    &.hide {
+        transform: rotate(5deg);
+        opacity: 0;
+        flex-basis: 0;
+        max-width: 0;
+    }
+
+    @include sm {
+        flex-basis: 75%;
+        height: 50rem;
+        margin: 0 auto;
+    }
+
+    @include lg {
+        height: 40rem;
+        flex-basis: calc(50% - 2rem);
+        margin: 0;
+    }
+
+    @include xl {
+        height: 45rem;
+    }
+
+    @include xxl {
+        flex-basis: calc(33.33% - 2rem);
+    }
 
     .image {
         position: relative;
@@ -20,7 +52,7 @@
         grid-column: 1 / 2;
         z-index: 0;
         border-radius: 1.5rem;
-                
+
         .elem {
             border-radius: 1.5rem;
         }
@@ -47,7 +79,7 @@
         display: flex;
         flex-direction: column;
         gap: .5rem;
-        
+
         .name {
             font-weight: 650;
             font-size: 1em;
@@ -77,6 +109,7 @@
                 display: flex;
                 align-items: center;
                 gap: 1rem;
+                width: fit-content;
 
                 .icon {
                     width: 2rem;
@@ -88,17 +121,5 @@
                 }
             }
         }
-    }
-}
-
-@media (max-width: 1418px) {
-    .animal {
-        flex-basis: calc(50% - 2rem);
-    }
-}
-
-@media (max-width: 928px) {
-    .animal {
-        flex-basis: 100%;
     }
 }

@@ -1,4 +1,5 @@
-@use "../utils/colors" as *;
+@use "../utils/colors"as *;
+@use "../utils/media"as *;
 
 main.animals {
     .content {
@@ -8,10 +9,15 @@ main.animals {
         flex-direction: column;
         gap: 3rem;
 
+
         .filter {
             display: flex;
-            gap: 3rem;
-    
+            gap: 2rem;
+
+            @include lg {
+                gap: 3rem;
+            }
+
             .bar {
                 flex-grow: 3;
             }
@@ -21,5 +27,5 @@ main.animals {
             }
         }
     }
-    
+
 }

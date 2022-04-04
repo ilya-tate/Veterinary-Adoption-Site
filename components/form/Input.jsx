@@ -1,6 +1,6 @@
 import styles from "../../styles/components/form/Input.module.scss"
 
-const Input = ({name, type, icon, className}) => {
+const Input = ({name, type, icon, className, onChange}) => {
     return (
         <label htmlFor={name} className={styles.input + " " + className}>
             <input
@@ -8,6 +8,7 @@ const Input = ({name, type, icon, className}) => {
                 name={name}
                 id={name}
                 className={styles.elem}
+                onChange={(e) => onChange(e.target.value)}
             />
             <div className={styles.icon}>
                 {icon}
