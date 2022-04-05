@@ -4,15 +4,10 @@ import Star from "../../assets/svgs/star.svg"
 import Link from "next/link";
 import useDelayed from "../../hooks/useDelayed";
 
-const Animal = ({image, name, sex, age, featured, id, display}) => {
-    const delayedShow = useDelayed(display, 2000);
-
-    console.log(display)
-
-    if (!delayedShow && !display) return null;
+const Animal = ({image, name, sex, age, featured, id}) => {
     return (
         <Link href={`/animals/${id}`}>
-            <div className={styles.animal + " " + (display ? "" : styles.hide)}>
+            <div className={styles.animal}>
                 <div className={styles.image}>
                     <Image
                         src={image}

@@ -10,18 +10,10 @@
     cursor: pointer;
     flex-basis: 100%;
     flex-grow: 0;
-    transition: opacity 1s, flex-basis 1s ease 1s, transform .5s, max-width 1s ease 1s;
     visibility: visible;
     opacity: 1;
     transform: translate(0, 0);
     max-width: 100%;
-
-    &.hide {
-        transform: rotate(5deg);
-        opacity: 0;
-        flex-basis: 0;
-        max-width: 0;
-    }
 
     @include sm {
         flex-basis: 75%;
@@ -36,7 +28,7 @@
     }
 
     @include xl {
-        height: 45rem;
+        height: 40rem;
     }
 
     @include xxl {

@@ -99,10 +99,8 @@ const animalsData = [{
 const animals = () => {
     const [filter, setFilter] = useState(barContent);
     const [search, setSearch] = useState("");
-    const delayedFilter = useDelayed(filter, 2000);
-    const [display, setDisplay] = useState([...new Array(animalsData.length)].fill(true))
 
-
+    // Toggles or untoggles a filter that will change the display
     const toggleFilter = (title, option) => {
         if (filter[title].includes(option)) {
             setFilter(f => ({...f, [title]: f[title].filter((opt) => opt !== option)}))
@@ -110,17 +108,6 @@ const animals = () => {
             setFilter(f => ({...f, [title]: [...f[title], option]}))
         }
     }
-
-    useEffect(() => {
-        setDisplay(
-            animalsData.map(animal =>
-                Object.entries(filter).some(([title, options]) =>
-                    options.includes(animal[title])
-                )
-            )
-        )
-    }, [filter])
-
 
     return (
         <WithBoth className={styles.animals}>
@@ -140,7 +127,9 @@ const animals = () => {
                         onChange={(val) => setSearch(val)}
                     />
                 </div>
-                <Animals data={animalsData} display={display} />
+                <Animals data={animalsData.filter(animal => 
+                    Object.entries(filter).some(([title, option]) => option.includes(animal[title]))
+                )} />
             </div>
         </WithBoth>
     )
