@@ -1,17 +1,116 @@
-import {ReactChild, useState} from 'react';
-import {Image} from "semantic-ui-react";
-const Nav = () => {
+import { ReactChild, useState } from "react";
+import { Image } from "semantic-ui-react";
+const Nav = ({ setDarkmode, darkmode }) => {
   const [admin, setAdmin] = useState(false);
 
   return (
-    <div className="navbar" style={{position: "fixed", top: 0, width: "100%"}}>
-      <ul className="pageList" style={{listStyle: "none", display: "inline-flex"}}>
-        <li className="item"><a className="item" href="/index" style={{display: "inline-flex"}}><Image src="./DarkLogo.png" style={{width: "30px", height: "20px", paddingRight: "10px"}} className="logo"/> Home</a></li>
-        <li className="item"><a className="item" href="/adoption" style={{marginLeft: "15px"}}>For Adoption</a></li>
-        {admin && <li className="item"><a href="/admin" style={{marginLeft: "15px"}}>Admin</a></li>}
-      </ul>
+    <div
+      className={darkmode ? "navbar dark" : "navbar"}
+      style={{ position: "fixed", top: 0, width: "100%" }}
+    >
+      {admin ? (
+        <ul
+          className="pageList"
+          style={{ listStyle: "none", display: "inline-flex" }}
+        >
+          <li className="item" style={{ display: "inline-flex", fontSize: "25px", marginTop: "-5px" }}>
+            <Image
+              src="./DarkLogo.png"
+              style={{
+                width: "50px",
+                height: "40px",
+                paddingRight: "10px",
+                paddingBottom: "0",
+              }}
+              className="logo"
+            />
+            West-Mec Veterinary
+          </li>
+          <li style={{ marginRight: "15px", marginLeft: "-20vw"}}>
+            <label className="switch">
+              <input
+                type="checkbox"
+                onClick={() => {
+                  setDarkmode(!darkmode);
+                  console.log(darkmode);
+                }}
+              />
+              <span className="slider round"></span>
+            </label>
+          </li>
+          <li className="item">
+            <a href="/admin" className="item">
+              Admin
+            </a>
+          </li>
+          <li className="item">
+            <a className="item" href="/index" style={{ marginLeft: "15px" }}>
+              Home
+            </a>
+          </li>
+          <li className="item">
+            <a className="item" href="/adoption" style={{ marginLeft: "15px" }}>
+              Adoption
+            </a>
+          </li>
+          <li>
+            <label className="switch">
+              <input
+                type="checkbox"
+                onClick={() => {
+                  setDarkmode(!darkmode);
+                  console.log(darkmode);
+                }}
+              />
+              <span className="slider round"></span>
+            </label>
+          </li>
+        </ul>
+      ) : (
+        <ul
+          className="pageList"
+          style={{ listStyle: "none", display: "inline-flex" }}
+        >
+          <li className="item" style={{ display: "inline-flex", fontSize: "40px" }}>
+            <Image
+              src="./DarkLogo.png"
+              style={{
+                width: "50px",
+                height: "40px",
+                paddingRight: "10px",
+                paddingBottom: "0",
+                marginTop: "-7px"
+              }}
+              className="logo"
+            />
+            West-Mec Veterinary
+          </li>
+          <li style={{marginLeft: "-32vw", marginRight: "5px"}}>
+            <label className="switch">
+              <input
+                type="checkbox"
+                onClick={() => {
+                  setDarkmode(!darkmode);
+                  console.log(darkmode);
+                }}
+              />
+              <span className="slider round"></span>
+            </label>
+          </li>
+          <li className="item">
+            <a className="item" href="/index" style={{ marginLeft: "15px" }}>
+              Home
+            </a>
+          </li>
+          <li className="item">
+            <a className="item" href="/adoption" style={{ marginLeft: "15px" }}>
+              Adoption
+            </a>
+          </li>
+        </ul>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
