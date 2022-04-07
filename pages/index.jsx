@@ -6,6 +6,8 @@ import Footer from "./components/layout/Footer";
 import { Divider, Icon } from "semantic-ui-react";
 import Nav from "./components/layout/Nav";
 import Map from "./components/maps/Map";
+import { parseCookies } from "nookies";
+import { baseURL } from "./util/auth";
 
 const images = [
   "/bulldog.jfif",
@@ -390,3 +392,20 @@ export default function Home({ setDarkmode, darkmode }) {
     </>
   );
 }
+
+Home.getInitialProps = async (ctx) => {
+  try {
+    const { token } = parseCookies(ctx);
+    const res = await axios.get(`${baseURL}/api/v1/posts`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return { postData: res.data };
+  } catch (error) {
+    console.log(error);
+    return { errorLoading: true };
+  }
+};
+

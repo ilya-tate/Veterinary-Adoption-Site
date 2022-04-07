@@ -1,5 +1,4 @@
 const AnimalModel = require("../Models/AnimalModel");
-const animalModel = require("../Models/AnimalModel");
 
 const getAnimals = async(req, res) => {
   //will get all animals and will have filters

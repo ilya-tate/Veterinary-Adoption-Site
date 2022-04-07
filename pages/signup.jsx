@@ -34,6 +34,7 @@ const signup = ({darkmode, setDarkmode}) => {
         user
       })
       setToken(res.data)
+      console.log(res.data)
     } catch (err) {
       console.log(err);
     }

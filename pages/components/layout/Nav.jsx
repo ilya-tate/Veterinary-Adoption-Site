@@ -1,8 +1,9 @@
 import { ReactChild, useState } from "react";
 import { Image } from "semantic-ui-react";
-const Nav = ({ setDarkmode, darkmode }) => {
-  const [admin, setAdmin] = useState(false);
+import { logoutUser } from '../../util/auth';
 
+const Nav = ({setDarkmode, darkmode}) => {
+  const [admin, setAdmin] = useState(false);
   return (
     <div
       className={darkmode ? "navbar dark" : "navbar"}
