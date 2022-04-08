@@ -1,9 +1,10 @@
 import { React, useState, useEffect } from "react";
-
+import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
 import Footer from "./components/layout/Footer";
 import { Divider, Icon } from "semantic-ui-react";
+import Nav from "./components/layout/Nav";
 import Map from "./components/maps/Map";
 import { parseCookies } from "nookies";
 import { baseURL } from "./util/auth";
@@ -129,7 +130,7 @@ const images = [
             Jim
           </h1>
           <div className="text">
-            <p className="age">7 Years -</p>
+            <p className="age">7 Years |</p>
             <p className="breed">Parrot </p>
           </div>
         </div>
@@ -146,7 +147,7 @@ const images = [
             Tom
           </h1>
           <div className="text">
-            <p className="age">12 Years -</p>{" "}
+            <p className="age">12 Years |</p>{" "}
             <p className="breed"> Bearded Dragon</p>
           </div>
         </div>

@@ -10,6 +10,7 @@
   border-radius: 40px;
   background-color: rgb(238, 193, 109);
   color: black;
+  transition: 0.3s;
 }
 
 .homeAdopt:hover{
