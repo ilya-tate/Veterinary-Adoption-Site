@@ -1,0 +1,87 @@
+.intro{
+  background-image: url("../public/germanpuppy.jfif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  margin-left: -26.6vw;
+  margin-top: -2vh;
+}
+
+.indexTitle{
+  font-size: 100px;
+  color: white;
+}
+
+.indexTitle:hover{
+  color: orange;
+  text-shadow: 3px -3px 7px white;
+}
+
+.indexMain{
+  background-color: rgb(23, 34, 34);
+  height: 100vh;
+  margin-top: -2vh;
+  justify-content: center;
+  text-align: center;
+  width: 47vw;
+  margin-left: 25vw;
+}
+
+.hidden{
+  transition: all .4s;
+  width: 1px;
+  height: 100vh;
+}
+
+.hidden button{
+  display: none;
+}
+
+.hidden h1 {
+  display: none;
+}
+.hidden h2 {
+  display: none;
+}
+
+button{
+  transition: all .5s;
+  background: white;
+  border: 2px solid black;
+  border-radius: 35px;
+  height: 40px;
+  width: 150px;
+}
+
+button:hover{
+  transition: all .2s;
+  background: orange;
+  height: 50px;
+  width: 200px;
+}
+
+h2{
+  width: 45rem;
+  color: white;
+  margin-left: 2.5rem;
+}
+
+.imgDiv{
+  border-radius: 58%;
+  border: 2px solid white;
+  width: 60px;
+  height: 60px;
+  margin-left: 17vw;
+  justify-content: center;
+  background-color: rgb(255, 166, 0);
+  margin-top: 10px;
+}
+
+.imgDiv img{
+  margin-top: 7px;
+  /* margin-left: 10px; */
+}
+
+.hidden .imgDiv{
+  display: none;
+}
