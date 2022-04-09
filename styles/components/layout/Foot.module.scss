@@ -1,0 +1,123 @@
+@use "../../utils/colors" as *;
+@use "../../utils/media" as *;
+
+.footer {
+    background-color: $black;
+    position: relative;
+    margin-top: 2.5rem;
+    font-family: "Inter";
+    color: $white;
+    padding: 4rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    font-size: 1rem;
+
+
+    .toTop {
+        border-radius: 50%;
+        width: 5rem;
+        height: 5rem;
+        background-color: $blue;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 1rem;
+        fill: $black;
+        display: flex;
+        justify-content: center;
+
+        .arrow {
+            height: 100%;
+        }
+    }
+
+    .title {
+        margin: 0;
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.75rem;
+        gap: 1rem;
+    }
+
+    .socails {
+        display: flex;
+        gap: 2rem;
+        margin: 0 auto;
+        
+        .socail {
+            background-color: $white;
+            border-radius: 50%;
+            padding: 1rem;
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .icon {
+                height: 100%;
+                width: 2rem;
+                fill: $black;
+            }
+        }
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .title {
+            font-size: 1.5rem;
+        }
+
+        .children {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            
+            .link {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                fill: $white;
+                font-size: 1.25rem;
+                
+                .icon {
+                    width: 1rem;
+                }
+            }
+        }
+    }
+
+    .locations {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+
+        .campus {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            flex-grow: 1;
+
+            .common {
+                .title {
+                    font-size: 1.5rem;
+                }
+
+                .location {
+                    text-align: center;
+                }
+            }
+
+            .contacts {
+                text-align: center;
+            }
+        }
+    }
+}

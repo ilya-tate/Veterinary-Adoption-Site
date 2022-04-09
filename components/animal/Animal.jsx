@@ -2,7 +2,6 @@ import Image from "next/image"
 import styles from "../../styles/components/animal/Animal.module.scss"
 import Star from "../../assets/svgs/star.svg"
 import Link from "next/link";
-import useDelayed from "../../hooks/useDelayed";
 
 const Animal = ({image, name, sex, age, featured, id}) => {
     return (

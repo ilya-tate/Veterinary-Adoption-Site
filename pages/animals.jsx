@@ -128,11 +128,11 @@ const animals = () => {
                     />
                 </div>
                 <Animals data={animalsData.filter(animal => 
-                    Object.entries(filter).some(([title, option]) => option.includes(animal[title]))
-                )} />
+                    Object.entries(filter).some(([title, option]) => option.includes(animal[title]) && animal.name.toLowerCase().includes(search.toLowerCase()))
+                 )} />
             </div>
         </WithBoth>
     )
 }
 
-export default animals
+export default animals 
