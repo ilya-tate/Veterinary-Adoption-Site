@@ -1,8 +1,7 @@
 import { Container } from "semantic-ui-react";
 import Nav from "./Nav";
 
-const Layout = ({ children, user, darkmode, setDarkmode }) => {
-   
+const Layout = ({ children, user, darkmode, setDarkmode, index }) => {
     //createRef refreshes on render()
     //userRef refreshes on router.reload() page refreh
     // const contextRef = createRef();

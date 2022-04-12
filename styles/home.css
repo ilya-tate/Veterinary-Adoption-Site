@@ -18,8 +18,27 @@
   transition: 0.3s;
 }
 
+.clickedAdopt{
+  transition: all .5s;
+  border-radius: 58%;
+  width: 80px;
+  height: 80px;
+  border: 4px solid blue;
+  background-color: rgb(28, 160, 28);
+  color: white;
+  font-size: xx-large;
+}
+
+.clickedAdopt:hover{
+  height: 80px;
+  width: 80px;
+  background-color: rgb(28, 200, 28);
+}
+
+
 .homeAdopt:hover{
   cursor: pointer;
+  height: 70px;
   border: 4px solid black;
 }
 
@@ -112,3 +131,4 @@
 .homeAni{
   width: "40%",
 }
+

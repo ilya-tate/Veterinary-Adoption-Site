@@ -5,20 +5,24 @@ import "../styles/list.css";
 import "../public/logo.png";
 import "../public/DarkLogo.png";
 import "../styles/home.css";
+import "../styles/index.css";
 import { baseURL, redirectUser } from "./util/auth";
 import { destroyCookie, parseCookies } from "nookies";
 // import { baseURL } from "./util/baseURL";
-import {useState, react} from "react";
+import { useState, react } from "react";
 import Layout from "./components/layout/Layout";
 
 const MyApp = ({ Component, pageProps }) => {
-  const [darkmode, setDarkmode] = useState(false)
+  const [darkmode, setDarkmode] = useState(false);
+  const [index, setIndex] = useState(true);
+
+
   return (
-    <Layout user={pageProps} darkmode={darkmode} setDarkmode={setDarkmode}>
-      <Component {...pageProps} darkmode={darkmode} setDarkmode={setDarkmode}/>
+    <Layout user={pageProps} darkmode={darkmode} setDarkmode={setDarkmode} index={index} setIndex={setIndex}>
+      <Component {...pageProps} darkmode={darkmode} setDarkmode={setDarkmode} index={index} setIndex={setIndex}/>
     </Layout>
   );
-}
+};
 
 // MyApp.getInitialProps = async ({ ctx, Component }) => {
 //   const { token } = parseCookies(ctx);
@@ -54,7 +58,11 @@ const MyApp = ({ Component, pageProps }) => {
 //   return { pageProps };
 // };
 
-MyApp.getInitialProps = async ({ ctx, Component }) => {
+MyApp.getInitialProps = async ({ ctx, Component, setIndex }) => {
+
+  if(ctx.pathname !== "/index"){
+    ()=>setIndex(false);
+  }
   const { token } = parseCookies(ctx);
   let pageProps = {};
 
