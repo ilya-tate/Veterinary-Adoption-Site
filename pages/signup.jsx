@@ -5,7 +5,8 @@ import { useState } from 'react';
 import Layout from './components/layout/Layout';
 import { setToken } from './util/auth';
 
-const signup = () => {
+
+const signup = ({darkmode, setDarkmode}) => {
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -17,7 +18,6 @@ const signup = () => {
   const options = [
     { key: 's', text: 'student', value: 'student' },
     { key: 't', text: 'teacher', value: 'teacher' },
-
   ]
 
 
@@ -28,8 +28,8 @@ const signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
 
+    try{
       const res = await axios.post('/api/v1/user/signup', {
         user
       })

@@ -1,5 +1,10 @@
+.main {
+  width: 100%;
+}
+
 .homeDiv{
   background-image: url("../public/bulldog.jfif");
+  /* background: black; */
   background-size: cover;
   background-position-x: center;
 }
@@ -8,7 +13,7 @@
   width: 180px;
   height: 70px;
   border-radius: 40px;
-  background-color: rgb(238, 193, 109);
+  background-color: gray;
   color: black;
   transition: 0.3s;
 }
@@ -22,11 +27,21 @@
   font-size: 50px;
 }
 
+.homeDiv:hover{
+  color: black;
+}
+
+.homeHeader:hover{
+  color: orange;
+  cursor: default;
+}
+
 .animalBanner{
-  border-radius: 20px;
+  border-radius: 30px;
+  -webkit-text-stroke-width: 2px solid black;
 }
 .animalBanner img{
-  border-radius: 20px;
+  border-radius: 25px;
 }
 
 .animalBanner:hover{
@@ -47,15 +62,21 @@
 .name:hover{
   color: white;
   font-size: 38px;
+  cursor: default;
 }
 
 .text:hover{
   color: white;
   font-size: 27px;
+  cursor: default;
 }
 
 .breed{
   margin-left: 8px;
+}
+
+.breed:hover{
+  cursor: default;
 }
 
 .eventItemLarge {
