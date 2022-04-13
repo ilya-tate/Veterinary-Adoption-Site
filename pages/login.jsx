@@ -6,7 +6,6 @@ import {
   FooterMessage,
   HeaderMessage,
 } from "./components/common/WelcomeMessage";
-import Layout from "./components/layout/Layout";
 import { setToken } from "./util/auth";
 import catchErrors from "./util/catchErrors";
 
@@ -56,61 +55,59 @@ const login = () => {
 
   return (
     <>
-      <Layout>
-        <HeaderMessage />
-        <Form
-          loading={formLoading}
-          error={errorMsg !== null}
-          onSubmit={handleSubmit}
-        >
-          <Message
-            error
-            header="Oops!"
-            content={errorMsg}
-            onDismiss={() => setErrorMsg(null)}
+      <HeaderMessage />
+      <Form
+        loading={formLoading}
+        error={errorMsg !== null}
+        onSubmit={handleSubmit}
+      >
+        <Message
+          error
+          header="Oops!"
+          content={errorMsg}
+          onDismiss={() => setErrorMsg(null)}
+        />
+        <Segment>
+          <Form.Input
+            required
+            label="Email"
+            placeholder="Email"
+            value={email}
+            onChange={handleChange}
+            name="email"
+            icon="envelope"
+            iconPosition="left"
+            type="email"
           />
-          <Segment>
-            <Form.Input
-              required
-              label="Email"
-              placeholder="Email"
-              value={email}
-              onChange={handleChange}
-              name="email"
-              icon="envelope"
-              iconPosition="left"
-              type="email"
-            />
-            <Form.Input
-              required
-              label="Password"
-              placeholder="Password"
-              value={password}
-              onChange={handleChange}
-              name="password"
-              icon={{
-                name: showPassword ? "eye slash" : "eye",
-                link: true,
-                circular: true,
-                onClick: () => {
-                  setShowPassword(!showPassword);
-                },
-              }}
-              iconPosition="left"
-              type={showPassword ? "text" : "password"}
-            />
-            <Divider hidden />
-            <Button
-              color="orange"
-              content="Login"
-              icon="signup"
-              type="submit"
-              disabled={submitDisabled}
-            />
-          </Segment>
-        </Form>
-        <FooterMessage />
-      </Layout>
+          <Form.Input
+            required
+            label="Password"
+            placeholder="Password"
+            value={password}
+            onChange={handleChange}
+            name="password"
+            icon={{
+              name: showPassword ? "eye slash" : "eye",
+              link: true,
+              circular: true,
+              onClick: () => {
+                setShowPassword(!showPassword);
+              },
+            }}
+            iconPosition="left"
+            type={showPassword ? "text" : "password"}
+          />
+          <Divider hidden />
+          <Button
+            color="orange"
+            content="Login"
+            icon="signup"
+            type="submit"
+            disabled={submitDisabled}
+          />
+        </Segment>
+      </Form>
+      <FooterMessage />
     </>
   );
 };

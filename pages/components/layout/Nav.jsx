@@ -35,7 +35,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
                 }}
                 className="logo"
               />
-              West-Mec Veterinary
+              West-MEC Veterinary
             </li>
             <li style={{ marginRight: "15px", marginLeft: "-20vw" }}>
               <label className="switch">
@@ -101,7 +101,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
                 }}
                 className="logo"
               />
-              West-Mec Veterinary
+              West-MEC Veterinary
             </li>
             <li style={{ marginLeft: "-32vw", marginRight: "5px" }}>
               <label className="switch">

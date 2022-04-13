@@ -140,7 +140,7 @@ const home = ({darkmode, setDarkmode}) => {
             </div>
             <div style={{ marginLeft: ".5%" }}>
               <h1 className="homeHeader" style={{ fontSize: "60px" }}>
-                West-Mec Veterinary Adoptions
+                West-MEC Veterinary Adoptions
               </h1>
               <br />
               <p style={{ fontSize: "35px" }}>
