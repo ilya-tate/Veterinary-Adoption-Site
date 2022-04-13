@@ -1,7 +1,14 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
-import { Button, Divider, Form, Message, Segment } from "semantic-ui-react";
+import {
+  Button,
+  Divider,
+  Form,
+  Message,
+  Segment,
+  Container,
+} from "semantic-ui-react";
 import {
   FooterMessage,
   HeaderMessage,
@@ -59,21 +66,21 @@ const login = () => {
     if (userEmail) setUser((prev) => ({ ...prev, email: userEmail }));
   }, []);
 
-
   return (
     <>
-      <HeaderMessage />
-      <Form
-        loading={formLoading}
-        error={errorMsg !== null}
-        onSubmit={handleSubmit}
-      >
-        <Message
-          error
-          header="Oops!"
-          content={errorMsg}
-          onDismiss={() => setErrorMsg(null)}
-        />
+      <Container style={{ paddingTop: "1rem" }}>
+        <HeaderMessage />
+        <Form
+          loading={formLoading}
+          error={errorMsg !== null}
+          onSubmit={handleSubmit}
+        >
+          <Message
+            error
+            header="Oops!"
+            content={errorMsg}
+            onDismiss={() => setErrorMsg(null)}
+          />
           <Segment>
             <Form.Input
               required
@@ -105,9 +112,20 @@ const login = () => {
               type={showPassword ? "text" : "password"}
             />
             <Divider hidden />
-            <button onClick={()=>{
-              changePages()
-              }} style={{border: 'none', width: "100px", height: "40px", borderRadius: "0px", marginRight: "20px"}}>Go Back</button>
+            <button
+              onClick={() => {
+                changePages();
+              }}
+              style={{
+                border: "none",
+                width: "100px",
+                height: "40px",
+                borderRadius: "0px",
+                marginRight: "20px",
+              }}
+            >
+              Go Back
+            </button>
             <Button
               color="orange"
               content="Login"
@@ -118,6 +136,7 @@ const login = () => {
           </Segment>
         </Form>
         <FooterMessage />
+      </Container>
     </>
   );
 };

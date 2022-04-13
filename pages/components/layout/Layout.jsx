@@ -1,4 +1,3 @@
-import { Container } from "semantic-ui-react";
 import Nav from "./Nav";
 
 const Layout = ({ children, user, darkmode, setDarkmode, index }) => {
@@ -9,9 +8,9 @@ const Layout = ({ children, user, darkmode, setDarkmode, index }) => {
   return (
     <>
       <Nav setDarkmode={setDarkmode} darkmode={darkmode} />
-      <Container text style={{ paddingTop: "1rem" }}>
+      <div style={{paddingTop: '1rem'}}>
         {children}
-      </Container>
+      </div>
     </>
   );
 };

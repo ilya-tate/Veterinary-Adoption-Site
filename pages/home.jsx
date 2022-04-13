@@ -54,12 +54,12 @@ const home = ({darkmode, setDarkmode}) => {
                 background:
                   "linear-gradient(rgba(73, 72, 72), rgba(63, 63, 63), black)",
                 width: "100vw",
-                marginLeft: "-26.6vw",
+                // marginLeft: "-26.6vw",
               }
             : {
                 background: "white",
                 width: "100vw",
-                marginLeft: "-26.6vw",
+                // marginLeft: "-26.6vw",
               }
         }
       >

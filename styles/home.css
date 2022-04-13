@@ -15,7 +15,6 @@
   border-radius: 40px;
   background-color: gray;
   color: black;
-  transition: 0.3s;
 }
 
 .clickedAdopt{
@@ -75,7 +74,8 @@
 
 .text {
   display: inline-flex;
-  font-size: 23px;
+  font-size: 25px;
+  transition: 0.3s ease-in-out all;
 }
 
 .name:hover{
