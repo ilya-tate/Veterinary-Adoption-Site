@@ -16,7 +16,6 @@ const MyApp = ({ Component, pageProps }) => {
   const [darkmode, setDarkmode] = useState(false);
   const [index, setIndex] = useState(true);
 
-
   return (
     <Layout user={pageProps} darkmode={darkmode} setDarkmode={setDarkmode} index={index} setIndex={setIndex}>
       <Component {...pageProps} darkmode={darkmode} setDarkmode={setDarkmode} index={index} setIndex={setIndex}/>

@@ -71,10 +71,14 @@ h2{
   border: 2px solid white;
   width: 60px;
   height: 60px;
-  margin-left: 17vw;
   justify-content: center;
   background-color: rgb(255, 166, 0);
   margin-top: 10px;
+  display: inline-flex;
+}
+
+.socialDiv{
+  margin-left: -5vw;
 }
 
 .imgDiv img{
@@ -84,4 +88,9 @@ h2{
 
 .hidden .imgDiv{
   display: none;
+}
+
+.socials{
+  height: 40px;
+  width: 40px;
 }

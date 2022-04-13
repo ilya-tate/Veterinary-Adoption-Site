@@ -23,6 +23,12 @@ const login = () => {
   const [formLoading, setFormLoading] = useState(false);
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
+  const changePages = () => {
+    setTimeout(() => {
+      window.location.replace("/home");
+    }, 2000);
+  };
+
   //* HANDLERS */
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -53,6 +59,7 @@ const login = () => {
     if (userEmail) setUser((prev) => ({ ...prev, email: userEmail }));
   }, []);
 
+
   return (
     <>
       <HeaderMessage />
@@ -67,47 +74,50 @@ const login = () => {
           content={errorMsg}
           onDismiss={() => setErrorMsg(null)}
         />
-        <Segment>
-          <Form.Input
-            required
-            label="Email"
-            placeholder="Email"
-            value={email}
-            onChange={handleChange}
-            name="email"
-            icon="envelope"
-            iconPosition="left"
-            type="email"
-          />
-          <Form.Input
-            required
-            label="Password"
-            placeholder="Password"
-            value={password}
-            onChange={handleChange}
-            name="password"
-            icon={{
-              name: showPassword ? "eye slash" : "eye",
-              link: true,
-              circular: true,
-              onClick: () => {
-                setShowPassword(!showPassword);
-              },
-            }}
-            iconPosition="left"
-            type={showPassword ? "text" : "password"}
-          />
-          <Divider hidden />
-          <Button
-            color="orange"
-            content="Login"
-            icon="signup"
-            type="submit"
-            disabled={submitDisabled}
-          />
-        </Segment>
-      </Form>
-      <FooterMessage />
+          <Segment>
+            <Form.Input
+              required
+              label="Email"
+              placeholder="Email"
+              value={email}
+              onChange={handleChange}
+              name="email"
+              icon="envelope"
+              iconPosition="left"
+              type="email"
+            />
+            <Form.Input
+              required
+              label="Password"
+              placeholder="Password"
+              value={password}
+              onChange={handleChange}
+              name="password"
+              icon={{
+                name: showPassword ? "eye slash" : "eye",
+                link: true,
+                circular: true,
+                onClick: () => {
+                  setShowPassword(!showPassword);
+                },
+              }}
+              iconPosition="left"
+              type={showPassword ? "text" : "password"}
+            />
+            <Divider hidden />
+            <button onClick={()=>{
+              changePages()
+              }} style={{border: 'none', width: "100px", height: "40px", borderRadius: "0px", marginRight: "20px"}}>Go Back</button>
+            <Button
+              color="orange"
+              content="Login"
+              icon="signup"
+              type="submit"
+              disabled={submitDisabled}
+            />
+          </Segment>
+        </Form>
+        <FooterMessage />
     </>
   );
 };

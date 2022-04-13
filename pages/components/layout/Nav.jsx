@@ -6,7 +6,7 @@ import Router, { useRouter } from "next/router";
 const Nav = ({ setDarkmode, darkmode }) => {
   const [admin, setAdmin] = useState(false);
   const router = useRouter();
-  if (router.pathname !== "/")
+  if (router.pathname !== "/" && router.pathname !== "/login")
     return (
       <div
         className={darkmode ? "navbar dark" : "navbar"}
@@ -133,7 +133,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
         )}
       </div>
     );
-    if(router.pathname === "/"){
+    if(router.pathname === "/" || router.pathname === "/login"){
       return <></>
     }
 };
