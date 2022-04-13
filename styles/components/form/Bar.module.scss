@@ -1,0 +1,142 @@
+@use "../../utils/colors"as *;
+@use "../../utils/media"as *;
+
+.bar {
+    background-color: $light-blue;
+    box-shadow: $blue .5rem .5rem 0 0;
+    color: $black;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    z-index: 1;
+
+    @include lg {
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        position: relative;
+    }
+
+    .icon {
+        fill: $black;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .content {
+        display: none;
+
+        @include lg {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            position: relative;
+            z-index: 0;
+        }
+
+        .display {
+            position: relative;
+
+            .title {
+                display: flex;
+                align-items: center;
+                font-size: 1.25rem;
+                font-weight: 650;
+                fill: $black;
+                gap: 1rem;
+                cursor: pointer;
+                width: 100%;
+                position: relative;
+                z-index: 1;
+
+                p.p {
+                    margin: 0;
+                    line-height: 1;
+                }
+
+                .icon {
+                    width: 1rem;
+                    transition: transform .5s;
+                    display: flex;
+                    align-items: center;
+
+                    &.flipped {
+                        transform: translateY(-.125rem) rotate(180deg);
+                    }
+                }
+            }
+
+            ul.dropdown {
+                width: 12.5rem;
+                height: 0;
+                visibility: hidden;
+                font-size: 1.25rem;
+                justify-content: space-around;
+                position: absolute;
+                background-color: $light-blue;
+                display: flex;
+                gap: 1.25rem;
+                flex-direction: column;
+                border-radius: 0 0 2rem 2rem;
+                box-shadow: $blue .5rem .5rem 0 0;
+                z-index: -1;
+                padding: 1rem 2rem 2rem 2rem;
+                right: calc(-6.25rem + 50%);
+
+
+                &.droped {
+                    visibility: visible;
+                    height: auto;
+                    top: calc(100% + 1rem);
+                }
+
+                li.item {
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    font-size: .85em;
+
+                    .check {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        border: .25rem solid $blue;
+                        border-radius: .25rem;
+                        display: grid;
+                        justify-content: center;
+                        align-content: center;
+
+                        .checkbox {
+                            grid-row: 1 / 2;
+                            grid-column: 1 / 2;
+                            cursor: pointer;
+                            appearance: none;
+                            width: 1.5rem;
+                            height: 1.5rem;
+
+                            &:checked {
+                                &~.mark {
+                                    width: 55%;
+                                    height: 55%;
+                                }
+                            }
+                        }
+                    }
+
+                    .mark {
+                        width: 0;
+                        height: 0;
+                        transition: height .25s, width .25s;
+                        align-self: center;
+                        justify-self: center;
+                        grid-row: 1 / 2;
+                        grid-column: 1 / 2;
+                        pointer-events: none;
+                        background-color: $blue;
+                        border-radius: .125rem;
+                    }
+                }
+            }
+        }
+    }
+}
