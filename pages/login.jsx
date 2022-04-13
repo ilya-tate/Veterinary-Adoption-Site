@@ -25,6 +25,12 @@ const login = () => {
   const [formLoading, setFormLoading] = useState(false);
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
+  const changePages = () => {
+    setTimeout(() => {
+      window.location.replace("/home");
+    }, 2000);
+  };
+
   //* HANDLERS */
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,6 +60,7 @@ const login = () => {
     const userEmail = Cookies.get("userEmail");
     if (userEmail) setUser((prev) => ({ ...prev, email: userEmail }));
   }, []);
+
 
   return (
     <>
@@ -101,6 +108,9 @@ const login = () => {
               type={showPassword ? "text" : "password"}
             />
             <Divider hidden />
+            <button onClick={()=>{
+              changePages()
+              }} style={{border: 'none', width: "100px", height: "40px", borderRadius: "0px", marginRight: "20px"}}>Go Back</button>
             <Button
               color="orange"
               content="Login"

@@ -22,20 +22,39 @@ const changePage = () => {
   }, 200);
 };
 
-export default function Home({ setDarkmode, darkmode, setIndex}) {
-  const [click, setClick] = useState(false)
-  return <div className="intro">
-    <div className={click ? "hidden" : "indexMain"}>
-      <h1 className="indexTitle">West Mec Vets</h1>
-      <h2>This will be where you describe what the website is. Is it adoption is is events is it both and what the purpose of it is. So yeah that's what that is for. Just so you know that that is what it is for.</h2>
-      <a onClick={()=>{
-        setClick(true)
-        changePage()
-      }}><button>Enter Website</button></a>
-      <br/>
-      <div className="imgDiv">
-      <img src="/instagram.png" className="socials" style={{height: "40px", width: "40px", marginLeft: "2px"}}/>
+export default function Home({ setDarkmode, darkmode, setIndex }) {
+  const [click, setClick] = useState(false);
+  return (
+    <div className="intro">
+      <div className={click ? "hidden" : "indexMain"}>
+        <h1 className="indexTitle">West Mec Vets</h1>
+        <h2>
+          This will be where you describe what the website is. Is it adoption is
+          is events is it both and what the purpose of it is. So yeah that's
+          what that is for. Just so you know that that is what it is for.
+        </h2>
+        <a
+          onClick={() => {
+            setClick(true);
+            changePage();
+          }}
+        >
+          <button>Enter Website</button>
+        </a>
+        <br />
+        <div className="socialDiv">
+          <div className="imgDiv">
+            <a href="">
+              <img src="/instagram.png" className="socials" />
+            </a>
+          </div>
+          <div className="imgDiv">
+            <a href="">
+              <img src="/bulldog.jfif" className="socials" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>;
+  );
 }
