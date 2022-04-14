@@ -49,56 +49,61 @@ const toTop = () => {
 const Foot = () => {
     return (
         <footer className={styles.footer}>
-            <div className={styles.toTop} onClick={toTop}>
-                <Up className={styles.arrow} />
-            </div>
-            <h6 className={styles.title}>
-                <span>West-Mec Veterinary</span>
-                <span>Adoption Portal</span>
-            </h6>
-            <div className={styles.socails}>
-                {socials.map(({link, icon, id}) =>
-                    <a 
-                        href={link} 
-                        target="_blank" 
-                        rel="noreferrer noopener"
-                        key={id}
-                        className={styles.socail}
-                    >
-                        {icon}
-                    </a>
-                )}
-            </div>
-            <div className={styles.links}>
-                <div className={styles.title}>
-                    Links
+            <div className={styles.normal}>
+
+                <div className={styles.toTop} onClick={toTop}>
+                    <Up className={styles.arrow} />
                 </div>
-                <div className={styles.children}>
-                    {links.map(({link, title, id}) => <Link href={link} key={id}>
-                        <div className={styles.link}>
-                            {title}
-                            <Right className={styles.icon} />
+                <h6 className={styles.title}>
+                    <span>West-Mec Veterinary</span>
+                    <span>Adoption Portal</span>
+                </h6>
+                <div className={styles.socails}>
+                    {socials.map(({link, icon, id}) =>
+                        <a 
+                            href={link} 
+                            target="_blank" 
+                            rel="noreferrer noopener"
+                            key={id}
+                            className={styles.socail}
+                        >
+                            {icon}
+                        </a>
+                    )}
+                </div>
+            </div>
+            <div className={styles.side}>
+                <div className={styles.links}>
+                    <div className={styles.title}>
+                        Links
+                    </div>
+                    <div className={styles.children}>
+                        {links.map(({link, title, id}) => <Link href={link} key={id}>
+                            <div className={styles.link}>
+                                {title}
+                                <Right className={styles.icon} />
+                            </div>
+                        </Link>)}
+                    </div>
+                </div>
+                <div className={styles.locations}>
+                    <div className={styles.campus}>
+                        <div className={styles.common}>
+                            <p className={styles.title}>Northwest</p>
+                            <div className={styles.location}>14358 W. Nowhere Ln.</div>
                         </div>
-                    </Link>)}
-                </div>
-            </div>
-            <div className={styles.locations}>
-                <div className={styles.campus}>
-                    <div className={styles.common}>
-                        <p className={styles.title}>Northwest</p>
-                        <div className={styles.location}>14358 W. Nowhere Ln.</div>
+                        <div className={styles.contacts}>
+                            {emails.northwest.map((email, index) => <p key={index}>{email}</p>)}
+                        </div>
                     </div>
-                    <div className={styles.contacts}>
-                        {emails.northwest.map((email, index) => <p key={index}>{email}</p>)}
-                    </div>
-                </div>
-                <div className={styles.campus}>
-                    <div className={styles.common}>
-                        <p className={styles.title}>Southwest</p>
-                        <div className={styles.location}>14358 W. Nowhere Ln.</div>
-                    </div>
-                    <div className={styles.contacts}>
-                        {emails.southwest.map((email, index) => <p key={index}>{email}</p>)}
+                    <div className={styles.campus}>
+                        <div className={styles.common}>
+                            <p className={styles.title}>Southwest</p>
+                            <div className={styles.location}>14358 W. Nowhere Ln.</div>
+                        </div>
+                        <div className={styles.contacts}>
+                            {emails.southwest.map((email, index) => <p key={index}>{email}</p>)}
+                        </div>
                     </div>
                 </div>
             </div>
