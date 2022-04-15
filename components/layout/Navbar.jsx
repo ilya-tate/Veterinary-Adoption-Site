@@ -13,11 +13,13 @@ const Navbar = () => {
         <nav className={styles.nav}>
             <div className={styles.title}>
                 <div className={styles.logo}>
-                    <Image
-                        src={logo}
-                        alt="West-Mec Arrow Logo"
-                        layout="fill"
-                    />
+                    <Link href="/home">
+                        <Image
+                            src={logo}
+                            alt="West-Mec Arrow Logo"
+                            layout="fill"
+                        />
+                    </Link>
                 </div>
                 <h1 className={styles.h1}>
                     <span className={styles.top}>
@@ -29,25 +31,19 @@ const Navbar = () => {
                 </h1>
             </div>
             <ul className={styles.links + " " + (showMobileNav ? styles.active : "")}>
-                <li>
+                <li className={styles.link}>
                     <Link href="/home">
-                        <span className={styles.a}>
-                            Home
-                        </span>
+                        Home
                     </Link>
                 </li>
-                <li>
+                <li className={styles.link}>
                     <Link href="/animals" >
-                        <span className={styles.a}>
-                            Animals
-                        </span>
+                        Animals
                     </Link>
                 </li>
-                <li>
+                <li className={styles.link}>
                     <Link href="/admin" >
-                        <span className={styles.a}>
-                            Admin
-                        </span>
+                        Admin
                     </Link>
                 </li>
             </ul>

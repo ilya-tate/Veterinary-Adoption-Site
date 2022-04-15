@@ -26,6 +26,7 @@
             position: relative;
             height: 3rem;
             width: 3rem;
+            cursor: pointer;
         }
 
         h1.h1 {
@@ -63,8 +64,7 @@
         border-bottom: $blue .25rem solid;
         font-size: 1.5rem;
 
-        a.a {
-            color: $black;
+        li.link {
             cursor: pointer;
         }
 
