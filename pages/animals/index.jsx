@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import Bar from '../components/form/Bar'
-import WithBoth from '../components/layout/with/WithBoth'
-import Filter from "../assets/svgs/filter.svg"
-import Input from '../components/form/Input'
-import Search from "../assets/svgs/search.svg"
-import styles from "../styles/pages/animals.module.scss"
-import Animals from '../components/animal/Animals'
-import pig from "../assets/images/gentleman.png";
-import useDelayed from '../hooks/useDelayed'
+import Bar from '../../components/form/Bar'
+import WithBoth from '../../components/layout/with/WithBoth'
+import Filter from "../../assets/svgs/filter.svg"
+import Input from '../../components/form/Input'
+import Search from "../../assets/svgs/search.svg"
+import styles from "../../styles/pages/animals/index.module.scss"
+import Animals from '../../components/animal/Animals'
+import pig from "../../assets/images/gentleman.png";
 
 const barContent = {
     sex: ["Male", "Female"],

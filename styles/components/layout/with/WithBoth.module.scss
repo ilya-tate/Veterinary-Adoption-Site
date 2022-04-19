@@ -1,12 +1,23 @@
+@use "../../../utils/media" as *;
+
 main.withBoth {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 1.5rem;
+    
+    @include sm {
+        gap: 3rem;
+    }
 
     .min {
         display: flex;
         flex-direction: column;
-        gap: 3rem;
-        min-height: calc(100vh - 3rem);
+        gap: 1.5rem;
+        min-height: calc(100vh - 1.5rem);
+        
+        @include sm {
+            gap: 3rem;
+            min-height: calc(100vh - 3rem);
+        }
     }
 }
