@@ -8,6 +8,8 @@ import Map from "./components/maps/Map";
 import { parseCookies } from "nookies";
 import { baseURL } from "./util/auth";
 import { changePages } from "./util/auth";
+import axios from "axios";
+import moment from "moment"
 
 const images = [
   "/bulldog.jfif",
@@ -17,12 +19,43 @@ const images = [
   "/mastiffpuppy.jfif",
 ];
 
-const home = ({darkmode, setDarkmode}) => {
+const home = ({ darkmode, setDarkmode, animalData }) => {
   const [image, setImage] = useState();
   const [random, setRandom] = useState(0);
   const [time, setTime] = useState(3500);
-  const [background, setBackground] = useState("image");
   const [clicked, setClicked] = useState(false);
+  // const [weekAnimals, setWeekAnimals] = useState(animalData);
+  // const [closeEvent, setCloseEvent] = useState(eventData);
+  const [closeEvent, setCloseEvent] = useState({
+    name: "Puppys For Adoption",
+    date: "April 21st 2011",
+    time: "12:00",
+    description: "We will be raising awareness for needed pup adoption!",
+    // location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.6709250553095!2d-112.29502798479852!3d33.535940480749616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b4104080e38d9%3A0x1fbd2919e78fa444!2sWest-MEC%20Central%20Campus!5e0!3m2!1sen!2sus!4v1649887047634!5m2!1sen!2sus"
+    location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.8532380505817!2d-112.50740558506138!3d33.453129956510914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b49e6fadf8ec9%3A0xea15410e8a26a30c!2sWest-MEC%20Southwest%20Campus!5e0!3m2!1sen!2sus!4v1649887826290!5m2!1sen!2sus"
+  })
+  const [weekAnimals, setWeekAnimals] = useState([{
+    name: "Jimmy",
+    age: 50,
+    animal: "Dog",
+    breed: "German Shepard",
+    image: "/bulldog.jfif",
+  },
+  {
+    name: "Timmy",
+    age: 50,
+    animal: "Cat",
+    breed: "Siamese",
+    image: "mastiffpuppy.jfif",
+  },
+  {
+    name: "Ton",
+    age: 50,
+    animal: "Dragon",
+    breed: "Fire",
+    image: "/germanpuppy.jfif",
+  },
+]);
 
   useEffect(() => {
     let timeout = setTimeout(() => {
@@ -112,10 +145,7 @@ const home = ({darkmode, setDarkmode}) => {
                       minWidth: "40vw",
                       background: "rgb(205,112,0)",
                     }
-                  : { width: "40vw",
-                    minWidth: "40vw",
-                    background: "orange" 
-                  }
+                  : { width: "40vw", minWidth: "40vw", background: "orange" }
               }
             >
               <img
@@ -233,94 +263,42 @@ const home = ({darkmode, setDarkmode}) => {
                 }
           }
         >
-          <div
-            className="animal1 animalBanner"
-            style={
-              darkmode
-                ? {
-                    color: "whitesmoke",
-                    width: "30%",
-                    border: "4px solid black",
-                  }
-                : {
-                    color: "whitesmoke",
-                    width: "30%",
-                    border: "4px solid black",
-                  }
-            }
-          >
-            <img
-              src={images[0]}
-              style={{ height: "100%", width: "100%", objectFit: "cover" }}
-            />
-            <h1 className="name" style={{ marginTop: "-27%" }}>
-              Henry
-            </h1>
-            <div className="text">
-              <p className="age">5 Years -</p>
-              <p className="breed">German Shepard</p>
+          {!weekAnimals ? (
+            <h1 className="noAnimalsErr">THERE ARE NO ANIMALS THIS WEEK</h1>
+          ) : (
+            weekAnimals.map((animal) => (
+              <div
+              className="animal3 animalBanner"
+              style={
+                darkmode
+                  ? {
+                      color: "whitesmoke",
+                      width: "30%",
+                      marginLeft: "2%",
+                      border: "4px solid black",
+                    }
+                  : {
+                      color: "whitesmoke",
+                      width: "30%",
+                      marginLeft: "2%",
+                      border: "4px solid black",
+                    }
+              }
+            >
+              <img
+                src={animal.image}
+                style={{ height: "100%", width: "100%", objectFit: "cover" }}
+              />
+              <h1 className="name" style={{ marginTop: "-27%" }}>
+                {animal.name}
+              </h1>
+              <div className="text">
+                <p className="age">{animal.age} -</p>{" "}
+                <p className="breed">{animal.animal}({animal.breed})</p>
+              </div>
             </div>
-          </div>
-          <div
-            className="animal2 animalBanner"
-            style={
-              darkmode
-                ? {
-                    color: "whitesmoke",
-                    width: "30%",
-                    marginLeft: "2%",
-                    border: "4px solid black",
-                  }
-                : {
-                    color: "whitesmoke",
-                    width: "30%",
-                    marginLeft: "2%",
-                    border: "4px solid black",
-                  }
-            }
-          >
-            <img
-              src={images[2]}
-              style={{ height: "100%", width: "100%", objectFit: "cover" }}
-            />
-            <h1 className="name" style={{ marginTop: "-27%" }}>
-              Jim
-            </h1>
-            <div className="text">
-              <p className="age">7 Years -</p>
-              <p className="breed">Parrot </p>
-            </div>
-          </div>
-          <div
-            className="animal3 animalBanner"
-            style={
-              darkmode
-                ? {
-                    color: "whitesmoke",
-                    width: "30%",
-                    marginLeft: "2%",
-                    border: "4px solid black",
-                  }
-                : {
-                    color: "whitesmoke",
-                    width: "30%",
-                    marginLeft: "2%",
-                    border: "4px solid black",
-                  }
-            }
-          >
-            <img
-              src={images[1]}
-              style={{ height: "100%", width: "100%", objectFit: "cover" }}
-            />
-            <h1 className="name" style={{ marginTop: "-27%" }}>
-              Tom
-            </h1>
-            <div className="text">
-              <p className="age">12 Years -</p>{" "}
-              <p className="breed"> Bearded Dragon</p>
-            </div>
-          </div>
+            ))
+          )}
         </div>
         <div
           className="comingEvent"
@@ -383,19 +361,26 @@ const home = ({darkmode, setDarkmode}) => {
           >
             <div
               className="eventDesc"
-              style={{
-                background: "rgb(50, 50, 50)",
+              style={darkmode ? {
+                background: "black",
                 color: "whitesmoke",
                 width: "23.5vw",
                 height: "55vh",
                 fontSize: "25px",
+              } : {
+                background: "rgb(220, 220, 220)",
+                color: "black",
+                width: "23.5vw",
+                height: "55vh",
+                fontSize: "25px",
+                border: "2px solid black",
               }}
             >
-              <h1 style={{ marginTop: "15px" }}>THE EVENT</h1>
+              <h1 style={{ marginTop: "15px" }}>{closeEvent.name}</h1>
               <br />
-              <p>The Date-The:Time</p>
+              <p>{closeEvent.date}-{closeEvent.time}</p>
               <br />
-              <p>The things that happen at the event</p>
+              <p>{closeEvent.description}</p>
             </div>
             <div
               className="eventMap"
@@ -405,7 +390,9 @@ const home = ({darkmode, setDarkmode}) => {
                 border: "2px solid black",
                 background: "orange",
               }}
-            ></div>
+            >
+              <iframe src={closeEvent.location} style={!darkmode ? {width: "45vw", height: "54vh", border: 0} : {filter: "invert(100%)", width: "45vw", height: "54vh", border: 0}} allowfullscreen="" loading="lazy" className="map"></iframe>
+            </div>
           </div>
         </div>
         <div style={{ position: "relative", bottom: "0", marginTop: "-2vh" }}>
@@ -433,9 +420,19 @@ const home = ({darkmode, setDarkmode}) => {
       </div>
     </>
   );
-}
+};
 
+home.getInitialProps = async () => {
+  try {
+    const res = await axios.get(`${baseURL}/api/v1/animals`);
+    const res2 = await axios.get(`${baseURL}/api/v1/events`);
 
-
+    return { animalData: res.data, eventData: res2.data };
+  } catch (error) {
+    console.log(error);
+    console.log("RUH ROH RAGGY");
+    return { errorLoading: true };
+  }
+};
 
 export default home;

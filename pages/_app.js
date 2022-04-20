@@ -6,6 +6,8 @@ import "../public/logo.png";
 import "../public/DarkLogo.png";
 import "../styles/home.css";
 import "../styles/index.css";
+import "../styles/admin.css"
+import "../styles/animal.css"
 import { baseURL, redirectUser } from "./util/auth";
 import { destroyCookie, parseCookies } from "nookies";
 // import { baseURL } from "./util/baseURL";
@@ -65,7 +67,7 @@ MyApp.getInitialProps = async ({ ctx, Component, setIndex }) => {
   const { token } = parseCookies(ctx);
   let pageProps = {};
 
-  const protectedRoutes = ["/admin"];
+  const protectedRoutes = [];
 
   const isProtectedRoute = protectedRoutes.includes(ctx.pathname);
 

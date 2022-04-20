@@ -4,7 +4,7 @@ import { logoutUser } from "../../util/auth";
 import Router, { useRouter } from "next/router";
 
 const Nav = ({ setDarkmode, darkmode }) => {
-  const [admin, setAdmin] = useState(false);
+  const [admin, setAdmin] = useState(true);
   const router = useRouter();
   if (router.pathname !== "/" && router.pathname !== "/login")
     return (
