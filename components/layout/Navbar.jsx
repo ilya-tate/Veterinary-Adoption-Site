@@ -4,7 +4,7 @@ import logo from "../../assets/images/west-mec-logo.png"
 import styles from "../../styles/components/layout/Navbar.module.scss"
 import Menu from "../../assets/svgs/menu.svg";
 import X from "../../assets/svgs/x.svg";
-import {useState} from "react";
+import {forwardRef, useState} from "react";
 
 const Navbar = () => {
     const [showMobileNav, setShowMobileNav] = useState(false);
