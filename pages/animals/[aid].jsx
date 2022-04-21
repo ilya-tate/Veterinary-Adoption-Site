@@ -7,6 +7,7 @@ import gentleman from "../../assets/images/gentleman.png";
 import hotdog from "../../assets/images/hotdog.jpg";
 import Left from "../../assets/svgs/left.svg"
 import Right from "../../assets/svgs/right.svg"
+import Link from "next/link"
 
 
 const dummyData = {
@@ -65,9 +66,9 @@ const IndividualAnimal = () => {
                         className={styles.iframe}
                         src={dummyData.video.replace("watch?v=", "embed/") + "?rel=0&showinfo=0&autohide=1&wmode=transparent"} 
                         title="YouTube video player"
-                        frameborder="0"
+                        frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
+                        allowFullScreen
                         wmode="transparent"
                     ></iframe>
                 </div>
@@ -98,27 +99,29 @@ const IndividualAnimal = () => {
                         </li>
                     </ul>
                 </div>
-                <div className={styles.specs}>
+                {dummyData.specs.needs.length || dummyData.specs.cautions.length ? <div className={styles.specs}>
                     <h4 className={styles.specInfo}>Specifications</h4>
                     <div className={styles.info}>
                         {dummyData.specs.needs.length ? <div className={styles.cata}>
                             <h4 className={styles.title}>Needs:</h4>
                             <ul className={styles.list}>
-                                {dummyData.specs.needs.map(need => <li>{need}</li>)}
+                                {dummyData.specs.needs.map((need, index) => <li key={index}>{need}</li>)}
                             </ul>
                         </div> : null}
                         {dummyData.specs.cautions.length ? <div className={styles.cata}>
                             <h4 className={styles.title}>Cautions:</h4>
                             <ul className={styles.list}>
-                                {dummyData.specs.cautions.map(cauc => <li>{cauc}</li>)}
+                                {dummyData.specs.cautions.map((cauc, index) => <li key={index}>{cauc}</li>)}
                             </ul>
                         </div> : null}
                     </div>
-                </div>
+                </div> : null}
                 <div className={styles.contact}>
-                    <button className={styles.button}>
-                        Contact a Teacher
-                    </button>
+                    <Link href={`/animals/${aid}/contact`}>
+                        <button className={styles.button}>
+                            Contact a Teacher
+                        </button>
+                    </Link>
                     <p>Make this animal a part of your family!</p>
                 </div>
             </div>
