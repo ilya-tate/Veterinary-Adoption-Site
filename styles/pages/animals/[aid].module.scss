@@ -16,7 +16,7 @@
             flex-direction: column;
             gap: 5rem;
             margin: 0;
-            justify-content: center;
+            // justify-content: center;
 
             @include lg {
                 gap: 1rem;
@@ -55,8 +55,8 @@
 
                     .left,
                     .right {
-                        width: 3.5rem;
-                        height: 3.5rem;
+                        width: 4rem;
+                        height: 4rem;
                         position: absolute;
                         top: 50%;
                         transform: translateY(-50%);
@@ -64,6 +64,11 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        background-color: $light-orange;
+                        padding: .5rem;
+                        border-radius: 50%;
+                        // box-shadow: $orange .25rem .25rem  0 0;
+                        border: solid $orange .175rem;
 
                         .icon {
                             height: 100%;
