@@ -1,6 +1,6 @@
 .bar {
-  background-color: #E9F7FA;
-  box-shadow: #91D7E8 0.5rem 0.5rem 0 0;
+  background-color: #FDE3D8;
+  box-shadow: #f7931d 0.25rem 0.25rem 0 0;
   color: #2B363B;
   border-radius: 2rem;
   z-index: 1;
@@ -42,7 +42,6 @@
   align-items: center;
   font-size: 1.25rem;
   font-weight: 650;
-  fill: #2B363B;
   gap: 1rem;
   cursor: pointer;
   width: 100%;
@@ -69,12 +68,12 @@
   font-size: 1.25rem;
   justify-content: space-around;
   position: absolute;
-  background-color: #E9F7FA;
+  background-color: #FDE3D8;
   display: flex;
   gap: 1.25rem;
   flex-direction: column;
   border-radius: 0 0 2rem 2rem;
-  box-shadow: #91D7E8 0.5rem 0.5rem 0 0;
+  box-shadow: #2B363B 0.25rem 0.25rem 1rem -0.5rem;
   z-index: -1;
   padding: 1rem 2rem 2rem 2rem;
   right: calc(-6.25rem + 50%);
@@ -93,7 +92,7 @@
 .bar .content .display ul.dropdown li.item .check {
   width: 1.5rem;
   height: 1.5rem;
-  border: 0.25rem solid #91D7E8;
+  border: 0.125rem solid #2B363B;
   border-radius: 0.25rem;
   display: grid;
   justify-content: center;
@@ -110,8 +109,8 @@
   height: 1.5rem;
 }
 .bar .content .display ul.dropdown li.item .check .checkbox:checked ~ .mark {
-  width: 55%;
-  height: 55%;
+  width: 50%;
+  height: 50%;
 }
 .bar .content .display ul.dropdown li.item .mark {
   width: 0;
@@ -122,6 +121,6 @@
   grid-row: 1/2;
   grid-column: 1/2;
   pointer-events: none;
-  background-color: #91D7E8;
+  background-color: #2B363B;
   border-radius: 0.125rem;
 }/*# sourceMappingURL=Bar.module.css.map */

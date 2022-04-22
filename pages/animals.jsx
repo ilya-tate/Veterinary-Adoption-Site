@@ -17,6 +17,25 @@ const animal = () => {
     vaccines: "",
     spade: false,
   });
+
+  const [animals, setAnimals] = useState([
+    {
+      name: "Jim",
+      id: "1"
+    },
+    {
+      name: "Jimmy",
+      id: "2"
+    },
+    {
+      name: "John",
+      id: "3"
+    },
+    {
+      name: "Johnny",
+      id: "4"
+    }
+  ])
   // const [name, setName] = useState("")
   // const [name, setName] = useState("")
   // const [name, setName] = useState("")
@@ -199,10 +218,16 @@ const animal = () => {
             Remove Animal and Create Animal barrier so that I can see the difference
           */}
 
-
-
       <div className="removeAnimals">
-          <input type="text" name="name" placeholder="name" className="animalInputs removeAnimal"/>
+          <label for="animals">
+            Animals
+            <select name="animals">
+              {animals.map((animal) => (
+                <option>{animal.name}</option>
+                // console.log(animal);
+              ))}
+            </select>
+          </label>
         <br />
         <button
           type="button"

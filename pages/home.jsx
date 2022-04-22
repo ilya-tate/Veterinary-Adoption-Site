@@ -413,7 +413,7 @@ const home = ({ darkmode, setDarkmode, animalData }) => {
                         border: 0,
                       }
                 }
-                allowfullscreen=""
+                allowFullScreen=""
                 loading="lazy"
                 className="map"
               ></iframe>

@@ -2,8 +2,8 @@
   height: 35rem;
   border-radius: 1.5rem;
   display: grid;
-  color: #FFFFFF;
-  box-shadow: #91D7E8 0.5rem 0.5rem 0 0;
+  color: #ffffff;
+  box-shadow: #04133e 0.25rem 0.25rem 1rem -0.5rem;
   cursor: pointer;
   flex-basis: 100%;
   flex-grow: 0;
@@ -91,7 +91,7 @@
   border-radius: 0.25rem;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 .animal .details .other .featured {
   display: flex;
@@ -107,5 +107,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  fill: #FFFFFF;
+  fill: #ffffff;
 }/*# sourceMappingURL=Animal.module.css.map */

@@ -1,9 +1,9 @@
 .nav {
   height: 5rem;
   width: 100%;
-  background-color: #E9F7FA;
+  background-color: #FDE3D8;
   padding: 1rem 2rem;
-  border-bottom: #91D7E8 0.25rem solid;
+  border-bottom: #f7931d 0.25rem solid;
   color: #2B363B;
   display: flex;
   justify-content: space-between;
@@ -55,8 +55,8 @@
   top: 5rem;
   left: 0;
   width: 100%;
-  background-color: #FFFFFF;
-  border-bottom: #91D7E8 0.25rem solid;
+  background-color: #ffffff;
+  border-bottom: #f7931d 0.25rem solid;
   font-size: 1.5rem;
 }
 .nav ul.links li.link {

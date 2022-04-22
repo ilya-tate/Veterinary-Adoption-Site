@@ -1,1 +1,1 @@
-{"version":3,"sources":["Animals.module.scss","Animals.module.css","../../utils/_colors.scss"],"names":[],"mappings":"AAEA;EACI,aAAA;EACA,eAAA;EACA,SAAA;EACA,WAAA;EACA,kBAAA;ACDJ;ADGI;EACI,WAAA;EACA,kBAAA;EACA,aAAA;EACA,iBAAA;EACA,cEZA;ADWR","file":"Animals.module.css"}
+{"version":3,"sources":["Animals.module.scss","Animals.module.css","../../utils/_colors.scss"],"names":[],"mappings":"AAEA;EACI,aAAA;EACA,eAAA;EACA,SAAA;EACA,WAAA;EACA,kBAAA;ACDJ;ADGI;EACI,WAAA;EACA,kBAAA;EACA,aAAA;EACA,iBAAA;EACA,cERA;ADOR","file":"Animals.module.css"}
