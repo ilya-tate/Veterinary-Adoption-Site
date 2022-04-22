@@ -1,0 +1,22 @@
+main.withBoth {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+@media (min-width: 576px) {
+  main.withBoth {
+    gap: 3rem;
+  }
+}
+main.withBoth .min {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: calc(100vh - 1.5rem);
+}
+@media (min-width: 576px) {
+  main.withBoth .min {
+    gap: 3rem;
+    min-height: calc(100vh - 3rem);
+  }
+}/*# sourceMappingURL=WithBoth.module.css.map */

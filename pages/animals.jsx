@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { TextArea } from "semantic-ui-react";
 
 const animal = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -148,11 +149,12 @@ const animal = () => {
           onChange={handleChange}
           value={newAnimal.details}
         />
-        <input
+        <textarea
+          rows="5"
           type="text"
           name="description"
           placeholder="Description..."
-          className="animalDesc animalInputs"
+          className="animalInputs"
           onChange={handleChange}
           value={newAnimal.description}
         />

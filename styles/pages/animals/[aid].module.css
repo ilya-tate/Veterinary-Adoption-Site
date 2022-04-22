@@ -1,0 +1,154 @@
+.indivAnimal {
+  font-family: "Inter";
+}
+.indivAnimal .main {
+  min-height: calc(100vh - 1.5rem - 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+@media (min-width: 576px) {
+  .indivAnimal .main {
+    min-height: calc(100vh - 3rem - 5rem);
+  }
+}
+.indivAnimal .main .slider {
+  display: flex;
+  position: relative;
+}
+.indivAnimal .main .slider .left, .indivAnimal .main .slider .right {
+  width: 3.5rem;
+  height: 3.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.indivAnimal .main .slider .left .icon, .indivAnimal .main .slider .right .icon {
+  height: 100%;
+  fill: #2B363B;
+}
+.indivAnimal .main .slider .left {
+  left: 0;
+}
+.indivAnimal .main .slider .right {
+  right: 0;
+}
+.indivAnimal .main .slider .image {
+  width: 90%;
+  height: 65vh;
+  position: relative;
+  z-index: 0;
+  box-shadow: #91D7E8 0.5rem 0.5rem 0 0;
+  border-radius: 1.5rem;
+  margin: 0 auto;
+}
+.indivAnimal .main .slider .image .elem {
+  border-radius: 1.5rem;
+}
+.indivAnimal .main h2.name {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 2;
+  background-color: #E9F7FA;
+  color: #2B363B;
+  width: auto;
+  margin: 0;
+}
+.indivAnimal .info {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.indivAnimal .info .video {
+  width: 92.5vw;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+  border-radius: 1.5rem;
+  position: relative;
+}
+.indivAnimal .info .video .iframe {
+  width: 100%;
+  height: 100%;
+}
+.indivAnimal .info .common h4.commonInfo {
+  font-size: 2.5rem;
+  text-align: center;
+}
+.indivAnimal .info .common .info {
+  padding: 1rem 3rem;
+  font-size: 1.25rem;
+  gap: 1rem;
+}
+.indivAnimal .info .common .info li.item {
+  display: flex;
+  align-items: flex-end;
+  gap: 0rem;
+}
+.indivAnimal .info .common .info li.item.noFlex {
+  display: block;
+}
+.indivAnimal .info .common .info li.item .title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.indivAnimal .info .common .info li.item .details {
+  padding: 0 1rem;
+}
+.indivAnimal .info .specs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.indivAnimal .info .specs .specInfo {
+  font-size: 2.5rem;
+  text-align: center;
+}
+.indivAnimal .info .specs .info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 1.25rem;
+  gap: 1rem;
+}
+.indivAnimal .info .specs .info .cata {
+  flex-grow: 2;
+  width: 50%;
+}
+.indivAnimal .info .specs .info .cata .title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.indivAnimal .info .specs .info .cata .list {
+  margin: 0 auto;
+  list-style: circle;
+  justify-self: flex-end;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.indivAnimal .info .contact {
+  font-size: 1.25rem;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+.indivAnimal .info .contact .button {
+  cursor: pointer;
+  font-size: 1.75rem;
+  height: 5rem;
+  border: 0;
+  background-color: #E9F7FA;
+  transition: none;
+  width: 100%;
+  font-weight: 700;
+  box-shadow: #91D7E8 0.5rem 0.5rem 0 0;
+}/*# sourceMappingURL=[aid].module.css.map */

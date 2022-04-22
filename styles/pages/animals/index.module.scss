@@ -1,0 +1,31 @@
+@use "../../utils/colors"as *;
+@use "../../utils/media"as *;
+
+main.animals {
+    .content {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+
+        .filter {
+            display: flex;
+            gap: 2rem;
+
+            @include lg {
+                gap: 3rem;
+            }
+
+            .bar {
+                flex-grow: 3;
+            }
+
+            .search {
+                flex-shrink: 2;
+            }
+        }
+    }
+
+}

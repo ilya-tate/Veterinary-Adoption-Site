@@ -1,6 +1,5 @@
-import "../styles/globals.css";
 import "semantic-ui-css/semantic.min.css";
-import "../styles/globals.css";
+import "../styles/globals.scss";
 import "../styles/list.css";
 import "../public/logo.png";
 import "../public/DarkLogo.png";
@@ -8,6 +7,7 @@ import "../styles/home.css";
 import "../styles/index.css";
 import "../styles/admin.css"
 import "../styles/animal.css"
+import "../styles/events.css"
 import { baseURL, redirectUser } from "./util/auth";
 import { destroyCookie, parseCookies } from "nookies";
 // import { baseURL } from "./util/baseURL";
@@ -19,7 +19,7 @@ const MyApp = ({ Component, pageProps }) => {
   const [index, setIndex] = useState(true);
 
   return (
-    <Layout user={pageProps} darkmode={darkmode} setDarkmode={setDarkmode} index={index} setIndex={setIndex}>
+    <Layout {...pageProps} darkmode={darkmode} setDarkmode={setDarkmode}>
       <Component {...pageProps} darkmode={darkmode} setDarkmode={setDarkmode} index={index} setIndex={setIndex}/>
     </Layout>
   );

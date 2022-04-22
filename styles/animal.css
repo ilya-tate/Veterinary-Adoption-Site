@@ -124,7 +124,7 @@
   margin-left: 5px;
 }
 .createAnimal .submit {
-  margin-left: 46%;
+  margin-left: 45%;
   width: 90px;
   height: 35px;
 }
@@ -142,7 +142,7 @@
 .createAnimal .click {
   transition: all 0.5s;
   border-radius: 58%;
-  margin-left: 48%;
+  margin-left: 47%;
   width: 60px;
   height: 60px;
   border: 2px solid blue;
@@ -157,7 +157,7 @@
 .createAnimal .clickedButton {
   transition: all 0.5s;
   border-radius: 58%;
-  margin-left: 48%;
+  margin-left: 47%;
   width: 60px;
   height: 60px;
   border: 2px solid blue;

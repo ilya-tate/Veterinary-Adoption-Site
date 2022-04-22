@@ -59,13 +59,9 @@
   border-radius: 30px;
   -webkit-text-stroke-width: 2px solid black;
 }
+
 .animalBanner img{
   border-radius: 25px;
-}
-
-.animalBanner:hover{
-  /* border: 1.5px solid orange; */
-  background-color: red;
 }
 
 .name{
@@ -75,7 +71,8 @@
 
 .text {
   display: inline-flex;
-  font-size: 23px;
+  font-size: 25px;
+  transition: 0.3s ease-in-out all;
 }
 
 .name:hover{
@@ -127,7 +124,7 @@
   color: whitesmoke;
   font-size: 20px;
 }
-
+  
 .homeAni{
   width: "40%",
 }

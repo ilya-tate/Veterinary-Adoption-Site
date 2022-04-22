@@ -1,0 +1,117 @@
+@use "../../utils/colors"as *;
+@use "../../utils/media"as *;
+
+.animal {
+    height: 35rem;
+    border-radius: 1.5rem;
+    display: grid;
+    color: $white;
+    box-shadow: $blue .5rem .5rem 0 0;
+    cursor: pointer;
+    flex-basis: 100%;
+    flex-grow: 0;
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0, 0);
+    max-width: 100%;
+
+    @include sm {
+        flex-basis: 75%;
+        height: 50rem;
+        margin: 0 auto;
+    }
+
+    @include lg {
+        height: 40rem;
+        flex-basis: calc(50% - 2rem);
+        margin: 0;
+    }
+
+    @include xl {
+        height: 40rem;
+    }
+
+    @include xxl {
+        flex-basis: calc(33.33% - 2rem);
+    }
+
+    .image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        z-index: 0;
+        border-radius: 1.5rem;
+
+        .elem {
+            border-radius: 1.5rem;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba($black, 0) 67.19%, rgba($black, 0.85) 79.69%, $black 100%);
+            border-radius: 1.5rem;
+        }
+    }
+
+    .details {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        z-index: 1;
+        align-self: flex-end;
+        font-size: 1.75rem;
+        padding: 2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        .name {
+            font-weight: 650;
+            font-size: 1em;
+        }
+
+        .other {
+            font-size: .75em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .common {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                .decorator {
+                    border-radius: .25rem;
+                    width: .5rem;
+                    height: .5rem;
+                    background-color: $white;
+                }
+            }
+
+            .featured {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                width: fit-content;
+
+                .icon {
+                    width: 2rem;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    fill: $white;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+main.withBoth {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}/*# sourceMappingURL=WithFooter.module.css.map */

@@ -2,15 +2,16 @@
   color: white;
   text-decoration: "none";
   font-size: 40px;
-  margin-top: 3px;
-  transition: color 1s;
+  margin-top: 15px;
+  transition: color .1s;
   width: fit-content;
 }
 
 .footerItem{
   color: white;
   text-decoration: "none";
-  font-size: 10px;
+  font-size: 15px;
+  transition: 0.3s ease-in-out all;
 }
 
 .item:hover{
@@ -23,15 +24,13 @@
 
 .footerItem:hover{
   color: orange;
-  text-shadow: 0px 0px 10px black;
-  font-weight: bold;
-  font-size: 15px;
 }
 
 .navbar{
   background-color: #db4610;
   height: 9vh;
   z-index: 500000;
+  border-bottom: 1px solid black;
 }
 
 .dark{
@@ -47,6 +46,7 @@
 
 /* The switch - the box around the slider */
 .switch {
+  margin-top: 10px;
   position: relative;
   display: inline-block;
   width: 60px;

@@ -1,0 +1,86 @@
+@use "../../utils/colors"as *;
+@use "../../utils/media"as *;
+
+.nav {
+    height: 5rem;
+    width: 100%;
+    background-color: $light-blue;
+    padding: 1rem 2rem;
+    border-bottom: $blue .25rem solid;
+    color: $black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    font-family: "Inter";
+
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-weight: 800;   
+
+        .logo {
+            position: relative;
+            height: 3rem;
+            width: 3rem;
+            cursor: pointer;
+        }
+
+        h1.h1 {
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            line-height: 1;
+            font-family: "Inter";
+        }
+    }
+
+    .hamburger {
+        width: 2rem;
+        fill: $black;
+        cursor: pointer;
+
+        @include sm {
+            display: none;
+        }
+    }
+
+    ul.links {
+        display: none;
+        padding: 2.5rem 0;
+        align-items: center;
+        font-weight: 650;
+        gap: 3.5rem;
+        flex-direction: column;
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        width: 100%;
+        background-color: $white;
+        border-bottom: $blue .25rem solid;
+        font-size: 1.5rem;
+
+        li.link {
+            cursor: pointer;
+        }
+
+        &.active {
+            display: flex;
+        }
+
+        @include sm {
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: row;
+            position: static;
+            font-size: 1.25rem;
+            background-color: transparent;
+            border-bottom: none;
+            width: fit-content;
+        }
+    }
+}

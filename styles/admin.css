@@ -1,14 +1,15 @@
 .adminMain{
-  margin-top: 25vh;
   width: 100vw;
   height: 100vh;
 }
 
 .pages{
+  margin-top: 25vh;
   width: 50vw;
   background: whitesmoke;
   height: 50vh;
   display: inline-flex;
+  margin-left: 25%;
 }
 
 .adminButton{

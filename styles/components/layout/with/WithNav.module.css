@@ -1,0 +1,11 @@
+main.withBoth {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+main.withBoth .min {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  min-height: calc(100vh - 3rem);
+}/*# sourceMappingURL=WithNav.module.css.map */

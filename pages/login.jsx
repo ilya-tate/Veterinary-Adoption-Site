@@ -1,12 +1,18 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
-import { Button, Divider, Form, Message, Segment } from "semantic-ui-react";
+import {
+  Button,
+  Divider,
+  Form,
+  Message,
+  Segment,
+  Container,
+} from "semantic-ui-react";
 import {
   FooterMessage,
   HeaderMessage,
 } from "./components/common/WelcomeMessage";
-import Layout from "./components/layout/Layout";
 import { setToken } from "./util/auth";
 import catchErrors from "./util/catchErrors";
 
@@ -60,10 +66,9 @@ const login = () => {
     if (userEmail) setUser((prev) => ({ ...prev, email: userEmail }));
   }, []);
 
-
   return (
     <>
-      <Layout>
+      <Container style={{ paddingTop: "1rem" }}>
         <HeaderMessage />
         <Form
           loading={formLoading}
@@ -107,9 +112,20 @@ const login = () => {
               type={showPassword ? "text" : "password"}
             />
             <Divider hidden />
-            <button onClick={()=>{
-              changePages()
-              }} style={{border: 'none', width: "100px", height: "40px", borderRadius: "0px", marginRight: "20px"}}>Go Back</button>
+            <button
+              onClick={() => {
+                changePages();
+              }}
+              style={{
+                border: "none",
+                width: "100px",
+                height: "40px",
+                borderRadius: "0px",
+                marginRight: "20px",
+              }}
+            >
+              Go Back
+            </button>
             <Button
               color="orange"
               content="Login"
@@ -120,7 +136,7 @@ const login = () => {
           </Segment>
         </Form>
         <FooterMessage />
-      </Layout>
+      </Container>
     </>
   );
 };

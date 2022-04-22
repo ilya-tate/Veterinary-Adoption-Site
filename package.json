@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^6.2.1",
     "axios": "^0.25.0",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.28.1",
