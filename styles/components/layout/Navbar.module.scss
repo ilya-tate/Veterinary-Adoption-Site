@@ -4,9 +4,9 @@
 .nav {
     height: 5rem;
     width: 100%;
-    background-color: $light-blue;
+    background-color: $light-orange;
     padding: 1rem 2rem;
-    border-bottom: $blue .25rem solid;
+    border-bottom: $orange .25rem solid;
     color: $black;
     display: flex;
     justify-content: space-between;
@@ -61,7 +61,7 @@
         left: 0;
         width: 100%;
         background-color: $white;
-        border-bottom: $blue .25rem solid;
+        border-bottom: $orange .25rem solid;
         font-size: 1.5rem;
 
         li.link {

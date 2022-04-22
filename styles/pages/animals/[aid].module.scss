@@ -3,179 +3,273 @@
 
 .indivAnimal {
     font-family: "Inter";
-    
-    .main {
-        min-height: calc(100vh - 1.5rem - 5rem);
-        display: flex;
-        flex-direction: column;
-        gap: 5rem;
-        
-        @include sm {
-            min-height: calc(100vh - 3rem - 5rem);
+
+    .side {
+        display: block;
+
+        @include lg {
+            display: flex;
         }
 
-        .slider {
+        .important {
             display: flex;
-            position: relative;
-    
-            .left, .right {
-                width: 3.5rem;
-                height: 3.5rem;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 1;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-    
-                .icon {
-                    height: 100%;
-                    fill: $black;
-                }
-            }
-    
-            .left {
-                left: 0;
-            }
-    
-            .right {
-                right: 0;
-            }
-    
-            .image {
-                width: 90%;
-                height: 65vh;
-                position: relative;
-                z-index: 0;
-                box-shadow: $blue .5rem .5rem 0 0;
-                border-radius: 1.5rem;
-                margin: 0 auto;
-    
-                .elem {
-                    border-radius: 1.5rem;
-                }
-            }
-        }
-    
-        h2.name {
-            font-size: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            flex-grow: 2;
-            background-color: $light-blue;
-            color: $black;
-            width: auto;
+            flex-direction: column;
+            gap: 5rem;
             margin: 0;
-        }
-    }
+            // justify-content: center;
 
-    .info {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-
-        .video {
-            width: 92.5vw;
-            margin: 0 auto;
-            aspect-ratio: 16 / 9;
-            border-radius: 1.5rem;
-            position: relative;
-
-            .iframe {
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        .common {
-            h4.commonInfo {
-                font-size: 2.5rem;
-                text-align: center;
-            }
-
-            .info {
-                padding: 1rem 3rem;
-                font-size: 1.25rem;
+            @include lg {
                 gap: 1rem;
-                
-                li.item {
-                    display: flex;
-                    align-items: flex-end;
-                    gap: 0rem;
-
-                    &.noFlex {
-                        display: block;
-                    }
-
-                    .title {
-                        font-size: 1.5rem;
-                        font-weight: 700;
-                    }
-
-                    .details {
-                        padding: 0 1rem;
-                    }
-                }
-            }
-        }
-
-        .specs {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-
-            .specInfo {
-                font-size: 2.5rem;
-                text-align: center;
+                align-items: center;
+                width: 45rem;
             }
 
-            .info {
+            .main {
+                min-height: calc(100vh - 1.5rem - 5rem);
                 display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-                font-size: 1.25rem;
-                gap: 1rem;
+                flex-direction: column;
+                gap: 5rem;
 
-                .cata {
-                    flex-grow: 2;
-                    width: 50%;
+                @include sm {
+                    min-height: calc(100vh - 3rem - 5rem);
+                }
 
-                    .title {
-                        text-align: center;
-                        font-size: 1.5rem;
+                @include lg {
+                    min-height: 0;
+                }
+
+                .slider {
+                    display: flex;
+                    position: relative;
+                    min-width: none;
+
+                    @include sm {
+                        align-self: center;
+                        min-width: 35rem;
                     }
 
-                    .list {
+                    @include lg {
+                        align-self: auto;
+                        max-width: 35rem;
+                    }
+
+                    .left,
+                    .right {
+                        width: 4rem;
+                        height: 4rem;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        z-index: 1;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+                        background-color: $light-orange;
+                        padding: .5rem;
+                        border-radius: 50%;
+                        // box-shadow: $orange .25rem .25rem  0 0;
+                        border: solid $orange .175rem;
+
+                        .icon {
+                            height: 100%;
+                            fill: $black;
+                        }
+                    }
+
+                    .left {
+                        left: 0;
+                    }
+
+                    .right {
+                        right: 0;
+                    }
+
+                    .image {
+                        min-width: 90%;
+                        max-width: 35rem;
+                        height: 60vh;
+                        position: relative;
+                        z-index: 0;
+                        box-shadow: $orange .25rem .25rem 0 0;
+                        border-radius: 1.5rem;
                         margin: 0 auto;
-                        list-style: circle;
-                        justify-self: flex-end;
-                        width: fit-content;
+
+                        .elem {
+                            border-radius: 1.5rem;
+                        }
                     }
+                }
+
+                h2.name {
+                    font-size: 3rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    flex-grow: 2;
+                    background-color: $light-orange;
+                    color: $black;
+                    width: auto;
+                    margin: 0;
+
+                    @include lg {
+                        display: none;
+                    }
+                }
+            }
+
+            .video {
+                width: 92.5vw;
+                margin: 0 auto;
+                aspect-ratio: 16 / 9;
+                border-radius: 1.5rem;
+                position: relative;
+
+                @include lg {
+                    width: 30rem;
+                    margin: 0;
+                }
+
+                .iframe {
+                    width: 100%;
+                    height: 100%;
                 }
             }
         }
 
-        .contact {
-            font-size: 1.25rem;
-            padding: 3rem 2rem;
+        .info {
             display: flex;
             flex-direction: column;
-            gap: .5rem;
-            text-align: center;
+            gap: 3rem;
+            flex-grow: 2;
 
-            .button {
-                cursor: pointer;
-                font-size: 1.75rem;
-                height: 5rem;
-                border: 0;
-                background-color: $light-blue;
-                transition: none;
-                width: 100%;
-                font-weight: 700;
-                box-shadow: $blue .5rem .5rem 0 0;
+            @include lg {
+                gap: 1rem;
+            }
+
+            h2.name {
+                display: none;
+
+                @include lg {
+                    font-size: 3rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    flex-grow: 2;
+                    color: $black;
+                    width: auto;
+                    margin: 0;
+                }
+            }
+
+            .common {
+                h4.commonInfo {
+                    font-size: 2.5rem;
+                    text-align: center;
+                }
+
+                .info {
+                    padding: 1rem 3rem;
+                    font-size: 1.25rem;
+                    gap: 1rem;
+                    margin: 0 auto;
+                    max-width: 50rem;
+
+                    li.item {
+                        display: flex;
+                        align-items: flex-end;
+                        gap: 0rem;
+
+                        &.noFlex {
+                            display: block;
+                        }
+
+                        .title {
+                            font-size: 1.5rem;
+                            font-weight: 700;
+                        }
+
+                        .details {
+                            padding: 0 1rem;
+                        }
+                    }
+                }
+            }
+
+            .specs {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                .specInfo {
+                    font-size: 2.5rem;
+                    text-align: center;
+                }
+
+                .info {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    font-size: 1.25rem;
+                    gap: 1rem;
+                    max-width: 100rem;
+                    align-self: center;
+
+                    .cata {
+                        flex-grow: 2;
+                        width: 50%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+
+                        @include lg {
+                            width: 20rem;
+                        }
+
+                        .title {
+                            text-align: center;
+                            font-size: 1.5rem;
+                        }
+
+                        .list {
+                            margin: 0 auto;
+                            list-style: circle;
+                            justify-self: flex-end;
+                            width: fit-content;
+                            display: flex;
+                            flex-direction: column;
+                            gap: .5rem;
+                        }
+                    }
+                }
+            }
+
+            .contact {
+                font-size: 1.25rem;
+                padding: 3rem 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                text-align: center;
+
+                .button {
+                    cursor: pointer;
+                    font-size: 1.75rem;
+                    height: 5rem;
+                    border: 0;
+                    background-color: $light-orange;
+                    transition: none;
+                    width: 100%;
+                    font-weight: 700;
+                    box-shadow: $orange .25rem .25rem 0 0;
+
+                    @include xl {
+                        width: 50%;
+                        margin: 0 auto;
+                    }
+                }
             }
         }
     }
