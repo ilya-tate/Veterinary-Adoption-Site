@@ -21,29 +21,33 @@ const animal = () => {
   const [animals, setAnimals] = useState([
     {
       name: "Jim",
-      id: "1"
+      id: 1,
     },
     {
       name: "Jimmy",
-      id: "2"
+      id: 2,
     },
     {
       name: "John",
-      id: "3"
+      id: 3,
     },
     {
       name: "Johnny",
-      id: "4"
-    }
-  ])
-  // const [name, setName] = useState("")
-  // const [name, setName] = useState("")
-  // const [name, setName] = useState("")
+      id: 4,
+    },
+  ]);
+
+  const [foundAnimal, setFoundAnimal] = useState(0);
+
+  const chooseDrop = (e) => {
+    setFoundAnimal(e.target.value);
+    console.log(e.target.value);
+  };
 
   const changeSubmit = () => {
     setTimeout(() => {
       setSubmitted(true);
-      setClicked(false)
+      setClicked(false);
     }, 1500);
   };
 
@@ -214,22 +218,24 @@ const animal = () => {
         </button>
       </div>
 
-          {/*
+      {/*
             Remove Animal and Create Animal barrier so that I can see the difference
           */}
 
       <div className="removeAnimals">
-          <label for="animals">
-            Animals
-            <select name="animals">
-              {animals.map((animal) => (
-                <option>{animal.name}</option>
-                // console.log(animal);
-              ))}
-            </select>
-          </label>
+        <label htmlFor="animals">
+          Animals
+          <select name="animals" onChange={chooseDrop}>
+            {animals.map((animal) => (
+              <option key={animal.id} value={animal.id}>
+                {animal.name}
+              </option>
+            ))}
+          </select>
+        </label>
         <br />
-        <button
+        <button>Find Animal</button>
+        {/* <button
           type="button"
           onClick={() => {
             setClicked(true);
@@ -244,7 +250,7 @@ const animal = () => {
           }
         >
           {clicked ? "loading" : submitted ? "✔" : "Delete?"}
-        </button>
+        </button> */}
       </div>
     </div>
   );

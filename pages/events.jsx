@@ -10,11 +10,53 @@ const events = () => {
     location: "",
     description: "",
     purpose: "",
-
   });
-  // const [name, setName] = useState("")
-  // const [name, setName] = useState("")
-  // const [name, setName] = useState("")
+
+  const [events, setEvents] = useState([
+    {
+      name: "Puppy Bath Time",
+      time: "11:00",
+      date: Date.now(),
+      location: "random",
+      description: "doesn't matter",
+      purpose: "something",
+      id: 1,
+    },
+    {
+      name: "Puppy Bed Time",
+      time: "11:00",
+      date: Date.now(),
+      location: "random",
+      description: "doesn't matter",
+      purpose: "something",
+      id: 2,
+    },
+    {
+      name: "Puppy Nap Time",
+      time: "11:00",
+      date: Date.now(),
+      location: "random",
+      description: "doesn't matter",
+      purpose: "something",
+      id: 3,
+    },
+    {
+      name: "Puppy Food Time",
+      time: "11:00",
+      date: Date.now(),
+      location: "random",
+      description: "doesn't matter",
+      purpose: "something",
+      id: 4,
+    },
+  ]);
+
+  const [foundEvent, setFoundEvent] = useState(0);
+
+  const chooseDrop = (e) => {
+    setFoundEvent(e.target.value);
+    console.log(foundEvent);
+  };
 
   const changeSubmit = () => {
     setTimeout(() => {
@@ -121,13 +163,21 @@ const events = () => {
           {/*
             Remove Event and Create Event barrier so that I can see the difference
           */}
-
-
-
       <div className="removeEvent">
-          <input type="text" name="name" placeholder="name" className="eventInputs"/>
+        <label htmlFor="events">
+          Find Event To Delete: 
+          <select name="events" onChange={chooseDrop}>
+            {events.map((event) => (
+              <option key={event.id} value={event.id}>
+                {event.name}
+              </option>
+            ))}
+          </select>
+        </label>
         <br />
-        <button
+        <button className="submit">Find Animal</button>
+        {/* <br /> */}
+        {/* <button
           type="button"
           onClick={() => {
             setClicked(true);
@@ -143,9 +193,9 @@ const events = () => {
         >
           {clicked ? "loading" : submitted ? "✔" : "Delete?"}
         </button>
-      </div>
+        </div>*/}
+    </div> 
     </div>
-      // </div>
   );
 };
 
