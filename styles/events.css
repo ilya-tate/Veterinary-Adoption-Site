@@ -1,0 +1,174 @@
+.eventMain {
+  background-color: lightgray;
+  height: 91vh;
+  width: 100vw;
+  margin-top: 7vh;
+  position: absolute;
+  left: 0;
+  display: inline-flex;
+}
+
+.removeEvent {
+  border-left: 1px solid black;
+  width: 50vw;
+  height: 91vh;
+}
+.removeEvent .eventInputs {
+  margin-top: 15px;
+  border: 1px solid black;
+  font-weight: normal;
+  font-family: sans-serif;
+  font-size: large;
+  width: 30vw;
+  margin-left: 10vw;
+}
+.removeEvent .eventInputs:focus {
+  border: 2px solid black;
+  font-weight: bolder;
+  font-family: monospace;
+  font-size: larger;
+  height: 5vh;
+}
+.removeEvent .submit {
+  margin-left: 46%;
+  margin-top: 15px;
+  width: 90px;
+  height: 35px;
+}
+.removeEvent .submit:hover {
+  background-color: red;
+  color: white;
+  font-weight: bolder;
+  width: 130px;
+  height: 40px;
+  margin-left: 43%;
+  font-size: 30px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.removeEvent .click {
+  margin-top: 15px;
+  transition: all 0.5s;
+  border-radius: 58%;
+  margin-left: 48%;
+  width: 60px;
+  height: 60px;
+  border: 2px solid red;
+  font-size: smaller;
+  vertical-align: center;
+  color: white;
+}
+.removeEvent .click:hover {
+  color: white;
+  background: linear-gradient(to bottom, white, gray, black);
+}
+.removeEvent .clickedButton {
+  margin-top: 15px;
+  transition: all 0.5s;
+  border-radius: 58%;
+  margin-left: 48%;
+  width: 60px;
+  height: 60px;
+  border: 2px solid white;
+  background-color: red;
+  color: white;
+  font-size: xx-large;
+}
+.removeEvent .clickedButton:hover {
+  transition: all 0.5s;
+  color: black;
+  border-radius: 58%;
+  margin-left: 48%;
+  width: 60px;
+  height: 60px;
+  border: 2px solid white;
+  background-color: orangered;
+  color: white;
+  font-size: xx-large;
+}
+.removeEvent label {
+  margin-left: 20%;
+  font-size: large;
+}
+.removeEvent select {
+  width: 20vw;
+  font-size: large;
+  text-align: center;
+}
+
+.createEvent {
+  border-right: 1px solid black;
+  width: 50vw;
+  height: 91vh;
+}
+.createEvent .eventInputs {
+  margin-top: 5px;
+  border: 1px solid black;
+  font-weight: normal;
+  font-family: sans-serif;
+  font-size: large;
+  width: 30vw;
+  margin-left: 10vw;
+}
+.createEvent .eventInputs:focus {
+  border: 2px solid black;
+  font-weight: bolder;
+  font-family: monospace;
+  font-size: larger;
+  height: 5vh;
+}
+.createEvent .submit {
+  margin-left: 46%;
+  width: 90px;
+  height: 35px;
+}
+.createEvent .submit:hover {
+  background-color: white;
+  color: black;
+  font-weight: bolder;
+  width: 130px;
+  height: 40px;
+  margin-left: 43%;
+  font-size: 30px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.createEvent .click {
+  transition: all 0.5s;
+  border-radius: 58%;
+  margin-left: 48%;
+  width: 60px;
+  height: 60px;
+  border: 2px solid blue;
+  font-size: smaller;
+  vertical-align: center;
+  color: black;
+}
+.createEvent .click:hover {
+  color: white;
+  background: linear-gradient(to bottom, yellow, orangered, blue);
+}
+.createEvent .clickedButton {
+  transition: all 0.5s;
+  border-radius: 58%;
+  margin-left: 48%;
+  width: 60px;
+  height: 60px;
+  border: 2px solid blue;
+  background-color: rgb(28, 200, 28);
+  color: white;
+  font-size: xx-large;
+}
+.createEvent .clickedButton:hover {
+  transition: all 0.5s;
+  color: black;
+  border-radius: 58%;
+  margin-left: 48%;
+  width: 60px;
+  height: 60px;
+  border: 2px solid blue;
+  background-color: rgb(28, 200, 28);
+  color: white;
+  font-size: xx-large;
+  color: blue;
+}/*# sourceMappingURL=events.css.map */

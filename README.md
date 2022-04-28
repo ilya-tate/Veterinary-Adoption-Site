@@ -16,6 +16,14 @@
 # Day 6
 ## Worked on a second page that can take you ot the home page. NOT GUARANTEES OF IMPLEMENTATION!
 
-
 # Day 7 
 ## Worked on a second page that can take you ot the home page. NOT GUARANTEES OF IMPLEMENTATION!
+
+# Day 8
+## Added button for login page to go back to home... forgot what else
+
+# Day 9
+## Bug Fixes
+
+# Day 10
+## Added gender to animal and worked on animal page

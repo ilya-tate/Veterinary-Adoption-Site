@@ -31,6 +31,21 @@ const getAllAnimals = async (req, res) => {
   }
 };
 
+const getDisplayAnimals = async (req, res) => {
+  const size = 3;
+
+  try {
+    let animals = await PostModel.find()
+      .limit(3)
+      .sort({ createdAt: -1 })
+      .populate("animal");
+    return res.status(200).json(animals);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send("Server Error @ getDisplayAnimals");
+  }
+};
+
 const getAnimalById = async (req, res) => {
   try {
     const animal = await AnimalModel.findById(req.params.postId)
@@ -44,4 +59,4 @@ const getAnimalById = async (req, res) => {
   }
 };
 
-module.exports = {addAnimal, getAnimals};
+module.exports = {getDisplayAnimals, getAnimals};

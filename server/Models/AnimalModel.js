@@ -11,9 +11,13 @@ const AnimalSchema = new Schema({
     type: Number,
     required: true
   },
+  gender: {
+    type: String,
+    enum: ["f", "m", "female", "male"],
+    required: true
+  },
   animal: {
     type: String,
-    enum: ["dog", "cat"],
     required: true
   },
   breed: {
