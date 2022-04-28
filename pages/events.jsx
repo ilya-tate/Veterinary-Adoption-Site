@@ -10,6 +10,7 @@ const events = () => {
     location: "",
     description: "",
     purpose: "",
+<<<<<<< HEAD
   });
 
   const [events, setEvents] = useState([
@@ -57,6 +58,13 @@ const events = () => {
     setFoundEvent(e.target.value);
     console.log(foundEvent);
   };
+=======
+
+  });
+  // const [name, setName] = useState("")
+  // const [name, setName] = useState("")
+  // const [name, setName] = useState("")
+>>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
 
   const changeSubmit = () => {
     setTimeout(() => {
@@ -163,6 +171,7 @@ const events = () => {
           {/*
             Remove Event and Create Event barrier so that I can see the difference
           */}
+<<<<<<< HEAD
       <div className="removeEvent">
         <label htmlFor="events">
           Find Event To Delete: 
@@ -178,6 +187,15 @@ const events = () => {
         <button className="submit">Find Animal</button>
         {/* <br /> */}
         {/* <button
+=======
+
+
+
+      <div className="removeEvent">
+          <input type="text" name="name" placeholder="name" className="eventInputs"/>
+        <br />
+        <button
+>>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
           type="button"
           onClick={() => {
             setClicked(true);
@@ -193,9 +211,15 @@ const events = () => {
         >
           {clicked ? "loading" : submitted ? "✔" : "Delete?"}
         </button>
+<<<<<<< HEAD
         </div>*/}
     </div> 
     </div>
+=======
+      </div>
+    </div>
+      // </div>
+>>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
   );
 };
 

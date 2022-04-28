@@ -21,6 +21,7 @@ const animal = () => {
   const [animals, setAnimals] = useState([
     {
       name: "Jim",
+<<<<<<< HEAD
       id: 1,
     },
     {
@@ -43,11 +44,35 @@ const animal = () => {
     setFoundAnimal(e.target.value);
     console.log(e.target.value);
   };
+=======
+      id: "1"
+    },
+    {
+      name: "Jimmy",
+      id: "2"
+    },
+    {
+      name: "John",
+      id: "3"
+    },
+    {
+      name: "Johnny",
+      id: "4"
+    }
+  ])
+  // const [name, setName] = useState("")
+  // const [name, setName] = useState("")
+  // const [name, setName] = useState("")
+>>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
 
   const changeSubmit = () => {
     setTimeout(() => {
       setSubmitted(true);
+<<<<<<< HEAD
       setClicked(false);
+=======
+      setClicked(false)
+>>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
     }, 1500);
   };
 
@@ -218,11 +243,16 @@ const animal = () => {
         </button>
       </div>
 
+<<<<<<< HEAD
       {/*
+=======
+          {/*
+>>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
             Remove Animal and Create Animal barrier so that I can see the difference
           */}
 
       <div className="removeAnimals">
+<<<<<<< HEAD
         <label htmlFor="animals">
           Animals
           <select name="animals" onChange={chooseDrop}>
@@ -236,6 +266,19 @@ const animal = () => {
         <br />
         <button>Find Animal</button>
         {/* <button
+=======
+          <label for="animals">
+            Animals
+            <select name="animals">
+              {animals.map((animal) => (
+                <option>{animal.name}</option>
+                // console.log(animal);
+              ))}
+            </select>
+          </label>
+        <br />
+        <button
+>>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
           type="button"
           onClick={() => {
             setClicked(true);
@@ -250,7 +293,11 @@ const animal = () => {
           }
         >
           {clicked ? "loading" : submitted ? "✔" : "Delete?"}
+<<<<<<< HEAD
         </button> */}
+=======
+        </button>
+>>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
       </div>
     </div>
   );
