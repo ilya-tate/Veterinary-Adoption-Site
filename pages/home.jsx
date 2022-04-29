@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import WithBoth from "../components/layout/with/WithBoth"
 import styles from "../styles/pages/home.module.scss"
 import Dropdown from "../assets/svgs/dropdown.svg"
@@ -14,27 +14,27 @@ const dummyData = {
             location: "12345 W. Nowhere Dr.",
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
-        }, 
+        },
         map: "[some google maps link, iframe, or name]",
         id: 1,
-    },{
+    }, {
         title: "Mass Adoption Event",
         info: {
             desc: "An event where a bunch of people come together to adopt all at once",
             location: "12345 W. Nowhere Dr.",
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
-        }, 
+        },
         map: "[some google maps link, iframe, or name]",
         id: 2,
-    },{
+    }, {
         title: "Mass Adoption Event",
         info: {
             desc: "An event where a bunch of people come together to adopt all at once",
             location: "12345 W. Nowhere Dr.",
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
-        }, 
+        },
         map: "[some google maps link, iframe, or name]",
         id: 3,
     },],
@@ -49,38 +49,31 @@ const dummyData = {
         name: "Space Cowboy",
         sex: "Male",
         age: 3,
-        featured: false,
+        featured: true,
         image: pig,
         id: 1,
     }, {
         name: "Pikachu",
         sex: "Male",
         age: 1,
-        featured: false,
+        featured: true,
         image: pig,
         id: 2,
     }, {
         name: "Pig",
         sex: "Female",
         age: .5,
-        featured: false,
+        featured: true,
         image: pig,
         id: 3,
     },]
 }
 
 const Home = () => {
-    const [dropdowns, setDropdowns] = useState([])
-
-    useEffect(() => {
-      console.log(dropdowns);
-    }, [dropdowns])
-    
-
     return (
         <WithBoth className={styles.home}>
             <div className={styles.banner}>
-                <div className={styles.iframe}>
+                <div className={styles.video}>
                     <iframe
                         width="100%"
                         height="100%"
@@ -110,28 +103,23 @@ const Home = () => {
                         {map}
                     </div>
                     <div className={styles.eventInfo}>
-                        <div className={styles.always}>
-                            <div className={styles.eventTitle}>
-                                {title}
-                            </div>
-                            <div className={styles.desc}>
-                                {info.desc}
-                            </div>
-                            <div className={styles.dropdownIcon + " " + (dropdowns.includes(index) ? styles.dropdown : "")} onClick={() => {
-                                dropdowns.includes(index) ? setDropdowns(d => d.splice(d.indexOf(index), 1)) : setDropdowns(d => [...d, index])
-                            }}>
-                                <Dropdown />
-                            </div>
+                        <div className={styles.eventTitle}>
+                            {title}
                         </div>
-                        <div className={styles.sometimes + " " + (dropdowns.includes(index) ? styles.dropdown : "")}>
-                            <div className={styles.location}>
-                                {info.location}
-                            </div>
-                            <div className={styles.date}>
-                                {info.date}
-                            </div>
-                            <div className={styles.time}>
-                                {info.time}
+                        <div className={styles.simple}>
+                            <p className={styles.desc}>
+                                {info.desc}
+                            </p>
+                            <div className={styles.details}>
+                                <div>
+                                    Location: {info.location}
+                                </div>
+                                <div>
+                                    Date: {info.date}
+                                </div>
+                                <div>
+                                    Time: {info.time}
+                                </div>
                             </div>
                         </div>
                     </div>
