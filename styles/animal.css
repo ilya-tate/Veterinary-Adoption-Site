@@ -29,63 +29,6 @@
   font-size: larger;
   height: 5vh;
 }
-.removeAnimals .submit {
-  margin-left: 46%;
-  margin-top: 15px;
-  width: 90px;
-  height: 35px;
-}
-.removeAnimals .submit:hover {
-  background-color: red;
-  color: white;
-  font-weight: bolder;
-  width: 130px;
-  height: 40px;
-  margin-left: 43%;
-  font-size: 30px;
-  border: 2px solid black;
-  cursor: pointer;
-}
-.removeAnimals .click {
-  margin-top: 15px;
-  transition: all 0.5s;
-  border-radius: 58%;
-  margin-left: 48%;
-  width: 60px;
-  height: 60px;
-  border: 2px solid red;
-  font-size: smaller;
-  vertical-align: center;
-  color: white;
-}
-.removeAnimals .click:hover {
-  color: white;
-  background: linear-gradient(to bottom, white, gray, black);
-}
-.removeAnimals .clickedButton {
-  margin-top: 15px;
-  transition: all 0.5s;
-  border-radius: 58%;
-  margin-left: 48%;
-  width: 60px;
-  height: 60px;
-  border: 2px solid white;
-  background-color: red;
-  color: white;
-  font-size: xx-large;
-}
-.removeAnimals .clickedButton:hover {
-  transition: all 0.5s;
-  color: black;
-  border-radius: 58%;
-  margin-left: 48%;
-  width: 60px;
-  height: 60px;
-  border: 2px solid white;
-  background-color: orangered;
-  color: white;
-  font-size: xx-large;
-}
 .removeAnimals label {
   margin-left: 20%;
   font-size: large;
@@ -94,6 +37,44 @@
   width: 20vw;
   font-size: large;
   text-align: center;
+}
+.removeAnimals .delDiv {
+  width: 40vw;
+  height: 60vh;
+  margin-left: 5vw;
+  justify-content: center;
+  background-color: white;
+  text-align: center;
+}
+.removeAnimals .delDiv .delBot {
+  display: inline-flex;
+  margin-top: -1vh;
+}
+.removeAnimals .delDiv .delBot .delete {
+  width: 90px;
+  height: 40px;
+  font-size: 20px;
+  margin-top: 3vh;
+  margin-left: 5vw;
+  filter: brightness(0%);
+  background: url("/");
+  transition: 1s;
+  border: none;
+}
+.removeAnimals .delDiv .delBot .delete:hover {
+  filter: brightness(100%);
+  cursor: pointer;
+  transition: 1s;
+}
+.removeAnimals .delDiv .delBot .delName {
+  font-size: 60px;
+  margin-left: 13vw;
+}
+.removeAnimals .delDiv .delImg {
+  height: 49vh;
+  width: 38vw;
+  margin-top: 1vh;
+  background-color: white;
 }
 
 .createAnimal {

@@ -1,9 +1,11 @@
-import { React, useState } from "react";
-import { TextArea } from "semantic-ui-react";
+import { React, useState, useEffect } from "react";
+import axios from "axios";
+import { Icon } from "semantic-ui-react";
 
 const animal = () => {
   const [submitted, setSubmitted] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const [spade, setSpade] = useState(false);
   const [newAnimal, setNewAnimal] = useState({
     name: "",
     age: 0,
@@ -15,124 +17,79 @@ const animal = () => {
     details: "",
     description: "",
     vaccines: "",
-    spade: false,
+    spayed: "",
   });
 
-  const [animals, setAnimals] = useState([
-    {
-      name: "Jim",
-<<<<<<< HEAD
-      id: 1,
-    },
-    {
-      name: "Jimmy",
-      id: 2,
-    },
-    {
-      name: "John",
-      id: 3,
-    },
-    {
-      name: "Johnny",
-      id: 4,
-    },
-  ]);
+  const [trash, setTrash] = useState(false);
+  const [del, setDel] = useState([]);
+  const [foundAnimal, setFoundAnimal] = useState("");
+  const [animals, setAnimals] = useState([]);
 
-  const [foundAnimal, setFoundAnimal] = useState(0);
-
-  const chooseDrop = (e) => {
-    setFoundAnimal(e.target.value);
-    console.log(e.target.value);
+  const chooseDrop = async (e) => {
+    console.log("DROP");
+    // const {data} = await axios.get("/api/v1/animals/oneAni", e.target.value)
+    setDel(animals.find((animal) => e.target.value.toString() == animal.name));
+    console.log(e.target.value, e.target.value.toString());
+    setTimeout(() => {
+      console.log(del);
+    }, 2000);
   };
-=======
-      id: "1"
-    },
-    {
-      name: "Jimmy",
-      id: "2"
-    },
-    {
-      name: "John",
-      id: "3"
-    },
-    {
-      name: "Johnny",
-      id: "4"
-    }
-  ])
-  // const [name, setName] = useState("")
-  // const [name, setName] = useState("")
-  // const [name, setName] = useState("")
->>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
 
   const changeSubmit = () => {
     setTimeout(() => {
       setSubmitted(true);
-<<<<<<< HEAD
       setClicked(false);
-=======
-      setClicked(false)
->>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
     }, 1500);
   };
+
+  const getInfo = async () => {
+    const { data } = await axios.get("/api/v1/animals/adoption");
+    console.log(data);
+    setAnimals(data);
+  };
+
+  const deleteAnimal = async () => {
+    const { data } = await axios.delete("/api/v1/animals/admin", del);
+  }
+
+  useEffect(() => {
+    getInfo();
+    console.log(animals);
+  }, []);
 
   const handleChange = (e) => {
     const { name, files, value } = e.target;
     if (name === "media") {
       setMedia(files[0]);
       setMediaPreview(URL.createObjectURL(files[0]));
-    } else if (name == "spayed") {
-      setSpade(!spade);
-      console.log(spade);
-      setNewAnimal((prev) => ({ ...prev, [spade]: spade }));
     }
+    // else if (name == "spayed") {
+    //   setSpade(!spade);
+    //   console.log(spade);
+    //   setNewAnimal((prev) => ({ ...prev, [spayed]: spade }));
+    // }
     setNewAnimal((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    let picUrl;
+    // setLoading(true);
+    // let picUrl;
 
-    if (media) {
-      const formData = new FormData();
-      formData.append("image", media, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      const res = await axios.post("/api/v1/animals/admin", formData);
-      picUrl = res.data.src;
-    }
-
-    await submitNewAnimal(
-      newAnimal.name,
-      newAnimal.age,
-      newAnimal.gender,
-      newAnimal.animal,
-      newAnimal.breed,
-      newAnimal.colors,
-      newAnimal.needs,
-      newAnimal.details,
-      newAnimal.description,
-      newAnimal.vaccines,
-      newAnimal.spade,
-      picUrl,
-      newAnimal,
-      setNewAnimal,
-      setError
-    );
-
-    console.log("submitted");
-
-    setMedia(null);
-    setMediaPreview(null);
-    setLoading(false);
+    // if (media) {
+    // const formData = new FormData();
+    // formData.append("image", media, {
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //   },
+    // });
+    const res = await axios.post("/api/v1/animals/admin", { ...newAnimal });
+    // }
   };
 
   return (
     <div className="animalMain">
-      <div className="createAnimal" onSubmit={handleSubmit}>
+      <form className="createAnimal" onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
@@ -208,7 +165,7 @@ const animal = () => {
         />
         <input
           type="text"
-          name="Vaccination"
+          name="vaccines"
           placeholder="Vaccines..."
           className="animalVaccines animalInputs"
           onChange={handleChange}
@@ -218,7 +175,7 @@ const animal = () => {
           <p className="spade">Spade?</p>
           <input
             type="checkbox"
-            name="Spayed"
+            name="spayed"
             className="animalSpade animalInputs"
             onChange={handleChange}
             value={newAnimal.spade}
@@ -241,44 +198,55 @@ const animal = () => {
         >
           {clicked ? "loading" : submitted ? "✔" : "Submit?"}
         </button>
-      </div>
+      </form>
 
-<<<<<<< HEAD
       {/*
-=======
-          {/*
->>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
             Remove Animal and Create Animal barrier so that I can see the difference
           */}
 
       <div className="removeAnimals">
-<<<<<<< HEAD
         <label htmlFor="animals">
           Animals
-          <select name="animals" onChange={chooseDrop}>
-            {animals.map((animal) => (
-              <option key={animal.id} value={animal.id}>
-                {animal.name}
-              </option>
-            ))}
+          <select
+            name="animals"
+            onChange={(e) => {
+              chooseDrop(e);
+              console.log("hi");
+            }}
+          >
+            {animals.map((animal) => {
+              return <option value={animal.name}>{animal.name}</option>;
+            })}
           </select>
         </label>
         <br />
-        <button>Find Animal</button>
-        {/* <button
-=======
-          <label for="animals">
-            Animals
-            <select name="animals">
-              {animals.map((animal) => (
-                <option>{animal.name}</option>
-                // console.log(animal);
-              ))}
-            </select>
-          </label>
         <br />
-        <button
->>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
+        <br />
+        {del !== [] && (
+          // console.log(del, del.name)
+          <div className="delDiv">
+            <img src="/bulldog.jfif" alt="fff" className="delImg" />
+            <div className="delBot">
+              {del.name ? (
+                <h1 className="delName">
+                  {del.name} - {del.age}
+                </h1>
+              ) : <h1 className="delName"></h1>}
+              <button
+                className="delete"
+                onMouseEnter={() => setTrash(true)}
+                onMouseLeave={() => setTrash(false)}
+                onClick={deleteAnimal}
+              >
+                <Icon
+                  name={trash ? "trash alternate outline" : "trash"}
+                  color="Cardinal red"
+                />
+              </button>
+            </div>
+          </div>
+        )}
+        {/* <button
           type="button"
           onClick={() => {
             setClicked(true);
@@ -293,11 +261,7 @@ const animal = () => {
           }
         >
           {clicked ? "loading" : submitted ? "✔" : "Delete?"}
-<<<<<<< HEAD
         </button> */}
-=======
-        </button>
->>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
       </div>
     </div>
   );

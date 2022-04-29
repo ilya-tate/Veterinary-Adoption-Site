@@ -2,15 +2,18 @@ const animalModel = require("../Models/AnimalModel")
 
 const addAnimal = async (req, res) => {
   const params = req.body;
+  console.log(params);
+  console.log("Creating");
   try {
-    const newAnimal = await new animalModel({ params }).save();
-    const animalAdded = await animalModel
-      .findById(animal._id)
-      .populate("animal");
+    console.log("Creating.");
+    const newAni = await new animalModel({...params}).save();
+    console.log("Creating..", newAni);
+    const animalAdded = await animalModel.findById("626afc8650b83124e5b1c5f2")
+      //dont add populate because no reference
     console.log("NEW ANIMAL");
     return res.status(200).json(animalAdded);
   } catch (err) {
-    res.status(500).send(`ERROR ${err}`);
+    res.status(500).send(`ERROR`);
   }
 };
 

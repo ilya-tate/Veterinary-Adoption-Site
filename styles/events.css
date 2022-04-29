@@ -86,7 +86,6 @@
   color: white;
   font-size: xx-large;
 }
-<<<<<<< HEAD
 .removeEvent label {
   margin-left: 20%;
   font-size: large;
@@ -96,8 +95,6 @@
   font-size: large;
   text-align: center;
 }
-=======
->>>>>>> 7ab19181c367bbaca0dee91e1e1c28b6b5ca5f83
 
 .createEvent {
   border-right: 1px solid black;

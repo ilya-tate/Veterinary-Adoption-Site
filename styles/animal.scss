@@ -28,63 +28,6 @@
       height: 5vh;
     }
   }
-  .submit{
-    margin-left: 46%;
-    margin-top: 15px;
-    width: 90px;
-    height: 35px;
-    &:hover{
-      background-color: red;
-      color: white;
-      font-weight: bolder;
-      width: 130px;
-      height: 40px;
-      margin-left: 43%;
-      font-size: 30px;
-      border: 2px solid black;
-      cursor: pointer;
-    }
-  }
-  .click{
-    margin-top: 15px;
-    transition: all .5s;
-    border-radius: 58%;
-    margin-left: 48%;
-    width: 60px;
-    height: 60px;
-    border: 2px solid red;
-    font-size: smaller;
-    vertical-align: center;
-    color: white;
-    &:hover{
-      color: white;
-      background: linear-gradient(to bottom, white, gray, black);
-    }
-  }
-  .clickedButton{
-    margin-top: 15px;
-    transition: all .5s;
-    border-radius: 58%;
-    margin-left: 48%;
-    width: 60px;
-    height: 60px;
-    border: 2px solid white;
-    background-color: red;
-    color: white;
-    font-size: xx-large;
-    &:hover{
-      transition: all .5s;
-      color: black;
-      border-radius: 58%;
-      margin-left: 48%;
-      width: 60px;
-      height: 60px;
-      border: 2px solid white;
-      background-color: orangered;
-      color: white;
-      font-size: xx-large;
-    }
-  }
   label{
     margin-left: 20%;
     font-size: large;
@@ -93,6 +36,44 @@
       width: 20vw;
       font-size: large;
       text-align: center;
+    }
+    .delDiv{
+      width: 40vw;
+      height: 60vh;
+      margin-left: 5vw;
+      justify-content: center;
+      background-color: white;
+      text-align: center;
+      .delBot{
+        display: inline-flex;
+        margin-top: -1vh;
+        .delete{
+          width: 90px;
+          height: 40px;
+          font-size: 20px;
+          margin-top: 3vh;
+          margin-left: 5vw;
+          filter: brightness(0%);
+          background: url("/");
+          transition: 1s;
+          border: none;
+          &:hover{
+            filter: brightness(100%);
+            cursor: pointer;
+            transition: 1s;
+          }
+        }
+        .delName{
+          font-size: 60px;
+          margin-left: 13vw;
+        }
+      }
+      .delImg{
+        height: 49vh;
+        width: 38vw;
+        margin-top: 1vh;
+        background-color: white;
+      }
     }
 }
 
