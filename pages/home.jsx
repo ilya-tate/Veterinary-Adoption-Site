@@ -15,27 +15,27 @@ const dummyData = {
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
         },
-        map: "[some google maps link, iframe, or name]",
+        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
         id: 1,
     }, {
-        title: "Mass Adoption Event",
+        title: "Mass Adoption Event 2",
         info: {
             desc: "An event where a bunch of people come together to adopt all at once",
             location: "12345 W. Nowhere Dr.",
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
         },
-        map: "[some google maps link, iframe, or name]",
+        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
         id: 2,
     }, {
-        title: "Mass Adoption Event",
+        title: "Mass Adoption Event 3",
         info: {
             desc: "An event where a bunch of people come together to adopt all at once",
             location: "12345 W. Nowhere Dr.",
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
         },
-        map: "[some google maps link, iframe, or name]",
+        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
         id: 3,
     },],
     animals: [{
@@ -59,19 +59,15 @@ const dummyData = {
         featured: true,
         image: pig,
         id: 2,
-    }, {
-        name: "Pig",
-        sex: "Female",
-        age: .5,
-        featured: true,
-        image: pig,
-        id: 3,
-    },]
+    }]
 }
 
 const Home = () => {
+    const [eventIndex, setEventIndex] = useState(0);
+
     return (
         <WithBoth className={styles.home}>
+            <h1 className={styles.title}>West Mec Veterinary Program Adoption Portal</h1>
             <div className={styles.banner}>
                 <div className={styles.video}>
                     <iframe
@@ -98,36 +94,45 @@ const Home = () => {
             </div>
             <div className={styles.events}>
                 <h2 className={styles.heading}>Upcoming Events</h2>
-                {dummyData.events.map(({title, info, map, id}, index) => <div key={id} className={styles.event}>
-                    <div className={styles.map}>
-                        {map}
-                    </div>
-                    <div className={styles.eventInfo}>
-                        <div className={styles.eventTitle}>
-                            {title}
+                <ul className={styles.choseEventMobile}>
+                    {dummyData.events.map((_, i) => <li className={styles.num} onClick={() => setEventIndex(i)}>
+                        {i + 1}
+                    </li>)}
+                </ul>
+                <div className={styles.eventsContainer}>
+                    {dummyData.events.map(({title, info, map, id}, index) => <div key={id} className={styles.event + " " + (eventIndex === index ? styles.show : "")}>
+                        <div className={styles.map}>
+                            {map}
                         </div>
-                        <div className={styles.simple}>
-                            <p className={styles.desc}>
-                                {info.desc}
-                            </p>
-                            <div className={styles.details}>
-                                <div>
-                                    Location: {info.location}
-                                </div>
-                                <div>
-                                    Date: {info.date}
-                                </div>
-                                <div>
-                                    Time: {info.time}
+                        <div className={styles.eventInfo}>
+                            <div className={styles.eventTitle}>
+                                {title}
+                            </div>
+                            <div className={styles.simple}>
+                                <p className={styles.desc}>
+                                    {info.desc}
+                                </p>
+                                <div className={styles.details}>
+                                    <div>
+                                        Location: {info.location}
+                                    </div>
+                                    <div>
+                                        Date: {info.date}
+                                    </div>
+                                    <div>
+                                        Time: {info.time}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>)}
+                    </div>)}
+                </div>
             </div>
             <div className={styles.animals}>
                 <h2 className={styles.heading}>Featured Animals</h2>
-                {dummyData.animals.map(({id, ...animal}) => <Animal key={id} id={id} {...animal} />)}
+                <div className={styles.animalsContainer}>
+                    {dummyData.animals.map(({id, ...animal}) => <Animal key={id} id={id} {...animal} />)}
+                </div>
                 <Link href="/animals">
                     <button className={styles.allAnimals}>
                         See All Animals
