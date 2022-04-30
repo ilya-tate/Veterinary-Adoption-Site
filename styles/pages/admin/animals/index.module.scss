@@ -1,2 +1,39 @@
+@use "../../../utils/colors"as *;
+@use "../../../utils/media"as *;
+
 .editAnimal {
+
+    .heading {
+        width: 100%;
+        font-size: 2rem;
+        padding: 0 2rem;
+        margin: 0;
+        color: $black;
+        font-weight: 100;
+        text-align: center;
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    .search {
+        padding: 0 2rem;
+
+        @include md {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        @include xl {
+            width: 35%;
+            margin: 0 auto;
+        }
+    }
+
+    .animals {
+        padding: 0 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 3rem;
+    }
 }

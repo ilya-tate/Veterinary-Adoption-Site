@@ -6,11 +6,11 @@
     font-size: 1rem;
 
     .title {
-        font-size: 2rem;    
+        font-size: 2rem;
         width: 65%;
         margin: 0 auto;
         text-align: center;
-        
+
         @include md {
             font-size: 3rem;
         }
@@ -74,8 +74,8 @@
         flex-direction: column;
         // flex-wrap: nowrap;
         gap: 3rem;
-        justify-content:  center;
-        
+        justify-content: center;
+
         h2.heading {
             margin: 0;
             width: 100%;
@@ -87,10 +87,10 @@
         ul.choseEventMobile {
             display: block;
             display: flex;
-            width: 50%;
             justify-content: space-evenly;
             font-size: 1.75rem;
             margin: 0 auto;
+            gap: 1rem;
 
             @include md {
                 display: none;
@@ -145,30 +145,30 @@
                 @include md {
                     flex-basis: calc(50% - 3rem);
                 }
-    
+
                 .map {
                     width: 100%;
                     aspect-ratio: 1.25 / 1;
                 }
-    
+
                 .eventInfo {
                     padding: 2rem;
-    
+
                     .eventTitle {
                         font-size: 1.5rem;
-    
+
                         @include md {
                             font-size: 2rem;
                         }
                     }
-    
+
                     .simple {
                         display: flex;
                         flex-direction: column;
                         gap: 1rem;
                         line-height: 1.5;
                         padding: 1rem 1rem;
-    
+
                         @include md {
                             font-size: 1.5rem;
                             padding: 1rem 2rem;
@@ -185,8 +185,8 @@
         display: flex;
         flex-direction: column;
         gap: 3rem;
-        
-        
+
+
         .heading {
             margin: 0;
             width: 100%;
@@ -194,7 +194,7 @@
             font-size: 2.5rem;
             text-align: center;
         }
-        
+
         .animalsContainer {
             display: flex;
             flex-wrap: wrap;

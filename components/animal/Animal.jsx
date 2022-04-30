@@ -3,9 +3,9 @@ import styles from "../../styles/components/animal/Animal.module.scss"
 import Star from "../../assets/svgs/star.svg"
 import Link from "next/link";
 
-const Animal = ({image, name, sex, age, featured, id}) => {
+const Animal = ({image, name, sex, age, featured, id, link}) => {
     return (
-        <Link href={`/animals/${id}`}>
+        <Link href={link || `/animals/${id}`}>
             <div className={styles.animal}>
                 <div className={styles.image}>
                     <Image
