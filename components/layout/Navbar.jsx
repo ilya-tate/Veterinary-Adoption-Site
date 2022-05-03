@@ -13,7 +13,7 @@ const Navbar = () => {
         <nav className={styles.nav}>
             <div className={styles.title}>
                 <div className={styles.logo}>
-                    <Link href="/home">
+                    <Link href="/">
                         <Image
                             src={logo}
                             alt="West-Mec Arrow Logo"

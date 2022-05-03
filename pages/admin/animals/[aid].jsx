@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import WithBoth from "../../../components/layout/with/WithBoth"
 import styles from "../../../styles/pages/admin/animals/[aid].module.scss"
 import Image from "../../../assets/svgs/image.svg"
+import Input from "../../../components/form/Input"
+import Area from '../../../components/form/Area'
 
 const EditAnimal = () => {
     const [images, setImages] = useState([])
@@ -36,9 +38,20 @@ const EditAnimal = () => {
                 <button className={styles.uploadImage}>Upload Image</button>
             </div>
             <div className={styles.common}>
-                <h2>Common Information</h2>
+                {/* <h2>Common Information</h2> */}
                 <div className={styles.mainForm}>
+                    <Input name="name" heading="Name" />
+                    <div className={styles.breedAndAge}>
+                        <Input name="breed" heading="Breed" />
+                        <Input name="age" heading="Age" />
+                    </div>
+                    <Area name="description" heading="Description" limit={300}/>
+                    <ul className="radios">
+                        <li className={styles.radio}>
+                            <div className={styles.title}>Sex</div>
 
+                        </li>
+                    </ul>
                 </div>
             </div>
         </WithBoth>

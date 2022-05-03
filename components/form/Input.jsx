@@ -10,11 +10,11 @@ const Input = ({name, type, icon, className, onChange, heading}) => {
                     name={name}
                     id={name}
                     className={styles.elem}
-                    onChange={(e) => onChange(e.target.value)}
+                    onChange={(e) => onChange && onChange(e.target.value)}
                 />
-                <div className={styles.icon}>
+                {icon ? <div className={styles.icon}>
                     {icon}
-                </div>
+                </div> : null}
             </label>
         </div>
     )
