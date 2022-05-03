@@ -4,6 +4,13 @@ import styles from "../../../styles/pages/admin/animals/[aid].module.scss"
 import Image from "../../../assets/svgs/image.svg"
 import Input from "../../../components/form/Input"
 import Area from '../../../components/form/Area'
+import Radios from '../../../components/form/Radios'
+
+const radios = {
+    sex: [{name: "male", heading: "Male"}, {name: "female", heading: "Female"}]
+    // sex: [{name: "male", heading: "Male"}, {name: "female", heading: "Female"}]
+    // sex: [{name: "male", heading: "Male"}, {name: "female", heading: "Female"}]
+}
 
 const EditAnimal = () => {
     const [images, setImages] = useState([])
@@ -47,10 +54,7 @@ const EditAnimal = () => {
                     </div>
                     <Area name="description" heading="Description" limit={300}/>
                     <ul className="radios">
-                        <li className={styles.radio}>
-                            <div className={styles.title}>Sex</div>
-
-                        </li>
+                        {/* <Radios cata="sex" content={} /> */}
                     </ul>
                 </div>
             </div>
