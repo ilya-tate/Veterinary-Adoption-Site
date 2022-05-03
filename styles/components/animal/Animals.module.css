@@ -1,0 +1,14 @@
+.animals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  width: 100%;
+  position: relative;
+}
+.animals .none {
+  width: 100%;
+  text-align: center;
+  padding: 3rem;
+  font-size: 2.5rem;
+  color: #2B363B;
+}/*# sourceMappingURL=Animals.module.css.map */

@@ -1,0 +1,22 @@
+.input {
+  width: 100%;
+  height: 4rem;
+  background-color: #FDE3D8;
+  box-shadow: #f7931d 0.25rem 0.25rem;
+  color: #2B363B;
+  display: flex;
+  border-radius: 2rem;
+  align-items: center;
+  padding: 1rem 2rem;
+  gap: 1rem;
+  font-size: 1rem;
+}
+.input .elem {
+  width: 100%;
+  height: 100%;
+  font-family: "Inter";
+}
+.input .icon {
+  width: 2rem;
+  height: 100%;
+}/*# sourceMappingURL=Input.module.css.map */

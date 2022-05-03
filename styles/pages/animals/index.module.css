@@ -1,0 +1,22 @@
+main.animals .content {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+main.animals .content .filter {
+  display: flex;
+  gap: 2rem;
+}
+@media (min-width: 992px) {
+  main.animals .content .filter {
+    gap: 3rem;
+  }
+}
+main.animals .content .filter .bar {
+  flex-grow: 3;
+}
+main.animals .content .filter .search {
+  flex-shrink: 2;
+}/*# sourceMappingURL=index.module.css.map */

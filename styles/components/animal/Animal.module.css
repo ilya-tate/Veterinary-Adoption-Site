@@ -1,0 +1,111 @@
+.animal {
+  height: 35rem;
+  border-radius: 1.5rem;
+  display: grid;
+  color: #ffffff;
+  box-shadow: #04133e 0.25rem 0.25rem 1rem -0.5rem;
+  cursor: pointer;
+  flex-basis: 100%;
+  flex-grow: 0;
+  visibility: visible;
+  opacity: 1;
+  transform: translate(0, 0);
+  max-width: 100%;
+}
+@media (min-width: 576px) {
+  .animal {
+    flex-basis: 75%;
+    height: 50rem;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 992px) {
+  .animal {
+    height: 40rem;
+    flex-basis: calc(50% - 2rem);
+    margin: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .animal {
+    height: 40rem;
+  }
+}
+@media (min-width: 1400px) {
+  .animal {
+    flex-basis: calc(33.33% - 2rem);
+  }
+}
+.animal .image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+  grid-row: 1/2;
+  grid-column: 1/2;
+  z-index: 0;
+  border-radius: 1.5rem;
+}
+.animal .image .elem {
+  border-radius: 1.5rem;
+}
+.animal .image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(43, 54, 59, 0) 67.19%, rgba(43, 54, 59, 0.85) 79.69%, #2B363B 100%);
+  border-radius: 1.5rem;
+}
+.animal .details {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  z-index: 1;
+  align-self: flex-end;
+  font-size: 1.75rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.animal .details .name {
+  font-weight: 650;
+  font-size: 1em;
+}
+.animal .details .other {
+  font-size: 0.75em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.animal .details .other .common {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.animal .details .other .common .decorator {
+  border-radius: 0.25rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #ffffff;
+}
+.animal .details .other .featured {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.animal .details .other .featured .icon {
+  width: 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: #ffffff;
+}/*# sourceMappingURL=Animal.module.css.map */
