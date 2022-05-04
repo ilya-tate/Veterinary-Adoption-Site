@@ -1,20 +1,19 @@
 import React, {useState} from 'react'
 import WithBoth from "../../../components/layout/with/WithBoth"
 import styles from "../../../styles/pages/admin/animals/[aid].module.scss"
-import Image from "../../../assets/svgs/image.svg"
 import Input from "../../../components/form/Input"
 import Area from '../../../components/form/Area'
 import Radios from '../../../components/form/Radios'
+import { useRouter } from 'next/router'
 
 const radios = {
-    sex: [{name: "male", heading: "Male"}, {name: "female", heading: "Female"}]
-    // sex: [{name: "male", heading: "Male"}, {name: "female", heading: "Female"}]
-    // sex: [{name: "male", heading: "Male"}, {name: "female", heading: "Female"}]
+    sex: [{name: "male", heading: "Male"}, {name: "female", heading: "Female"}],
+    vaccinated: [{name: "yes", heading: "Yes"}, {name: "no", heading: "No"}],
+    neutered: [{name: "yes2", heading: "Yes"}, {name: "no2", heading: "No"}],
 }
 
 const EditAnimal = () => {
     const [images, setImages] = useState([])
-    const [imageIndex, setImageIndex] = useState(0);
 
     return (
         <WithBoth className={styles.editAnimal}>
@@ -45,16 +44,33 @@ const EditAnimal = () => {
                 <button className={styles.uploadImage}>Upload Image</button>
             </div>
             <div className={styles.common}>
-                {/* <h2>Common Information</h2> */}
+                <h2 className={styles.heading}>Required</h2>
                 <div className={styles.mainForm}>
                     <Input name="name" heading="Name" />
                     <div className={styles.breedAndAge}>
-                        <Input name="breed" heading="Breed" />
-                        <Input name="age" heading="Age" />
+                        <Input className={styles.breed} name="breed" heading="Breed" />
+                        <Input className={styles.age} name="age" heading="Age" />
                     </div>
                     <Area name="description" heading="Description" limit={300}/>
-                    <ul className="radios">
-                        {/* <Radios cata="sex" content={} /> */}
+                    <ul className={styles.other}>
+                        <li className={styles.otherItem}>
+                            <p>Sex:</p> 
+                            <div className={styles.button}>
+                                <Radios cata="sex" content={radios.sex} />
+                            </div>
+                        </li>
+                        <li className={styles.otherItem}>
+                            <p>Neutered:</p> 
+                            <div className={styles.button}>
+                                <Radios cata="neutered" content={radios.neutered} />
+                            </div>
+                        </li>
+                        <li className={styles.otherItem}>
+                            <p>Vaccinated:</p> 
+                            <div className={styles.button}>
+                                <Radios cata="vaccinated" content={radios.vaccinated} />
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

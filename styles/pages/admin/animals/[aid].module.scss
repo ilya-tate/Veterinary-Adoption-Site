@@ -1,1 +1,61 @@
-.editAnimal {}
+@use "../../../utils/colors"as *;
+@use "../../../utils/media"as *;
+
+.editAnimal {
+    color: $black;
+
+    .images {
+
+        .uploadImage {
+
+        }
+    }
+
+    .common {
+        .heading {
+            font-size: 2rem;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            color: $black;
+        }
+
+        .mainForm {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .breedAndAge {
+                display: flex;
+                gap: 2rem;
+
+                .breed {
+                    flex-grow: 2;
+                }
+
+                .age {
+                    flex-grow: 1;
+                    flex-shrink: 3;
+                }
+            }
+
+            .other {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                font-size: 1.5rem;
+                
+                .otherItem {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 1rem;
+
+                    .button {
+                        flex-grow: 2;
+                    }
+                }
+            }
+        }
+    }
+}

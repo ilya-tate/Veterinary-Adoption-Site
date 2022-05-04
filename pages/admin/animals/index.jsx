@@ -95,7 +95,7 @@ const AdminAnimals = () => {
                 <Input name="search" icon={<Search />} onChange={(query) => setSearch(query.toLowerCase())} />
             </div>
             <div className={styles.animals}>
-                {animalsData.filter(({name}) => name.toLowerCase().includes(search)).map(({id, ...animal}) => <Animal {...animal} id={id} key={id} link={`/admin/animals/${id}`} />)}
+                {animalsData.filter(({name}) => name.toLowerCase().includes(search)).map(({id, ...animal}) => <Animal {...animal} id={id} key={id} link={`/admin/animals/${id}?mode=edit`} />)}
             </div>
         </WithBoth>
     )

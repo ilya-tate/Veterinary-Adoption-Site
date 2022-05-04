@@ -1,13 +1,13 @@
 import styles from "../../styles/components/form/Radios.module.scss"
 
 const Radios = ({cata, content}) => {
-    return <div style={styles.radios}>
+    return <div className={styles.radios}>
         {content.map(({name, heading}, i) => <div key={i} className={styles.radio}>
             <div className={styles.bubble}>
-                <input type="radio" name={cata} id={name} className={styles.elem} />
+                <input type="radio" defaultChecked={i === 0} name={cata} id={name} className={styles.elem} />
                 <div className={styles.check}></div>
             </div>
-            <p>{heading}</p> 
+            <p className={styles.heading}>{heading}</p> 
         </div>)}
     </div> 
     

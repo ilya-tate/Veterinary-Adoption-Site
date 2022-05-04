@@ -2,9 +2,9 @@ import styles from "../../styles/components/form/Input.module.scss"
 
 const Input = ({name, type, icon, className, onChange, heading}) => {
     return (
-        <div className={styles.inputContainer}>
+        <div className={styles.inputContainer + " " + className}>
             {heading && <div className={styles.heading}>{heading}</div>}
-            <label htmlFor={name} className={styles.input + " " + className}>
+            <label htmlFor={name} className={styles.input}>
                 <input
                     type={type || "text"}
                     name={name}
