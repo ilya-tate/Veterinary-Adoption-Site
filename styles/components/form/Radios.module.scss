@@ -3,16 +3,16 @@
 
 .radios {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
+    // justify-content: flex-end;
     justify-content: flex-end;
+    flex-grow: 2;
     
     .radio {
-        width: 7rem;
         align-items: center;
         display: flex;
-        justify-content: space-between;
         gap: .5rem;
-
+        
         .heading {
             font-size: 1.5rem;
         }

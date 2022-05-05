@@ -5,9 +5,124 @@
     color: $black;
 
     .images {
+        min-height: calc(100vh - 8rem);
+        display: flex;
+        gap: 5rem;
+        flex-direction: column;
+
+        .slide {
+
+            .slider {
+                display: flex;
+                position: relative;
+                min-width: none;
+
+                @include sm {
+                    align-self: center;
+                    min-width: 35rem;
+                }
+
+                @include lg {
+                    align-self: auto;
+                    max-width: 35rem;
+                }
+
+                .left,
+                .right,
+                .del {
+                    width: 4rem;
+                    height: 4rem;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $light-orange;
+                    padding: .5rem;
+                    border-radius: 50%;
+                    // box-shadow: $orange .25rem .25rem  0 0;
+                    border: solid $orange .175rem;
+
+                    .icon {
+                        height: 100%;
+                        fill: $black;
+                    }
+                }
+
+                .left {
+                    left: 0;
+                }
+
+                .right {
+                    right: 0;
+                }
+
+                .del {
+                    top: 1rem;
+                    right: 0;
+                }
+
+                .image {
+                    min-width: 90%;
+                    max-width: 35rem;
+                    height: 60vh;
+                    position: relative;
+                    z-index: 0;
+                    box-shadow: $dark-blue .25rem .25rem 1rem -.5rem;
+                    border-radius: 1.5rem;
+                    margin: 0 auto;
+
+                    &.noImage {
+                        box-shadow: none;
+                        padding: 5rem;
+                        font-size: 2rem;
+                        font-family: "Inter";
+                    }
+
+                    .elem {
+                        border-radius: 1.5rem;
+                    }
+                }
+            }
+        }
+        
 
         .uploadImage {
+            width: calc(100% - 4rem);
+            height: 4rem;
+            transition: none;
+            background: $light-orange;
+            border: none;
+            box-shadow: $orange .25rem .25rem 0 0;
+            border-radius: 2rem;
+            font-family: "Inter";
+            color: $black;
+            cursor: pointer;
+            font-size: 1.75rem;
+            font-weight: 700;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            margin: 0 2rem;
 
+            .file {
+                grid-row: 1 / 2;
+                grid-column: 1 / 2;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                position: relative;
+                opacity: 0;
+            }
+
+            .text {
+                grid-row: 1 / 2;
+                grid-column: 1 / 2;   
+                z-index: 0;
+                position: relative;
+            }
         }
     }
 
@@ -49,12 +164,28 @@
                 .otherItem {
                     display: flex;
                     justify-content: space-between;
-                    gap: 1rem;
+                    gap: .5rem;
 
                     .button {
                         flex-grow: 2;
                     }
                 }
+            }
+        }
+    }
+
+    .optional {
+        .heading {
+            font-size: 2rem;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            color: $black;
+        }
+
+        .video {
+            .iframe {
+                
             }
         }
     }
