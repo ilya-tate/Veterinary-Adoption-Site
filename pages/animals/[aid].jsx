@@ -1,5 +1,5 @@
 import {useRouter} from "next/router"
-import WithBoth from "../../components/layout/with/WithBoth";
+// import WithBoth from "../../components/layout/with/WithBoth";
 import styles from "../../styles/pages/animals/[aid].module.scss"
 import Image from "next/image"
 import {useEffect, useState} from "react";

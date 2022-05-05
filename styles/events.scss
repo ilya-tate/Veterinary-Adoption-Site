@@ -12,6 +12,7 @@
   border-left: 1px solid black;
   width: 50vw;
   height: calc(100vh - 9vh);
+
   .eventInputs {
     margin-top: 15px;
     border: 1px solid black;
@@ -20,6 +21,7 @@
     font-size: large;
     width: 30vw;
     margin-left: 10vw;
+
     &:focus {
       border: 2px solid black;
       font-weight: bolder;
@@ -28,12 +30,14 @@
       height: 5vh;
     }
   }
-  .submit{
+
+  .submit {
     margin-left: 46%;
     margin-top: 15px;
     width: 90px;
     height: 35px;
-    &:hover{
+
+    &:hover {
       background-color: red;
       color: white;
       font-weight: bolder;
@@ -45,7 +49,8 @@
       cursor: pointer;
     }
   }
-  .click{
+
+  .click {
     margin-top: 15px;
     transition: all .5s;
     border-radius: 58%;
@@ -56,12 +61,14 @@
     font-size: smaller;
     vertical-align: center;
     color: white;
-    &:hover{
+
+    &:hover {
       color: white;
       background: linear-gradient(to bottom, white, gray, black);
     }
   }
-  .clickedButton{
+
+  .clickedButton {
     margin-top: 15px;
     transition: all .5s;
     border-radius: 58%;
@@ -72,7 +79,7 @@
     background-color: red;
     color: white;
     font-size: xx-large;
-    &:hover{
+    &:hover {
       transition: all .5s;
       color: black;
       border-radius: 58%;
@@ -85,21 +92,64 @@
       font-size: xx-large;
     }
   }
-  label{
+
+  label {
     margin-left: 20%;
     font-size: large;
   }
-    select{
-      width: 20vw;
-      font-size: large;
-      text-align: center;
+
+  select {
+    width: 20vw;
+    font-size: large;
+    text-align: center;
+  }
+
+  .delDiv{
+    width: 40vw;
+    height: 70vh;
+    margin-left: 5vw;
+    justify-content: center;
+    background-color: white;
+    text-align: center;
+    .delBot{
+      display: inline-flex;
+      .delete{
+        width: 90px;
+        height: 40px;
+        font-size: 20px;
+        margin-top: 7vh;
+        filter: brightness(0%);
+        background: url("/");
+        transition: 1s;
+        border: none;
+        &:hover{
+          filter: brightness(100%);
+          cursor: pointer;
+          transition: 1s;
+        }
+      }
+      .delName{
+        width: 35vw;
+        font-size: 40px;
+        height: 18vh;
+        margin-left: 1vw;
+      }
     }
+    iframe{
+      height: 49vh;
+      width: 38vw;
+      margin-top: 1vh;
+      // background-color: red;
+    }
+  }
 }
 
 .createEvent {
   border-right: 1px solid black;
   width: 50vw;
   height: calc(100vh - 9vh);
+  text-align: center;
+
   .eventInputs {
     margin-top: 5px;
     border: 1px solid black;
@@ -107,7 +157,7 @@
     font-family: sans-serif;
     font-size: large;
     width: 30vw;
-    margin-left: 10vw;
+
     &:focus {
       border: 2px solid black;
       font-weight: bolder;
@@ -116,53 +166,54 @@
       height: 5vh;
     }
   }
-  .submit{
-    margin-left: 46%;
+
+  .submit {
     width: 90px;
     height: 35px;
-    &:hover{
+
+    &:hover {
       background-color: white;
       color: black;
       font-weight: bolder;
       width: 130px;
       height: 40px;
-      margin-left: 43%;
       font-size: 30px;
       border: 2px solid black;
       cursor: pointer;
     }
   }
-  .click{
+
+  .click {
     transition: all .5s;
     border-radius: 58%;
-    margin-left: 48%;
     width: 60px;
     height: 60px;
     border: 2px solid blue;
     font-size: smaller;
     vertical-align: center;
     color: black;
+
     // text-shadow: 2px 2px white;
-    &:hover{
+    &:hover {
       color: white;
       background: linear-gradient(to bottom, yellow, orangered, blue);
     }
   }
-  .clickedButton{
+
+  .clickedButton {
     transition: all .5s;
     border-radius: 58%;
-    margin-left: 48%;
     width: 60px;
     height: 60px;
     border: 2px solid blue;
     background-color: rgb(28, 200, 28);
     color: white;
     font-size: xx-large;
-    &:hover{
+
+    &:hover {
       transition: all .5s;
       color: black;
       border-radius: 58%;
-      margin-left: 48%;
       width: 60px;
       height: 60px;
       border: 2px solid blue;
@@ -170,6 +221,16 @@
       color: white;
       font-size: xx-large;
       color: blue;
+    }
+  }
+
+  .help{
+    font-size: 10px;
+    .helpIcon{
+      margin-left: 1%;
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
 }

@@ -9,6 +9,19 @@
 }
 
 .removeAnimals {
+  .findAni{
+    background: white;
+    color: black;
+    width: 80px;
+    height: 40px;
+    margin-left: 45%;
+    &:hover{
+      background: black;
+      color: white;
+      width: 85px;
+      height: 42.5px;
+    }
+  }
   border-left: 1px solid black;
   width: 50vw;
   height: calc(100vh - 9vh);

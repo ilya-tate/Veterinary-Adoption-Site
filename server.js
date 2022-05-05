@@ -33,10 +33,12 @@ app.use(fileUpload({ useTempFiles: true }));
 const userRoute = require('./server/Routes/userRoutes')
 const authRoute = require("./server/routes/authRoute");
 const animalRoute = require("./server/Routes/animals");
+const eventRoute = require("./server/Routes/event");
 
 app.use('/api/v1/user', userRoute)
 app.use("/api/v1/auth", authRoute)
 app.use("/api/v1/animals", animalRoute)
+app.use("/api/v1/events", eventRoute)
 
 //*SOCKETS */
 // const { Server } = require("socket.io");

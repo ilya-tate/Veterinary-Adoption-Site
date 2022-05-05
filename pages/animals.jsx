@@ -19,9 +19,12 @@ const animal = () => {
     vaccines: "",
     spayed: "",
   });
+  const [show, setShow] = useState(false);
+  const [sucessful, setSucessful] = useState(false);
 
   const [trash, setTrash] = useState(false);
-  const [del, setDel] = useState([]);
+  const [del, setDel] = useState({});
+  const [delId, setDelId] = useState("");
   const [foundAnimal, setFoundAnimal] = useState("");
   const [animals, setAnimals] = useState([]);
 
@@ -29,10 +32,6 @@ const animal = () => {
     console.log("DROP");
     // const {data} = await axios.get("/api/v1/animals/oneAni", e.target.value)
     setDel(animals.find((animal) => e.target.value.toString() == animal.name));
-    console.log(e.target.value, e.target.value.toString());
-    setTimeout(() => {
-      console.log(del);
-    }, 2000);
   };
 
   const changeSubmit = () => {
@@ -40,6 +39,10 @@ const animal = () => {
       setSubmitted(true);
       setClicked(false);
     }, 1500);
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 3000);
+    setSucessful(true);
   };
 
   const getInfo = async () => {
@@ -49,13 +52,22 @@ const animal = () => {
   };
 
   const deleteAnimal = async () => {
-    const { data } = await axios.delete("/api/v1/animals/admin", del);
-  }
+    await axios.delete(`/api/v1/animals/admin/${delId}`);
+    setSucessful(true);
+    setShow(false);
+  };
 
   useEffect(() => {
     getInfo();
     console.log(animals);
   }, []);
+
+  useEffect(() => {
+    getInfo();
+    console.log(animals, "ANIMALES");
+    setSucessful(false);
+  }, [sucessful])
+  
 
   const handleChange = (e) => {
     const { name, files, value } = e.target;
@@ -83,7 +95,8 @@ const animal = () => {
     //     "Content-Type": "multipart/form-data",
     //   },
     // });
-    const res = await axios.post("/api/v1/animals/admin", { ...newAnimal });
+      const res = await axios.post("/api/v1/animals/admin", { ...newAnimal });
+      setSucessful(true)
     // }
   };
 
@@ -172,7 +185,7 @@ const animal = () => {
           value={newAnimal.vaccinations}
         />
         <div className="spadeDiv">
-          <p className="spade">Spade?</p>
+          <p className="spade">Spayed?</p>
           <input
             type="checkbox"
             name="spayed"
@@ -187,6 +200,7 @@ const animal = () => {
           onClick={() => {
             setClicked(true);
             changeSubmit();
+            getInfo();
           }}
           className={
             clicked
@@ -211,19 +225,42 @@ const animal = () => {
             name="animals"
             onChange={(e) => {
               chooseDrop(e);
+              setDelId(
+                e.target.children[e.target.selectedIndex].getAttribute("id")
+              );
+              setShow(false);
               console.log("hi");
             }}
           >
+            <option value=""></option>
             {animals.map((animal) => {
-              return <option value={animal.name}>{animal.name}</option>;
+              return (
+                <option id={animal._id} value={animal.name}>
+                  {animal.name}
+                </option>
+              );
             })}
           </select>
         </label>
         <br />
         <br />
-        <br />
-        {del !== [] && (
-          // console.log(del, del.name)
+        {!show && (
+          <button
+            onClick={() => {
+              getInfo();
+              setShow(true);
+              {
+                setTimeout(() => {
+                  console.log("DEL", del);
+                }, 2000);
+              }
+            }}
+            className="findAni"
+          >
+            Find Animal
+          </button>
+        )}
+        {show && del !== "" && (
           <div className="delDiv">
             <img src="/bulldog.jfif" alt="fff" className="delImg" />
             <div className="delBot">
@@ -231,37 +268,27 @@ const animal = () => {
                 <h1 className="delName">
                   {del.name} - {del.age}
                 </h1>
-              ) : <h1 className="delName"></h1>}
+              ) : (
+                <h1 className="delName"></h1>
+              )}
               <button
                 className="delete"
                 onMouseEnter={() => setTrash(true)}
                 onMouseLeave={() => setTrash(false)}
-                onClick={deleteAnimal}
+                onClick={() => {
+                  deleteAnimal()
+                  getInfo()
+                }}
               >
                 <Icon
                   name={trash ? "trash alternate outline" : "trash"}
-                  color="Cardinal red"
+                  color="red"
+                  onClick={()=>setShow(false)}
                 />
               </button>
             </div>
           </div>
         )}
-        {/* <button
-          type="button"
-          onClick={() => {
-            setClicked(true);
-            changeSubmit();
-          }}
-          className={
-            clicked
-              ? "click submitted"
-              : submitted
-              ? "clickedButton submit"
-              : "submit"
-          }
-        >
-          {clicked ? "loading" : submitted ? "✔" : "Delete?"}
-        </button> */}
       </div>
     </div>
   );

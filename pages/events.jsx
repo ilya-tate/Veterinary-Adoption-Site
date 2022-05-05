@@ -1,152 +1,162 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
+import axios from "axios";
+import { Icon } from "semantic-ui-react";
 
-const events = () => {
+const event = () => {
   const [submitted, setSubmitted] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [newEvent, setNewEvent] = useState({
-    name: "",
+    title: "",
     time: "",
-    date: Date.now(),
-    location: "",
+    date: "",
     description: "",
+    location: "",
     purpose: "",
   });
+  const [show, setShow] = useState(false);
+  const [sucessful, setSucessful] = useState(false);
 
-  const [events, setEvents] = useState([
-    {
-      name: "Puppy Bath Time",
-      time: "11:00",
-      date: Date.now(),
-      location: "random",
-      description: "doesn't matter",
-      purpose: "something",
-      id: 1,
-    },
-    {
-      name: "Puppy Bed Time",
-      time: "11:00",
-      date: Date.now(),
-      location: "random",
-      description: "doesn't matter",
-      purpose: "something",
-      id: 2,
-    },
-    {
-      name: "Puppy Nap Time",
-      time: "11:00",
-      date: Date.now(),
-      location: "random",
-      description: "doesn't matter",
-      purpose: "something",
-      id: 3,
-    },
-    {
-      name: "Puppy Food Time",
-      time: "11:00",
-      date: Date.now(),
-      location: "random",
-      description: "doesn't matter",
-      purpose: "something",
-      id: 4,
-    },
-  ]);
+  const [trash, setTrash] = useState(false);
+  const [del, setDel] = useState({});
+  const [delId, setDelId] = useState("");
+  const [events, setEvents] = useState([]);
+  const [newDate, setNewDate] = useState(new Date());
 
-  const [foundEvent, setFoundEvent] = useState(0);
+  const getInfo = async () => {
+    const { data } = await axios.get("/api/v1/events/event");
+    setEvents(data);
+  };
 
-  const chooseDrop = (e) => {
-    setFoundEvent(e.target.value);
-    console.log(foundEvent);
+  useEffect(() => {
+    getInfo();
+    console.log(events);
+  }, []);
+
+  useEffect(() => {
+    getInfo();
+    setSucessful(false);
+  }, [sucessful]);
+
+  const handleChange = (e) => {
+    const { name, files, value } = e.target;
+    if (name === "media") {
+      setMedia(files[0]);
+      setMediaPreview(URL.createObjectURL(files[0]));
+    }
+    // else if (name == "spayed") {
+    //   setSpade(!spade);
+    //   console.log(spade);
+    //   setNewevent((prev) => ({ ...prev, [spayed]: spade }));
+    // }
+    setNewEvent((prev) => ({ ...prev, [name]: value }));
+    console.log(newEvent.name);
   };
 
   const changeSubmit = () => {
     setTimeout(() => {
       setSubmitted(true);
-      setClicked(false)
+      setClicked(false);
     }, 1500);
-  };
-
-  const handleChange = (e) => {
-    const { name, files, value } = e.target;
-    setNewEvent((prev) => ({ ...prev, [name]: value }));
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 3000);
+    setSucessful(true);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    // setLoading(true);
+    // let picUrl;
 
-    await submitNewEvent(
-      newEvent.name,
-      newEvent.time,
-      newEvent.date,
-      newEvent.location,
-      newEvent.description,
-      newEvent.purpose,
-      newEvent,
-      setNewEvent,
-    );
+    // if (media) {
+    // const formData = new FormData();
+    // formData.append("image", media, {
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //   },
+    // });
+    console.log(newEvent);
+    const res = await axios.post("/api/v1/events/admin", { ...newEvent });
+    setSucessful(true);
+    // }
+  };
 
-    // const res = await axios.post("/api/v1/events/admin", formData);
+  const chooseDrop = async (e) => {
+    console.log("DROP");
+    // const {data} = await axios.get("/api/v1/events/oneAni", e.target.value)
+    setDel(events.find((event) => e.target.value.toString() == event.title));
+    console.log(del.date);
+    setNewDate(del.date);
+    console.log(newDate, "newDate");
+  };
+
+  const deleteEvent = async () => {
+    await axios.delete(`/api/v1/events/admin/${delId}`);
+    setSucessful(true);
+    setShow(false);
   };
 
   return (
     <div className="eventMain">
-      <div className="createEvent" onSubmit={handleSubmit}>
+      <form className="createEvent" onSubmit={handleSubmit}>
         <input
           type="text"
-          name="name"
-          placeholder="Name..."
-          className="eventInputs"
+          name="title"
+          placeholder="Event Name..."
+          className="eventName eventInputs"
           onChange={handleChange}
-          value={newEvent.name}
+          value={newEvent.title}
+        />
+        <input
+          type="date"
+          name="date"
+          className="eventDate eventInputs"
+          onChange={(e) => {
+            handleChange(e);
+          }}
+          value={newEvent.date}
         />
         <input
           type="time"
           name="time"
-          placeholder="Time"
-          className="eventInputs"
-          onChange={handleChange}
+          className="eventTime eventInputs"
+          onChange={(e) => {
+            handleChange(e);
+          }}
           value={newEvent.time}
         />
         <input
-          type="date"
-          name="place"
-          placeholder="Date"
-          className="age eventInputs"
-          onChange={handleChange}
-          value={newEvent.date}
-        />
-        <input
           type="text"
-          name="location (from maps)"
-          placeholder="Location"
+          name="location"
+          placeholder="Event Location..."
           className="eventInputs"
           onChange={handleChange}
           value={newEvent.location}
+        ></input>
+        <input
+          type="text"
+          name="purpose"
+          placeholder="Purpose Of Event..."
+          className="eventInputs"
+          onChange={handleChange}
+          value={newEvent.purpose}
         />
         <textarea
           rows="5"
           type="text"
           name="description"
-          placeholder="Description"
+          placeholder="Event Description..."
           className="eventInputs"
           onChange={handleChange}
           value={newEvent.description}
         />
-        <input
-          type="text"
-          name="purpose"
-          placeholder="Purpose"
-          className="eventInputs"
-          onChange={handleChange}
-          value={newEvent.purpose}
-        />
-        <br />
         <br />
         <button
           type="submit"
           onClick={() => {
             setClicked(true);
             changeSubmit();
+            getInfo();
           }}
           className={
             clicked
@@ -158,254 +168,107 @@ const events = () => {
         >
           {clicked ? "loading" : submitted ? "✔" : "Submit?"}
         </button>
-        </div>
+        <p className="help">
+          What To Put For Location
+          <a href="">
+            <Icon className="helpIcon" name="help circle" />
+          </a>
+        </p>
+      </form>
 
-          {/*
-            Remove Event and Create Event barrier so that I can see the difference
+      {/*
+            Remove event and Create event barrier so that I can see the difference
           */}
+
       <div className="removeEvent">
         <label htmlFor="events">
-          Find Event To Delete: 
-          <select name="events" onChange={chooseDrop}>
-            {events.map((event) => (
-              <option key={event.id} value={event.id}>
-                {event.name}
-              </option>
-            ))}
+          Events:
+          <select
+            name="events"
+            onChange={(e) => {
+              chooseDrop(e);
+              setDelId(
+                e.target.children[e.target.selectedIndex].getAttribute("id")
+              );
+              setShow(false);
+              console.log("hi");
+            }}
+          >
+            <option value=""></option>
+            {events.map((event) => {
+              return (
+                <option id={event._id} value={event.title}>
+                  {event.title}
+                </option>
+              );
+            })}
           </select>
         </label>
         <br />
-        <button className="submit">Find Animal</button>
-        {/* <br /> */}
-        {/* <button
-          type="button"
-          onClick={() => {
-            setClicked(true);
-            changeSubmit();
-          }}
-          className={
-            clicked
-              ? "click submitted"
-              : submitted
-              ? "clickedButton submit"
-              : "submit"
-          }
-        >
-          {clicked ? "loading" : submitted ? "✔" : "Delete?"}
-        </button>
-        </div>*/}
-    </div> 
-    </div>
-=======
-import Layout from "../components/layout/Layout";
-
-const events = ({darkmode, setDarkmode}) => {
-  const [submitted, setSubmitted] = useState(false);
-  const [clicked, setClicked] = useState(false);
-  const [newEvent, setNewEvent] = useState({
-    name: "",
-    time: "",
-    date: Date.now(),
-    location: "",
-    description: "",
-    purpose: "",
-  });
-
-  const [events, setEvents] = useState([
-    {
-      name: "Puppy Bath Time",
-      time: "11:00",
-      date: Date.now(),
-      location: "random",
-      description: "doesn't matter",
-      purpose: "something",
-      id: 1,
-    },
-    {
-      name: "Puppy Bed Time",
-      time: "11:00",
-      date: Date.now(),
-      location: "random",
-      description: "doesn't matter",
-      purpose: "something",
-      id: 2,
-    },
-    {
-      name: "Puppy Nap Time",
-      time: "11:00",
-      date: Date.now(),
-      location: "random",
-      description: "doesn't matter",
-      purpose: "something",
-      id: 3,
-    },
-    {
-      name: "Puppy Food Time",
-      time: "11:00",
-      date: Date.now(),
-      location: "random",
-      description: "doesn't matter",
-      purpose: "something",
-      id: 4,
-    },
-  ]);
-
-  const [foundEvent, setFoundEvent] = useState(0);
-
-  const chooseDrop = (e) => {
-    setFoundEvent(e.target.value);
-    console.log(foundEvent);
-  };
-
-  const changeSubmit = () => {
-    setTimeout(() => {
-      setSubmitted(true);
-      setClicked(false)
-    }, 1500);
-  };
-
-  const handleChange = (e) => {
-    const { name, files, value } = e.target;
-    setNewEvent((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    await submitNewEvent(
-      newEvent.name,
-      newEvent.time,
-      newEvent.date,
-      newEvent.location,
-      newEvent.description,
-      newEvent.purpose,
-      newEvent,
-      setNewEvent,
-    );
-
-    // const res = await axios.post("/api/v1/events/admin", formData);
-  };
-
-  return (
-    <Layout darkmode={darkmode} setDarkmode={setDarkmode}>
-      <div className="eventMain">
-        <div className="createEvent" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name..."
-            className="eventInputs"
-            onChange={handleChange}
-            value={newEvent.name}
-          />
-          <input
-            type="time"
-            name="time"
-            placeholder="Time"
-            className="eventInputs"
-            onChange={handleChange}
-            value={newEvent.time}
-          />
-          <input
-            type="date"
-            name="place"
-            placeholder="Date"
-            className="age eventInputs"
-            onChange={handleChange}
-            value={newEvent.date}
-          />
-          <input
-            type="text"
-            name="location (from maps)"
-            placeholder="Location"
-            className="eventInputs"
-            onChange={handleChange}
-            value={newEvent.location}
-          />
-          <textarea
-            rows="5"
-            type="text"
-            name="description"
-            placeholder="Description"
-            className="eventInputs"
-            onChange={handleChange}
-            value={newEvent.description}
-          />
-          <input
-            type="text"
-            name="purpose"
-            placeholder="Purpose"
-            className="eventInputs"
-            onChange={handleChange}
-            value={newEvent.purpose}
-          />
-          <br />
-          <br />
+        <br />
+        {!show && (
           <button
-            type="submit"
             onClick={() => {
-              setClicked(true);
-              changeSubmit();
+              getInfo();
+              setShow(true);
+              {
+                setTimeout(() => {
+                  console.log("DEL", del);
+                }, 2000);
+              }
             }}
-            className={
-              clicked
-                ? "click submitted"
-                : submitted
-                ? "clickedButton submit"
-                : "submit"
-            }
+            className="findAni"
           >
-            {clicked ? "loading" : submitted ? "✔" : "Submit?"}
+            Find event
           </button>
+        )}
+        {show && del !== "" && (
+          <div className="delDiv">
+            <iframe
+              src={del.location}
+              allowFullScreen=""
+              loading="fast"
+              className="map"
+            ></iframe>
+            <div className="delBot">
+              {del.title ? (
+                <h1 className="delName">
+                  {console.log(newDate)}
+                  {del.title} <br />
+                  {
+                    // newDate.getMonth().toString().padStart(2, "0") +
+                    //   "/" +
+                    //   newDate.getDate().toString().padStart(2, "0") +
+                    //   "/" +
+                    //   newDate.getFullYear()
+                    del.date.split("T")[0]
+                  }
+                  - {del.time}
+                </h1>
+              ) : (
+                <h1 className="delName"></h1>
+              )}
+              <button
+                className="delete"
+                onMouseEnter={() => setTrash(true)}
+                onMouseLeave={() => setTrash(false)}
+                onClick={() => {
+                  deleteEvent();
+                  getInfo();
+                }}
+              >
+                <Icon
+                  name={trash ? "trash alternate outline" : "trash"}
+                  color="red"
+                  onClick={() => setShow(false)}
+                />
+              </button>
+            </div>
           </div>
-
-            {/*
-              Remove Event and Create Event barrier so that I can see the difference
-            */}
-        <div className="removeEvent">
-          <label htmlFor="events">
-            Find Event To Delete: 
-            <select name="events" onChange={chooseDrop}>
-              {events.map((event) => (
-                <option key={event.id} value={event.id}>
-                  {event.name}
-                </option>
-              ))}
-            </select>
-          </label>
-          <br />
-          <button className="submit">Find Animal</button>
-          {/* <br /> */}
-          {/* <button
-
-
-
-        <div className="removeEvent">
-            <input type="text" name="name" placeholder="name" className="eventInputs"/>
-          <br />
-          <button
-            type="button"
-            onClick={() => {
-              setClicked(true);
-              changeSubmit();
-            }}
-            className={
-              clicked
-                ? "click submitted"
-                : submitted
-                ? "clickedButton submit"
-                : "submit"
-            }
-          >
-            {clicked ? "loading" : submitted ? "✔" : "Delete?"}
-          </button>
-          </div>*/}
-      </div> 
+        )}
       </div>
-    </Layout>
->>>>>>> f6e9d4f0e00a504bd2724124fe9ad365f0fed3b7
+    </div>
   );
 };
 
-export default events;
+export default event;

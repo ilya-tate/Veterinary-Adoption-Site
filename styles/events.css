@@ -95,11 +95,49 @@
   font-size: large;
   text-align: center;
 }
+.removeEvent .delDiv {
+  width: 40vw;
+  height: 70vh;
+  margin-left: 5vw;
+  justify-content: center;
+  background-color: white;
+  text-align: center;
+}
+.removeEvent .delDiv .delBot {
+  display: inline-flex;
+}
+.removeEvent .delDiv .delBot .delete {
+  width: 90px;
+  height: 40px;
+  font-size: 20px;
+  margin-top: 7vh;
+  filter: brightness(0%);
+  background: url("/");
+  transition: 1s;
+  border: none;
+}
+.removeEvent .delDiv .delBot .delete:hover {
+  filter: brightness(100%);
+  cursor: pointer;
+  transition: 1s;
+}
+.removeEvent .delDiv .delBot .delName {
+  width: 35vw;
+  font-size: 40px;
+  height: 18vh;
+  margin-left: 1vw;
+}
+.removeEvent .delDiv iframe {
+  height: 49vh;
+  width: 38vw;
+  margin-top: 1vh;
+}
 
 .createEvent {
   border-right: 1px solid black;
   width: 50vw;
   height: 91vh;
+  text-align: center;
 }
 .createEvent .eventInputs {
   margin-top: 5px;
@@ -108,7 +146,6 @@
   font-family: sans-serif;
   font-size: large;
   width: 30vw;
-  margin-left: 10vw;
 }
 .createEvent .eventInputs:focus {
   border: 2px solid black;
@@ -118,7 +155,6 @@
   height: 5vh;
 }
 .createEvent .submit {
-  margin-left: 46%;
   width: 90px;
   height: 35px;
 }
@@ -128,7 +164,6 @@
   font-weight: bolder;
   width: 130px;
   height: 40px;
-  margin-left: 43%;
   font-size: 30px;
   border: 2px solid black;
   cursor: pointer;
@@ -136,7 +171,6 @@
 .createEvent .click {
   transition: all 0.5s;
   border-radius: 58%;
-  margin-left: 48%;
   width: 60px;
   height: 60px;
   border: 2px solid blue;
@@ -151,7 +185,6 @@
 .createEvent .clickedButton {
   transition: all 0.5s;
   border-radius: 58%;
-  margin-left: 48%;
   width: 60px;
   height: 60px;
   border: 2px solid blue;
@@ -163,7 +196,6 @@
   transition: all 0.5s;
   color: black;
   border-radius: 58%;
-  margin-left: 48%;
   width: 60px;
   height: 60px;
   border: 2px solid blue;
@@ -171,4 +203,13 @@
   color: white;
   font-size: xx-large;
   color: blue;
+}
+.createEvent .help {
+  font-size: 10px;
+}
+.createEvent .help .helpIcon {
+  margin-left: 1%;
+}
+.createEvent .help .helpIcon:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=events.css.map */

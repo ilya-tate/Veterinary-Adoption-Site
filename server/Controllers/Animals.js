@@ -26,14 +26,12 @@ const getAllAnimals = async (req, res) => {
       animals = await AnimalModel.find()
         .limit(size)
         .sort({ createdAt: -1 })
-        .populate("animal");
     } else {
       const skips = size * (pageNumber - 1);
       animals = await AnimalModel.find()
         .skip(skips)
         .limit(size)
         .sort({ createdAt: -1 })
-        .populate("animal");
     }
     return res.status(200).json(animals);
   } catch (error) {

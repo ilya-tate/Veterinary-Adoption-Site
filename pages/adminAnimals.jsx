@@ -220,7 +220,7 @@ const animal = () => {
           </button>
         </div>
 
-            {/*
+        {/*
               Remove Animal and Create Animal barrier so that I can see the difference
             */}
 
@@ -236,7 +236,6 @@ const animal = () => {
             </select>
           </label>
           <br />
-          <button>Find Animal</button>
           {/* <button
             type="button"
             onClick={() => {
