@@ -2,8 +2,8 @@ import axios from 'axios';
 import React from 'react'
 import { Button, Form, Message, Segment } from 'semantic-ui-react'
 import { useState } from 'react';
-import Layout from '../components/layout/Layout';
-import { setToken } from '../util/auth';
+import Layout from './components/layout/Layout';
+import { setToken } from './util/auth';
 
 
 const signup = ({darkmode, setDarkmode}) => {
