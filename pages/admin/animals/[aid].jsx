@@ -49,21 +49,21 @@ const EditAnimal = () => {
                                 objectPosition="center"
                                 className={styles.elem}
                             /> : <>
-                                <TempImage />
-                                <p>Upload an Image</p>
+                                <TempImage className={styles.icon} />
+                                <span>Upload an Image</span>
                             </>}
                         </div>
                         {images.length > 1 ? <div className={styles.right} onClick={() => setImageIndex(i => i + 1 > images.length - 1 ? 0 : i + 1)}>
                             <Right className={styles.icon} />
                         </div> : null}
                         {images.length ? <div className={styles.del} onClick={() => deleteImage(imageIndex)}>
-                            <X className={styles.icon}/>
+                            <X className={styles.icon} />
                         </div> : null}
                     </div>
                 </div>
                 <button className={styles.uploadImage}>
                     <span className={styles.text}>Upload Image</span>
-                    <input className={styles.file} multiple accept="image/png,image/jpg,image/jpeg" type="file" name="images" id="images"  onChange={uploadImage}/>
+                    <input className={styles.file} multiple accept="image/png,image/jpg,image/jpeg" type="file" name="images" id="images" onChange={uploadImage} />
                 </button>
             </div>
             <div className={styles.common}>
@@ -74,22 +74,22 @@ const EditAnimal = () => {
                         <Input className={styles.breed} name="breed" heading="Breed" />
                         <Input className={styles.age} name="age" heading="Age" />
                     </div>
-                    <Area name="description" heading="Description" limit={300}/>
+                    <Area name="description" heading="Description" limit={300} />
                     <ul className={styles.other}>
                         <li className={styles.otherItem}>
-                            <p>Sex:</p> 
+                            <p>Sex:</p>
                             <div className={styles.button}>
                                 <Radios cata="sex" content={radios.sex} />
                             </div>
                         </li>
                         <li className={styles.otherItem}>
-                            <p>Neutered:</p> 
+                            <p>Neutered:</p>
                             <div className={styles.button}>
                                 <Radios cata="neutered" content={radios.neutered} />
                             </div>
                         </li>
                         <li className={styles.otherItem}>
-                            <p>Vaccinated:</p> 
+                            <p>Vaccinated:</p>
                             <div className={styles.button}>
                                 <Radios cata="vaccinated" content={radios.vaccinated} />
                             </div>
@@ -99,7 +99,7 @@ const EditAnimal = () => {
             </div>
             <div className={styles.optional}>
                 <h2 className={styles.heading}>Optional</h2>
-                <div className={styles.video}>
+                <div className={styles.video + " " + (video ? "" : styles.noVideo)}>
                     {video ? <iframe
                         width="100%"
                         height="100%"
@@ -111,10 +111,13 @@ const EditAnimal = () => {
                         allowFullScreen
                         wmode="transparent"
                     ></iframe> : <>
-                        <Video />
-                        <p>Upload a Video</p>
+                        <Video className={styles.icon} />
+                        <span>Link a Video</span>
                     </>}
                 </div>
+                <Input name="video" heading="Youtube URL Link" onChange={(val) =>
+                    setVideo(/^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/.test(val) ? val.replace(/watch\?v=/g, "embed/") : null)
+                } />
             </div>
         </WithBoth>
     )

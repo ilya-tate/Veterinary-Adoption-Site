@@ -1,9 +1,10 @@
-@use "../../utils/colors" as *;
-@use "../../utils/media" as *;
+@use "../../utils/colors"as *;
+@use "../../utils/media"as *;
 
 .area {
     color: $black;
-    .heading{
+
+    .heading {
         font-size: 1.25rem;
         padding: 0 2rem;
         font-weight: 800;
@@ -26,6 +27,7 @@
             padding: 3rem 2rem 2rem 2rem;
             font-family: "Inter";
             font-size: 1rem;
+            color: $black;
         }
 
         .len {
@@ -36,11 +38,12 @@
             display: flex;
             width: 10rem;
             justify-content: space-between;
+            border-radius: 2rem;
 
             .part {
                 width: calc(10rem / 3);
                 text-align: center;
             }
-        }   
+        }
     }
 }
