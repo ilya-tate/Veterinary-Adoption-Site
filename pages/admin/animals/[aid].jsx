@@ -34,91 +34,107 @@ const EditAnimal = () => {
 
     return (
         <WithBoth className={styles.editAnimal}>
-            <div className={styles.images}>
-                <div className={styles.slide}>
-                    <div className={styles.slider}>
-                        {images.length > 1 ? <div className={styles.left} onClick={() => setImageIndex(i => i - 1 < 0 ? images.length - 1 : i - 1)}>
-                            <Left className={styles.icon} />
-                        </div> : null}
-                        <div className={styles.image + " " + (images[imageIndex] ? "" : styles.noImage)}>
-                            {images[imageIndex] ? <Image
-                                src={images[imageIndex].url}
-                                alt={images[imageIndex].name}
-                                layout="fill"
-                                objectFit="cover"
-                                objectPosition="center"
-                                className={styles.elem}
-                            /> : <>
-                                <TempImage className={styles.icon} />
-                                <span>Upload an Image</span>
+            <form>
+                <div className={styles.images}>
+                    <div className={styles.slide}>
+                        <div className={styles.slider}>
+                            {images.length > 1 ? <div className={styles.left} onClick={() => setImageIndex(i => i - 1 < 0 ? images.length - 1 : i - 1)}>
+                                <Left className={styles.icon} />
+                            </div> : null}
+                            <div className={styles.image + " " + (images[imageIndex] ? "" : styles.noImage)}>
+                                {images[imageIndex] ? <Image
+                                    src={images[imageIndex].url}
+                                    alt={images[imageIndex].name}
+                                    layout="fill"
+                                    objectFit="cover"
+                                    objectPosition="center"
+                                    className={styles.elem}
+                                /> : <>
+                                    <TempImage className={styles.icon} />
+                                    <span>Upload an Image</span>
+                                </>}
+                            </div>
+                            {images.length > 1 ? <div className={styles.right} onClick={() => setImageIndex(i => i + 1 > images.length - 1 ? 0 : i + 1)}>
+                                <Right className={styles.icon} />
+                            </div> : null}
+                            {images.length ? <div className={styles.del} onClick={() => deleteImage(imageIndex)}>
+                                <X className={styles.icon} />
+                            </div> : null}
+                        </div>
+                    </div>
+                    <button className={styles.uploadImage}>
+                        <span className={styles.text}>Upload Image</span>
+                        <input className={styles.file} multiple accept="image/png,image/jpg,image/jpeg" type="file" name="images" id="images" onChange={uploadImage} />
+                    </button>
+                </div>
+                <div className={styles.common}>
+                    <h2 className={styles.heading}>Required</h2>
+                    <div className={styles.mainForm}>
+                        <Input name="name" heading="Name" />
+                        <div className={styles.breedAndAge}>
+                            <Input className={styles.breed} name="breed" heading="Breed" />
+                            <Input className={styles.age} name="age" heading="Age" />
+                        </div>
+                        <Area name="description" heading="Description" limit={300} />
+                        <ul className={styles.other}>
+                            <li className={styles.otherItem}>
+                                <p>Sex:</p>
+                                <div className={styles.button}>
+                                    <Radios cata="sex" content={radios.sex} />
+                                </div>
+                            </li>
+                            <li className={styles.otherItem}>
+                                <p>Neutered:</p>
+                                <div className={styles.button}>
+                                    <Radios cata="neutered" content={radios.neutered} />
+                                </div>
+                            </li>
+                            <li className={styles.otherItem}>
+                                <p>Vaccinated:</p>
+                                <div className={styles.button}>
+                                    <Radios cata="vaccinated" content={radios.vaccinated} />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className={styles.optional}>
+                    <h2 className={styles.heading}>Optional</h2>
+                    <div className={styles.videoWithInput}>
+                        <div className={styles.video + " " + (video ? "" : styles.noVideo)}>
+                            {video ? <iframe
+                                width="100%"
+                                height="100%"
+                                className={styles.iframe}
+                                src={video}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                wmode="transparent"
+                            ></iframe> : <>
+                                <Video className={styles.icon} />
+                                <span>Link a Video</span>
                             </>}
                         </div>
-                        {images.length > 1 ? <div className={styles.right} onClick={() => setImageIndex(i => i + 1 > images.length - 1 ? 0 : i + 1)}>
-                            <Right className={styles.icon} />
-                        </div> : null}
-                        {images.length ? <div className={styles.del} onClick={() => deleteImage(imageIndex)}>
-                            <X className={styles.icon} />
-                        </div> : null}
+                        <Input name="video" heading="Youtube URL Link" onChange={(val) =>
+                            setVideo(/^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/.test(val) ? val.replace(/watch\?v=/g, "embed/") : null)
+                        } />
+                    </div>
+                    <div className={styles.needs}>
+                        <div className={styles.heading}>Needs</div>
+                        <label htmlFor="needs" className={styles.input}>
+                            <input
+                                type="text"
+                                name="needs"
+                                id="needs"
+                                className={styles.elem}
+                                onChange={() => { }}
+                            />
+                        </label>
                     </div>
                 </div>
-                <button className={styles.uploadImage}>
-                    <span className={styles.text}>Upload Image</span>
-                    <input className={styles.file} multiple accept="image/png,image/jpg,image/jpeg" type="file" name="images" id="images" onChange={uploadImage} />
-                </button>
-            </div>
-            <div className={styles.common}>
-                <h2 className={styles.heading}>Required</h2>
-                <div className={styles.mainForm}>
-                    <Input name="name" heading="Name" />
-                    <div className={styles.breedAndAge}>
-                        <Input className={styles.breed} name="breed" heading="Breed" />
-                        <Input className={styles.age} name="age" heading="Age" />
-                    </div>
-                    <Area name="description" heading="Description" limit={300} />
-                    <ul className={styles.other}>
-                        <li className={styles.otherItem}>
-                            <p>Sex:</p>
-                            <div className={styles.button}>
-                                <Radios cata="sex" content={radios.sex} />
-                            </div>
-                        </li>
-                        <li className={styles.otherItem}>
-                            <p>Neutered:</p>
-                            <div className={styles.button}>
-                                <Radios cata="neutered" content={radios.neutered} />
-                            </div>
-                        </li>
-                        <li className={styles.otherItem}>
-                            <p>Vaccinated:</p>
-                            <div className={styles.button}>
-                                <Radios cata="vaccinated" content={radios.vaccinated} />
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div className={styles.optional}>
-                <h2 className={styles.heading}>Optional</h2>
-                <div className={styles.video + " " + (video ? "" : styles.noVideo)}>
-                    {video ? <iframe
-                        width="100%"
-                        height="100%"
-                        className={styles.iframe}
-                        src={video}
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        wmode="transparent"
-                    ></iframe> : <>
-                        <Video className={styles.icon} />
-                        <span>Link a Video</span>
-                    </>}
-                </div>
-                <Input name="video" heading="Youtube URL Link" onChange={(val) =>
-                    setVideo(/^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/.test(val) ? val.replace(/watch\?v=/g, "embed/") : null)
-                } />
-            </div>
+            </form>
         </WithBoth>
     )
 }

@@ -192,28 +192,42 @@
             color: $black;
         }
 
-        .video {
-            aspect-ratio: 16 / 9;
-            width: 100%;
+        .videoWithInput {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
 
-            &.noVideo {
-                box-shadow: none;
-                padding: 2rem;
-                font-size: 2rem;
-                font-family: "Inter";
-                border: .5rem solid $black;
-                fill: $black;
-                border-radius: 2rem;
-                text-align: center;
-                display: flex;
-                align-items: center;
-                line-height: 1.2;
+            .video {
+                aspect-ratio: 16 / 9;
+                width: 100%;
+
+                &.noVideo {
+                    box-shadow: none;
+                    padding: 2rem;
+                    font-size: 2rem;
+                    font-family: "Inter";
+                    border: .5rem solid $black;
+                    fill: $black;
+                    border-radius: 2rem;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    line-height: 1.2;
+                }
+
+                .iframe {}
+
+                .icon {
+                    width: 50%;
+                }
             }
+        }
 
-            .iframe {}
+        .needs {
+            .heading {}
 
-            .icon {
-                width: 50%;
+            .input {
+                .elem {}
             }
         }
     }
