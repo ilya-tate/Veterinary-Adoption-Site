@@ -5,6 +5,7 @@ import Search from "../../../assets/svgs/search.svg"
 import {useState} from 'react'
 import Animal from '../../../components/animal/Animal'
 import pig from "../../../assets/images/gentleman.png"
+import Button from '../../../components/form/Button'
 
 const animalsData = [{
     name: "Hotdog",
@@ -90,12 +91,17 @@ const AdminAnimals = () => {
 
     return (
         <WithBoth className={styles.editAnimal}>
-            <h2 className={styles.heading}>Search for an Animal to Edit</h2>
-            <div className={styles.search}>
-                <Input name="search" icon={<Search />} onChange={(query) => setSearch(query.toLowerCase())} />
+            <div className={styles.createOrSearch}>
+                <div className={styles.create}>
+                    <Button to="/admin/animals/new">Create New Animal</Button>
+                </div>
+                <h2 className={styles.heading}>or search for an animal to edit</h2>
+                <div className={styles.search}>
+                    <Input name="search" icon={<Search />} onChange={(query) => setSearch(query.toLowerCase())} />
+                </div>
             </div>
             <div className={styles.animals}>
-                {animalsData.filter(({name}) => name.toLowerCase().includes(search)).map(({id, ...animal}) => <Animal {...animal} id={id} key={id} link={`/admin/animals/${id}?mode=edit`} />)}
+                {animalsData.filter(({name}) => name.toLowerCase().includes(search.toLowerCase())).map(({id, ...animal}) => <Animal {...animal} id={id} key={id} link={`/admin/animals/${id}`} />)}
             </div>
         </WithBoth>
     )

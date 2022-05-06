@@ -1,11 +1,12 @@
 import styles from "../../styles/components/form/Input.module.scss"
 
-const Input = ({name, type, icon, className, onChange, heading}) => {
+const Input = ({name, type, icon, className, onChange, heading, defaultValue}) => {
     return (
         <div className={styles.inputContainer + " " + className}>
             {heading && <h6 className={styles.heading}>{heading}</h6>}
             <label htmlFor={name} className={styles.input}>
                 <input
+                    defaultValue={defaultValue}
                     type={type || "text"}
                     name={name}
                     id={name}

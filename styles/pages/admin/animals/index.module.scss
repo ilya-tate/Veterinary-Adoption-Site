@@ -3,29 +3,44 @@
 
 .editAnimal {
 
-    .heading {
-        width: 100%;
-        font-size: 2rem;
-        padding: 0 2rem;
-        margin: 0;
-        color: $black;
-        font-weight: 100;
-        text-align: center;
-        width: 75%;
-        margin: 0 auto;
-    }
+    .createOrSearch {
+        padding: 2rem;
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
 
-    .search {
-        padding: 0 2rem;
+        .create {
+            @include md {
+                width: 50%;
+                margin: 0 auto;
+            }
 
-        @include md {
-            width: 50%;
+            @include xl {
+                width: 35%;
+                margin: 0 auto;
+            }
+        }
+
+        .heading {
+            width: 100%;
+            font-size: 1.25rem;
+            color: $black;
+            font-weight: 100;
+            text-align: center;
+            width: 75%;
             margin: 0 auto;
         }
 
-        @include xl {
-            width: 35%;
-            margin: 0 auto;
+        .search {
+            @include md {
+                width: 50%;
+                margin: 0 auto;
+            }
+
+            @include xl {
+                width: 35%;
+                margin: 0 auto;
+            }
         }
     }
 
