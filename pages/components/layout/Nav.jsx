@@ -2,6 +2,7 @@ import { ReactChild, useState } from "react";
 import { Image } from "semantic-ui-react";
 // import { logoutUser } from "../../util/auth";
 import Router, { useRouter } from "next/router";
+// import User from "../../../server/Models/UserModel";
 
 const Nav = ({ setDarkmode, darkmode }) => {
   const [admin, setAdmin] = useState(true);
@@ -49,11 +50,13 @@ const Nav = ({ setDarkmode, darkmode }) => {
                 <span className="slider round"></span>
               </label>
             </li>
-            <li className="item">
-              <a href="/admin" className="item">
-                Admin
-              </a>
-            </li>
+            {UserModel.admin === true && (
+              <li className="item">
+                <a href="/admin" className="item">
+                  Admin
+                </a>
+              </li>
+            )}
             <li className="item">
               <a className="item" href="/home" style={{ marginLeft: "15px" }}>
                 Home
@@ -133,9 +136,9 @@ const Nav = ({ setDarkmode, darkmode }) => {
         )}
       </div>
     );
-    if(router.pathname === "/" || router.pathname === "/login"){
-      return <></>
-    }
+  if (router.pathname === "/" || router.pathname === "/login") {
+    return <></>;
+  }
 };
 
 export default Nav;
