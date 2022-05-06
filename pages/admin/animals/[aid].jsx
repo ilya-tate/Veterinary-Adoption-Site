@@ -12,6 +12,7 @@ import X from "../../../assets/svgs/x.svg"
 import Video from "../../../assets/svgs/video.svg"
 import Plus from "../../../assets/svgs/plus.svg"
 import Minus from "../../../assets/svgs/minus.svg"
+import { useRouter } from 'next/router'
 
 const radios = {
     sex: [{name: "male", heading: "Male"}, {name: "female", heading: "Female"}],
@@ -20,6 +21,8 @@ const radios = {
 }
 
 const EditAnimal = () => {
+    const router = useRouter();
+
     const [images, setImages] = useState([])
     const [imageIndex, setImageIndex] = useState(0);
     const [video, setVideo] = useState(null)
@@ -78,7 +81,11 @@ const EditAnimal = () => {
         needs.forEach((need) => fd.append("needs", need))
         cautions.forEach((caution) => fd.append("cautions", caution))
 
-        for (const data of fd.entries()) console.log(data)
+        // for (const data of fd.entries()) console.log(data)
+
+        // MAKE AN AXIOS CALL TO DB
+
+        router.push("/admin/animals")
     }
 
     return (
