@@ -115,82 +115,83 @@ const EditAnimal = () => {
     return (
         <WithBoth className={styles.editAnimal}>
             <form className={styles.form} onSubmit={submitForm}>
-                <div className={styles.images}>
-                    <div className={styles.slide}>
-                        <div className={styles.slider}>
-                            {form.images.length > 1 ? <div className={styles.left} onClick={() => setImageIndex(i => i - 1 < 0 ? form.images.length - 1 : i - 1)}>
-                                <Left className={styles.icon} />
-                            </div> : null}
-                            <div className={styles.image + " " + (form.images[imageIndex] ? "" : styles.noImage)}>
-                                {form.images[imageIndex] ? <Image
-                                    src={form.images[imageIndex].url}
-                                    alt={form.images[imageIndex].name}
-                                    layout="fill"
-                                    objectFit="cover"
-                                    objectPosition="center"
-                                    className={styles.elem}
-                                /> : <>
-                                    <TempImage className={styles.icon} />
-                                    <span>Upload an Image</span>
-                                </>}
+                <div className={styles.side}>
+                    <div className={styles.images}>
+                        <div className={styles.slide}>
+                            <div className={styles.slider}>
+                                {form.images.length > 1 ? <div className={styles.left} onClick={() => setImageIndex(i => i - 1 < 0 ? form.images.length - 1 : i - 1)}>
+                                    <Left className={styles.icon} />
+                                </div> : null}
+                                <div className={styles.image + " " + (form.images[imageIndex] ? "" : styles.noImage)}>
+                                    {form.images[imageIndex] ? <Image
+                                        src={form.images[imageIndex].url}
+                                        alt={form.images[imageIndex].name}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        objectPosition="center"
+                                        className={styles.elem}
+                                    /> : <>
+                                        <TempImage className={styles.icon} />
+                                        <span>Upload an Image</span>
+                                    </>}
+                                </div>
+                                {form.images.length > 1 ? <div className={styles.right} onClick={() => setImageIndex(i => i + 1 > form.images.length - 1 ? 0 : i + 1)}>
+                                    <Right className={styles.icon} />
+                                </div> : null}
+                                {form.images.length ? <div className={styles.del} onClick={() => deleteImage(imageIndex)}>
+                                    <X className={styles.icon} />
+                                </div> : null}
                             </div>
-                            {form.images.length > 1 ? <div className={styles.right} onClick={() => setImageIndex(i => i + 1 > form.images.length - 1 ? 0 : i + 1)}>
-                                <Right className={styles.icon} />
-                            </div> : null}
-                            {form.images.length ? <div className={styles.del} onClick={() => deleteImage(imageIndex)}>
-                                <X className={styles.icon} />
-                            </div> : null}
                         </div>
+                        <Button className={styles.uploadImage}>
+                            <span className={styles.text}>Upload Images</span>
+                            <input className={styles.file} multiple accept="image/png,image/jpg,image/jpeg" type="file" name="images" id="images" onChange={uploadImage} />
+                        </Button>
                     </div>
-                    <Button>
-                        <span className={styles.text}>Upload Images</span>
-                        <input className={styles.file} multiple accept="image/png,image/jpg,image/jpeg" type="file" name="images" id="images" onChange={uploadImage} />
-                    </Button>
-                </div>
-                <div className={styles.common}>
-                    <h2 className={styles.heading}>Required</h2>
-                    <div className={styles.mainForm}>
-                        <Input name="name" heading="Name" defaultValue={form.name} />
-                        <div className={styles.breedAndAge}>
-                            <Input className={styles.breed} name="breed" heading="Breed" defaultValue={form.breed} />
-                            <Input className={styles.age} name="age" heading="Age" defaultValue={form.age} />
+                    <div className={styles.common}>
+                        <div className={styles.mainForm}>
+                            <Input name="name" heading="Name" defaultValue={form.name} />
+                            <div className={styles.breedAndAge}>
+                                <Input className={styles.breed} name="breed" heading="Breed" defaultValue={form.breed} />
+                                <Input className={styles.age} name="age" heading="Age" defaultValue={form.age} />
+                            </div>
+                            <Area className={styles.area} name="desc" heading="Description" limit={300} defaultValue={form.desc} />
+                            <ul className={styles.other}>
+                                <li className={styles.otherItem}>
+                                    <p>Sex:</p>
+                                    <div className={styles.button}>
+                                        <Radios
+                                            cata="sex"
+                                            content={radios.sex}
+                                            defaultChecked={radios.sex.findIndex(({name}) => name === form.sex)}
+                                            onChange={(v) => appendForm("sex", v)}
+                                        />
+                                    </div>
+                                </li>
+                                <li className={styles.otherItem}>
+                                    <p>Neutered:</p>
+                                    <div className={styles.button}>
+                                        <Radios
+                                            cata="neutered"
+                                            content={radios.neutered}
+                                            defaultChecked={radios.neutered.findIndex(({name}) => name === form.neutered)}
+                                            onChange={(v) => appendForm("neutered", v)}
+                                        />
+                                    </div>
+                                </li>
+                                <li className={styles.otherItem}>
+                                    <p>Vaccinated:</p>
+                                    <div className={styles.button}>
+                                        <Radios
+                                            cata="vaccinated"
+                                            content={radios.vaccinated}
+                                            defaultChecked={radios.vaccinated.findIndex(({name}) => name === form.vaccinated)}
+                                            onChange={(v) => appendForm("vaccinated", v)}
+                                        />
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <Area name="desc" heading="Description" limit={300} defaultValue={form.desc} />
-                        <ul className={styles.other}>
-                            <li className={styles.otherItem}>
-                                <p>Sex:</p>
-                                <div className={styles.button}>
-                                    <Radios
-                                        cata="sex"
-                                        content={radios.sex}
-                                        defaultChecked={radios.sex.findIndex(({name}) => name === form.sex)}
-                                        onChange={(v) => appendForm("sex", v)}
-                                    />
-                                </div>
-                            </li>
-                            <li className={styles.otherItem}>
-                                <p>Neutered:</p>
-                                <div className={styles.button}>
-                                    <Radios
-                                        cata="neutered"
-                                        content={radios.neutered}
-                                        defaultChecked={radios.neutered.findIndex(({name}) => name === form.neutered)}
-                                        onChange={(v) => appendForm("neutered", v)}
-                                    />
-                                </div>
-                            </li>
-                            <li className={styles.otherItem}>
-                                <p>Vaccinated:</p>
-                                <div className={styles.button}>
-                                    <Radios
-                                        cata="vaccinated"
-                                        content={radios.vaccinated}
-                                        defaultChecked={radios.vaccinated.findIndex(({name}) => name === form.vaccinated)}
-                                        onChange={(v) => appendForm("vaccinated", v)}
-                                    />
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 <div className={styles.optional}>

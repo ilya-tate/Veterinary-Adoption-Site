@@ -9,169 +9,203 @@
         flex-direction: column;
         gap: 5rem;
 
-        .images {
+        .side {
             display: flex;
-            gap: 2rem;
             flex-direction: column;
-            align-items: center;
-            margin-top: 2rem;
-            padding: 0 2rem;
 
-            .slide {
-
-                .slider {
-                    display: flex;
-                    position: relative;
-                    min-width: none;
-
-                    @include sm {
-                        align-self: center;
-                        min-width: 35rem;
-                    }
-
-                    @include lg {
-                        align-self: auto;
-                        max-width: 35rem;
-                    }
-
-                    .left,
-                    .right,
-                    .del {
-                        width: 4rem;
-                        height: 4rem;
-                        position: absolute;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        z-index: 1;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        background-color: $light-orange;
-                        padding: .5rem;
-                        border-radius: 50%;
-                        // box-shadow: $orange .25rem .25rem  0 0;
-                        border: solid $orange .175rem;
-
-                        .icon {
-                            height: 100%;
-                            fill: $black;
-                        }
-                    }
-
-                    .left {
-                        left: 0;
-                        transform: translate(-50%, -50%);
-                    }
-
-                    .right {
-                        right: 0;
-                        transform: translate(50%, -50%);
-                    }
-
-                    .del {
-                        top: 0;
-                        right: 0;
-                        transform: translate(50%, -50%)
-                    }
-
-                    .image {
-                        min-width: 85vw;
-                        height: 60vh;
-                        position: relative;
-                        z-index: 0;
-                        box-shadow: $dark-blue .25rem .25rem 1rem -.5rem;
-                        border-radius: 1.5rem;
-                        margin: 0 auto;
-
-                        &.noImage {
-                            box-shadow: none;
-                            padding: 5rem;
-                            font-size: 2rem;
-                            font-family: "Inter";
-                            border: .5rem solid $black;
-                            fill: $black;
-                            text-align: center;
-                            line-height: 1.2;
-                        }
-
-                        .elem {
-                            border-radius: 1.5rem;
-                        }
-                    }
-                }
+            @include md {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 4rem;
+                padding: 0 2rem;
             }
 
-            .file {
-                grid-row: 1 / 2;
-                grid-column: 1 / 2;
-                width: 100%;
-                height: 100%;
-                z-index: 1;
-                position: relative;
-                opacity: 0;
-            }
-
-            .text {
-                grid-row: 1 / 2;
-                grid-column: 1 / 2;
-                z-index: 0;
-                position: relative;
-            }
-        }
-
-        .common {
-            .heading {
-                font-size: 2rem;
-                margin: 0;
-                width: 100%;
-                text-align: center;
-                color: $black;
-            }
-
-            .mainForm {
-                padding: 2rem;
+            .images {
                 display: flex;
-                flex-direction: column;
                 gap: 2rem;
+                flex-direction: column;
+                // align-items: center;
+                margin-top: 2rem;
+                margin: 0 auto;
 
-                .breedAndAge {
-                    display: flex;
-                    gap: 2rem;
-
-                    .breed {
-                        flex-grow: 2;
-                    }
-
-                    .age {
-                        flex-grow: 1;
-                        flex-shrink: 3;
-                    }
+                @include md {
+                    margin: 0;
                 }
 
-                .other {
+                .slide {
+                    max-width: 25rem;
+    
+                    .slider {
+                        display: flex;
+                        position: relative;
+                        min-width: 0;
+    
+                        .left,
+                        .right,
+                        .del {
+                            width: 4rem;
+                            height: 4rem;
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            z-index: 1;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: $light-orange;
+                            padding: .5rem;
+                            border-radius: 50%;
+                            // box-shadow: $orange .25rem .25rem  0 0;
+                            border: solid $orange .175rem;
+    
+                            .icon {
+                                height: 100%;
+                                fill: $black;
+                            }
+                        }
+    
+                        .left {
+                            left: 0;
+                            transform: translate(-50%, -50%);
+                        }
+    
+                        .right {
+                            right: 0;
+                            transform: translate(50%, -50%);
+                        }
+    
+                        .del {
+                            top: 0;
+                            right: 0;
+                            transform: translate(50%, -50%)
+                        }
+    
+                        .image {
+                            height: 30rem;
+                            min-width: 100%;
+                            position: relative;
+                            z-index: 0;
+                            box-shadow: $dark-blue .25rem .25rem 1rem -.5rem;
+                            border-radius: 1.5rem;
+                            margin: 0 auto;
+    
+                            &.noImage {
+                                box-shadow: none;
+                                padding: 5rem;
+                                font-size: 2rem;
+                                font-family: "Inter";
+                                border: .5rem solid $black;
+                                fill: $black;
+                                text-align: center;
+                                line-height: 1.2;
+                                display: flex;
+                                flex-direction: column;
+    
+                                .icon {
+                                    height: 100%;
+                                    aspect-ratio: 1 / 1;
+                                }
+                            }
+    
+                            .elem {
+                                border-radius: 1.5rem;
+                            }
+                        }
+                    }
+                }
+    
+                .uploadImage {
+                    max-width: 25rem;
+                    width: 100%;
+    
+                    .file {
+                        grid-row: 1 / 2;
+                        grid-column: 1 / 2;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 1;
+                        position: relative;
+                        opacity: 0;
+                        cursor: pointer;
+                    }
+        
+                    .text {
+                        grid-row: 1 / 2;
+                        grid-column: 1 / 2;
+                        z-index: 0;
+                        position: relative;
+                    }
+                }
+            }
+    
+            .common {
+                .heading {
+                    font-size: 2rem;
+                    margin: 0;
+                    width: 100%;
+                    text-align: center;
+                    color: $black;
+                }
+    
+                .mainForm {
+                    padding: 2rem;
                     display: flex;
                     flex-direction: column;
                     gap: 2rem;
-                    font-size: 1.5rem;
+                    max-width: 50rem;
+                    margin: 0 auto;
 
-                    .otherItem {
+                    @include md {
+                        padding: 0;
+                        justify-content: center;
+                    }
+    
+                    .breedAndAge {
                         display: flex;
-                        justify-content: space-between;
-                        gap: .5rem;
-
-                        .button {
+                        gap: 2rem;
+    
+                        .breed {
                             flex-grow: 2;
+                        }
+    
+                        .age {
+                            flex-grow: 1;
+                            flex-shrink: 3;
+                        }
+                    }
+                    
+                    .area {
+                        height: 11rem;
+                    }
+    
+                    .other {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2rem;
+                        font-size: 1.5rem;
+                        
+                        .otherItem {
+                            display: flex;
+                            justify-content: space-between;
+                            gap: .5rem;
+    
+                            .button {
+                                flex-grow: 2;
+                            }
                         }
                     }
                 }
             }
         }
+
 
         .optional {
             display: flex;
             flex-direction: column;
             gap: 2rem;
-
+            margin: 0 auto;
+            
             .heading {
                 font-size: 2rem;
                 margin: 0;
@@ -185,6 +219,10 @@
                 flex-direction: column;
                 gap: 5rem;
 
+                @include md {
+                    width: 50rem;
+                }
+
                 .videoWithInput {
                     display: flex;
                     flex-direction: column;
@@ -194,6 +232,9 @@
                     .video {
                         aspect-ratio: 16 / 9;
                         width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
 
                         &.noVideo {
                             box-shadow: none;
@@ -290,6 +331,11 @@
 
         .submit {
             padding: 0 2rem 3rem 2rem;
+
+            @include md {
+                width: 50rem;
+                margin:  0 auto;
+            }
         }
     }
 }

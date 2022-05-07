@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from "../../styles/components/form/Area.module.scss"
 
-const Area = ({name, heading, limit}) => {
+const Area = ({name, heading, limit, className}) => {
     const [length, setLength] = useState(0);
     const [content, setContent] = useState("")
 
@@ -16,7 +16,7 @@ const Area = ({name, heading, limit}) => {
     } 
 
     return (
-        <div className={styles.area}>
+        <div className={styles.area + ' ' + (className || "")}>
             <div className={styles.heading}>{heading}</div>
             <div className={styles.atop}>
                 <textarea className={styles.elem} name={name} id={name} value={content} onChange={beyond}></textarea>
