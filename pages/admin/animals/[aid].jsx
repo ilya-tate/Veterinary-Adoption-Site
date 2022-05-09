@@ -86,10 +86,10 @@ const EditAnimal = () => {
 
         if (
             !form.images.length ||
-            !elements.name.value ||
-            !elements.breed.value ||
-            !elements.age.value ||
-            !elements.desc.value
+            !form.name ||
+            !form.breed ||
+            !form.age ||
+            !form.desc
         ) {return;}
 
         const fd = new FormData();
