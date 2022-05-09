@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { TextArea } from "semantic-ui-react";
-import Layout from "../components/layout/Layout";
+// import Layout from "../components/layout/Layout";
 
 const animal = () => {
   const [submitted, setSubmitted] = useState(false);

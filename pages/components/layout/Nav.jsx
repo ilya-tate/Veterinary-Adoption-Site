@@ -4,16 +4,16 @@ import { Image } from "semantic-ui-react";
 import Router, { useRouter } from "next/router";
 // import User from "../../../server/Models/UserModel";
 
-const Nav = ({ setDarkmode, darkmode }) => {
+const Nav = ({ setDarkmode, darkmode, user }) => {
   const [admin, setAdmin] = useState(true);
   const router = useRouter();
-  if (router.pathname !== "/" && router.pathname !== "/login")
-    return (
+  if (router.pathname !== "/signup" && router.pathname !== "/login")
+  return (
       <div
         className={darkmode ? "navbar dark" : "navbar"}
         style={{ position: "fixed", top: 0, width: "100%" }}
       >
-        {admin ? (
+        {user?.admin === true ? (
           <ul
             className="pageList"
             style={{ listStyle: "none", display: "inline-flex" }}
@@ -50,7 +50,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
                 <span className="slider round"></span>
               </label>
             </li>
-            {UserModel.admin === true && (
+            {/* {UserModel.admin === true && ( */}
               <li className="item">
                 <a href="/admin" className="item">
                   Admin
@@ -58,7 +58,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
               </li>
             )}
             <li className="item">
-              <a className="item" href="/home" style={{ marginLeft: "15px" }}>
+              <a className="item" href="/" style={{ marginLeft: "15px" }}>
                 Home
               </a>
             </li>
@@ -119,7 +119,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
               </label>
             </li>
             <li className="item">
-              <a className="item" href="/home" style={{ marginLeft: "15px" }}>
+              <a className="item" href="/" style={{ marginLeft: "15px" }}>
                 Home
               </a>
             </li>

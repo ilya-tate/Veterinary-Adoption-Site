@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const {getAnimals, getDisplayAnimals, getAllAnimals, oneAni} = require("../Controllers/Animals")
+const {getDisplayAnimals, getAllAnimals, oneAni} = require("../Controllers/Animals")
 const {addAnimal, removeAnimal} = require("../Controllers/Admin");
 
 router.route("/adoption").get(getAllAnimals)

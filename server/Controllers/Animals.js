@@ -1,9 +1,5 @@
 const AnimalModel = require("../Models/AnimalModel");
 
-const getAnimals = async (req, res) => {
-  //will get all animals and will have filters
-};
-
 const oneAni = async (req, res) => {
   const { params } = req.body;
   try {
@@ -44,10 +40,10 @@ const getDisplayAnimals = async (req, res) => {
   const size = 3;
 
   try {
-    let animals = await PostModel.find()
-      .limit(3)
+    let animals = await AnimalModel.find()
+      .limit(size)
       .sort({ createdAt: -1 })
-      .populate("animal");
+      console.log("ANIMALS ANIMALS ANIMALS", animals);
     return res.status(200).json(animals);
   } catch (error) {
     console.log(error);
@@ -69,4 +65,4 @@ const getAnimalById = async (req, res) => {
   }
 };
 
-module.exports = { getDisplayAnimals, getAnimals, getAllAnimals, oneAni };
+module.exports = { getDisplayAnimals, getAllAnimals, oneAni };

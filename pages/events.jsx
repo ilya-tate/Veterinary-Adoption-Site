@@ -170,7 +170,7 @@ const event = () => {
         </button>
         <p className="help">
           What To Put For Location
-          <a href="">
+          <a href="https://docs.google.com/presentation/d/1RgojzIgqlQjeovyOV87aEkhmxRbwLfi2Uv0IeKbXyIY/edit#slide=id.g1272d95724a_0_5">
             <Icon className="helpIcon" name="help circle" />
           </a>
         </p>
@@ -224,12 +224,14 @@ const event = () => {
         )}
         {show && del !== "" && (
           <div className="delDiv">
-            <iframe
-              src={del.location}
-              allowFullScreen=""
-              loading="fast"
-              className="map"
-            ></iframe>
+            {del.location ? (
+              <iframe
+                src={del.location}
+                allowFullScreen=""
+                loading="fast"
+                className="map"
+              ></iframe>
+            ) : <iframe className="map"></iframe>}
             <div className="delBot">
               {del.title ? (
                 <h1 className="delName">
@@ -241,9 +243,9 @@ const event = () => {
                     //   newDate.getDate().toString().padStart(2, "0") +
                     //   "/" +
                     //   newDate.getFullYear()
-                    del.date.split("T")[0]
+                    del.date && del.date.split("T")[0]
                   }
-                  - {del.time}
+                  {del.time}
                 </h1>
               ) : (
                 <h1 className="delName"></h1>

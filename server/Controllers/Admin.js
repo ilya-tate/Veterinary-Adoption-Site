@@ -22,7 +22,6 @@ const addAnimal = async (req, res) => {
 const removeAnimal = async (req, res) => {
   try {
     // const { userId } = req;
-    const delId = req.params.id;
     console.log("ID", req.params);
 
     const animalFound = await AnimalModel.findById(req.params.id);
