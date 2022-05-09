@@ -47,8 +47,7 @@ const EditAnimal = () => {
             // Make an axios call to get aid
             // set values 
             console.log("old animal")
-        }
-        console.log("new animal")
+        } else console.log("new animal")
     }, [router])
 
     const appendForm = (prop, val) => {
