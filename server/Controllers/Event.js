@@ -1,6 +1,6 @@
-const EventModel = require("../Models/EventModel")
+const EventModel = require("../Models/EventModel");
 
-const getDisplayAnimals = async (req, res) => {
+const getDisplayEvents = async (req, res) => {
   const size = 3;
 
   try {
@@ -8,9 +8,12 @@ const getDisplayAnimals = async (req, res) => {
       .limit(3)
       .sort({ createdAt: -1 })
       .populate("animal");
+      console.log(EventModel);
     return res.status(200).json(events);
   } catch (error) {
     console.log(error);
-    return res.status(500).send("Server Error @ getDisplayAnimals");
+    return res.status(500).send("Server Error @ getDisplayEvents");
   }
 };
+
+module.exports = { getDisplayEvents };

@@ -32,8 +32,8 @@ app.use(fileUpload({ useTempFiles: true }));
 
 const userRoute = require('./server/Routes/userRoutes')
 const authRoute = require("./server/routes/authRoute");
-const eventRoute = require("./server/Routes/animals");
-const animalRoute = require("./server/Routes/events");
+const eventRoute = require("./server/Routes/events");
+const animalRoute = require("./server/Routes/animals");
 
 app.use('/api/v1/user', userRoute)
 app.use("/api/v1/auth", authRoute)

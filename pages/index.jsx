@@ -6,26 +6,31 @@ import pig from "../assets/images/gentleman.png";
 import Animal from "../components/animal/Animal";
 import Link from "next/link";
 import axios from "axios"
+import { setTimeout } from "timers";
 
 const Home = () => {
   const [eventIndex, setEventIndex] = useState(0);
   const [weekAnimals, setWeekAnimals] = useState([]);
   const [weekEvents, setWeekEvents] = useState([]);
+
+
   const displayAnis = async () => {
     let { data } = await axios.get("/api/v1/animals/");
     setWeekAnimals(data);
-    console.log(data);
+    console.log("animal", data);
   };
-
   const displayEvents = async() => {
     let { data } = await axios.get("/api/v1/events/");
     setWeekEvents(data);
-    console.log(data);
+    console.log("event", data);      
   }
   
   useEffect(() => {
-    displayAnis();
     displayEvents();
+    setTimeout(() => {
+      displayAnis()      
+    }, 5000);
+
   }, []);
   return (
     <WithBoth className={styles.home}>
@@ -71,7 +76,7 @@ const Home = () => {
           ))}
         </ul>
         <div className={styles.eventsContainer}>
-          {weekEvents ? weekEvents.map((event) => (
+          {weekEvents ? weekEvents.map((event, index) => (
             <div
               key={event._id}
               className={
@@ -80,12 +85,12 @@ const Home = () => {
             >
               <iframe className={styles.map} src={event.location}></iframe>
               <div className={styles.eventInfo}>
-                <div className={styles.eventTitle}>{event.title}</div>
+                <div className={styles.eventTitle}>Name: {event.title}</div>
                 <div className={styles.simple}>
                   <p className={styles.desc}>{event.desc}</p>
                   <div className={styles.details}>
-                    <div>Date: {info.date}</div>
-                    <div>Time: {info.time}</div>
+                    <div>Date: {event.date}</div>
+                    <div>Time: {event.time}</div>
                   </div>
                 </div>
               </div>
