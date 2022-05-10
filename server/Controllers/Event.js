@@ -7,7 +7,6 @@ const getDisplayEvents = async (req, res) => {
     let events = await EventModel.find({})
       .limit(3)
       .sort({ createdAt: -1 })
-      console.log(events);
     return res.status(200).json(events);
   } catch (error) {
     console.log(error);
