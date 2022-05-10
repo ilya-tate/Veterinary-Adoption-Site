@@ -1,146 +1,145 @@
-import React, {useEffect, useState} from 'react'
-import WithBoth from "../components/layout/with/WithBoth"
-import styles from "../styles/pages/home.module.scss"
-import Dropdown from "../assets/svgs/dropdown.svg"
-import pig from "../assets/images/gentleman.png"
-import Animal from '../components/animal/Animal'
-import Link from "next/link"
-
-const dummyData = {
-    events: [{
-        title: "Mass Adoption Event",
-        info: {
-            desc: "An event where a bunch of people come together to adopt all at once",
-            location: "12345 W. Nowhere Dr.",
-            date: "March 18th, 2022",
-            time: "9:00am - 2:00pm"
-        },
-        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
-        id: 1,
-    }, {
-        title: "Mass Adoption Event 2",
-        info: {
-            desc: "An event where a bunch of people come together to adopt all at once",
-            location: "12345 W. Nowhere Dr.",
-            date: "March 18th, 2022",
-            time: "9:00am - 2:00pm"
-        },
-        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
-        id: 2,
-    }, {
-        title: "Mass Adoption Event 3",
-        info: {
-            desc: "An event where a bunch of people come together to adopt all at once",
-            location: "12345 W. Nowhere Dr.",
-            date: "March 18th, 2022",
-            time: "9:00am - 2:00pm"
-        },
-        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
-        id: 3,
-    },],
-    animals: [{
-        name: "Hotdog",
-        sex: "Male",
-        age: 4,
-        featured: true,
-        image: pig,
-        id: 0,
-    }, {
-        name: "Space Cowboy",
-        sex: "Male",
-        age: 3,
-        featured: true,
-        image: pig,
-        id: 1,
-    }, {
-        name: "Pikachu",
-        sex: "Male",
-        age: 1,
-        featured: true,
-        image: pig,
-        id: 2,
-    }]
-}
+import React, { useEffect, useState } from "react";
+import WithBoth from "../components/layout/with/WithBoth";
+import styles from "../styles/pages/home.module.scss";
+import Dropdown from "../assets/svgs/dropdown.svg";
+import pig from "../assets/images/gentleman.png";
+import Animal from "../components/animal/Animal";
+import Link from "next/link";
+import axios from "axios"
 
 const Home = () => {
-    const [eventIndex, setEventIndex] = useState(0);
+  const [eventIndex, setEventIndex] = useState(0);
+  const [weekAnimals, setWeekAnimals] = useState([]);
+  const [weekEvents, setWeekEvents] = useState([]);
+  const displayAnis = async () => {
+    let { data } = await axios.get("/api/v1/animals/");
+    setWeekAnimals(data);
+    console.log(data);
+  };
 
-    return (
-        <WithBoth className={styles.home}>
-            <h1 className={styles.title}>West Mec Veterinary Program Adoption Portal</h1>
-            <div className={styles.banner}>
-                <div className={styles.video}>
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        className={styles.iframe}
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&showinfo=0&autohide=1&wmode=transparent"
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        wmode="transparent"
-                    ></iframe>
+  const displayEvents = async() => {
+    let { data } = await axios.get("/api/v1/events/");
+    setWeekEvents(data);
+    console.log(data);
+  }
+  
+  useEffect(() => {
+    displayAnis();
+    displayEvents();
+  }, []);
+  return (
+    <WithBoth className={styles.home}>
+      <h1 className={styles.title}>
+        West Mec Veterinary Program Adoption Portal
+      </h1>
+      <div className={styles.banner}>
+        <div className={styles.video}>
+          <iframe
+            width="100%"
+            height="100%"
+            className={styles.iframe}
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&showinfo=0&autohide=1&wmode=transparent"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            wmode="transparent"
+          ></iframe>
+        </div>
+        <div className={styles.intro}>
+          <h3 className={styles.title}>Help an Animal Find a New Home</h3>
+          <p className={styles.info}>
+            <span>
+              West-Mec provides care for the animal and prepares for them to
+              have a new life inside your home. Find you’re next loved one at
+              West-Mec!
+            </span>
+            <span>
+              West-Mec cares for the animals before they reach your arms. This
+              includes vaccinating and medicating your soon-to-be best friend!
+            </span>
+          </p>
+        </div>
+      </div>
+      <div className={styles.events}>
+        <h2 className={styles.heading}>Upcoming Events</h2>
+        <ul className={styles.choseEventMobile}>
+          {weekEvents.map((_, i) => (
+            <li className={styles.num} onClick={() => setEventIndex(i)}>
+              {i + 1}
+            </li>
+          ))}
+        </ul>
+        <div className={styles.eventsContainer}>
+          {weekEvents ? weekEvents.map((event) => (
+            <div
+              key={event._id}
+              className={
+                styles.event + " " + (eventIndex === index ? styles.show : "")
+              }
+            >
+              <iframe className={styles.map} src={event.location}></iframe>
+              <div className={styles.eventInfo}>
+                <div className={styles.eventTitle}>{event.title}</div>
+                <div className={styles.simple}>
+                  <p className={styles.desc}>{event.desc}</p>
+                  <div className={styles.details}>
+                    <div>Date: {info.date}</div>
+                    <div>Time: {info.time}</div>
+                  </div>
                 </div>
-                <div className={styles.intro}>
-                    <h3 className={styles.title}>
-                        Help an Animal Find a New Home
-                    </h3>
-                    <p className={styles.info}>
-                        <span>West-Mec provides care for the animal and prepares for them to have a new life inside your home. Find you’re next loved one at West-Mec!</span>
-                        <span>West-Mec cares for the animals before they reach your arms. This includes vaccinating and medicating your soon-to-be best friend!</span>
-                    </p>
-                </div>
+              </div>
             </div>
-            <div className={styles.events}>
-                <h2 className={styles.heading}>Upcoming Events</h2>
-                <ul className={styles.choseEventMobile}>
-                    {dummyData.events.map((_, i) => <li className={styles.num} onClick={() => setEventIndex(i)}>
-                        {i + 1}
-                    </li>)}
-                </ul>
-                <div className={styles.eventsContainer}>
-                    {dummyData.events.map(({title, info, map, id}, index) => <div key={id} className={styles.event + " " + (eventIndex === index ? styles.show : "")}>
-                        <div className={styles.map}>
-                            {map}
-                        </div>
-                        <div className={styles.eventInfo}>
-                            <div className={styles.eventTitle}>
-                                {title}
-                            </div>
-                            <div className={styles.simple}>
-                                <p className={styles.desc}>
-                                    {info.desc}
-                                </p>
-                                <div className={styles.details}>
-                                    <div>
-                                        Location: {info.location}
-                                    </div>
-                                    <div>
-                                        Date: {info.date}
-                                    </div>
-                                    <div>
-                                        Time: {info.time}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>)}
+          )) : <div><h1>NO EVENTS HERE</h1></div>}
+        </div>
+      </div>
+      <div className={styles.animals}>
+        <h2 className={styles.heading}>Featured Animals</h2>
+        <div className={styles.animalsContainer}>
+          {weekAnimals.map((animal) => (
+            <Link href={`/animals/${animal._id}`} key={animal._id}>
+              <div className={styles.animal}>
+                <div className={styles.image}>
+                  <img
+                    src={animal.pictures[0]}
+                    // alt={animal.name}
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="center"
+                    className={styles.elem}
+                    loading="lazy"
+                  />
                 </div>
-            </div>
-            <div className={styles.animals}>
-                <h2 className={styles.heading}>Featured Animals</h2>
-                <div className={styles.animalsContainer}>
-                    {dummyData.animals.map(({id, ...animal}) => <Animal key={id} id={id} {...animal} />)}
+                <div className={styles.details}>
+                  <div className={styles.name}>{animal.name}</div>
+                  <div className={styles.other}>
+                    <div className={styles.common}>
+                      <p>{animal.gender}</p>
+                      <div className={styles.decorator}></div>
+                      <p>{animal.age} years</p>
+                    </div>
+                    <div className={styles.featured}>
+                      {animal.featured && (
+                        <>
+                          <p>Featured</p>
+                          <span className={styles.icon}>
+                            <Star />
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <Link href="/animals">
-                    <button className={styles.allAnimals}>
-                        See All Animals
-                    </button>
-                </Link>
-            </div>
-        </WithBoth>
-    )
-}
+              </div>
+            </Link>
+          ))}
+        </div>
+        <Link href="/animals">
+          <button className={styles.allAnimals}>See All Animals</button>
+        </Link>
+      </div>
+    </WithBoth>
+  );
+};
 
-export default Home
+export default Home;

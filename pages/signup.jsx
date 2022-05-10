@@ -2,8 +2,8 @@ import axios from 'axios';
 import React from 'react'
 import { Button, Form, Message, Segment } from 'semantic-ui-react'
 import { useState } from 'react';
-import Layout from './components/layout/Layout';
-import { setToken } from './util/auth';
+import Layout from '../components/layout/Layout';
+import { setToken } from '../util/auth';
 
 
 const signup = ({darkmode, setDarkmode}) => {
@@ -33,6 +33,7 @@ const signup = ({darkmode, setDarkmode}) => {
       const res = await axios.post('/api/v1/user/signup', {
         user
       })
+      console.log(res.data);
       setToken(res.data)
       console.log(res.data)
     } catch (err) {

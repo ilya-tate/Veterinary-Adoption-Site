@@ -12,6 +12,7 @@ export const logoutUser = (email) => {
 export const setToken = (token) => {
   cookie.set("token", token);
   Router.push("/");
+  console.log(token);
 };
 
 export const redirectUser = (ctx, location) => {

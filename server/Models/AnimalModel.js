@@ -54,6 +54,9 @@ const AnimalSchema = new Schema({
     type: Boolean,
     required: true
   },
+  featured: {
+    type: Boolean,
+  },
   pictures: [
     {
       type: String,

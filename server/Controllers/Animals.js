@@ -35,7 +35,7 @@ const getDisplayAnimals = async (req, res) => {
   const size = 3;
 
   try {
-    let animals = await PostModel.find()
+    let animals = await AnimalModel.find()
       .limit(3)
       .sort({ createdAt: -1 })
       .populate("animal");

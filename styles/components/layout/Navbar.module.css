@@ -3,7 +3,7 @@
   width: 100%;
   background-color: #FDE3D8;
   padding: 1rem 2rem;
-  border-bottom: #00aeef 5px solid;
+  border-bottom: #f7931d 0.25rem solid;
   color: #2B363B;
   display: flex;
   justify-content: space-between;
@@ -56,18 +56,11 @@
   left: 0;
   width: 100%;
   background-color: #ffffff;
-  border-bottom: #00aeef 0.25rem solid;
+  border-bottom: #f7931d 0.25rem solid;
   font-size: 1.5rem;
 }
 .nav ul.links li.link {
   cursor: pointer;
-  transition: 1s;
-  color: black;
-}
-.nav ul.links li.link:hover {
-  text-decoration: underline;
-  background-color: #FDE3C0;
-  transition: 1s;
 }
 .nav ul.links.active {
   display: flex;

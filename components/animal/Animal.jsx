@@ -3,7 +3,7 @@ import styles from "../../styles/components/animal/Animal.module.scss"
 import Star from "../../assets/svgs/star.svg"
 import Link from "next/link";
 
-const Animal = ({image, name, sex, age, featured, id}) => {
+const Animal = ({image, name, gender, age, featured, id}) => {
     return (
         <Link href={`/animals/${id}`}>
             <div className={styles.animal}>
@@ -24,7 +24,7 @@ const Animal = ({image, name, sex, age, featured, id}) => {
                     </div>
                     <div className={styles.other}>
                         <div className={styles.common}>
-                            <p>{sex}</p>
+                            <p>{gender}</p>
                             <div className={styles.decorator}></div>
                             <p>{age} years</p>
                         </div>
