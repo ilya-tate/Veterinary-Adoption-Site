@@ -76,7 +76,8 @@ const event = () => {
     //   },
     // });
     console.log(newEvent);
-    const res = await axios.post("/api/v1/events/admin", { ...newEvent });
+    const res = await axios.post("/api/v1/events/admin", { ...newEvent, createdAt: Date.now() });
+    console.log(res);
     setSucessful(true);
     // }
   };
