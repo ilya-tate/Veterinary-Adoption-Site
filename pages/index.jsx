@@ -88,8 +88,8 @@ const Home = () => {
                 <div className={styles.simple}>
                   <p className={styles.desc}>{event.desc}</p>
                   <div className={styles.details}>
-                    <div>Date: {event.date}</div>
-                    <div>Time: {event.time}</div>
+                    <div>Date: {event.date ? event.date.split("T")[0] : "UNKNOWN DATE"}</div>
+                    <div>Time: {event.time ? event.time : "UNKNOWN TIME"}</div>
                   </div>
                 </div>
               </div>
