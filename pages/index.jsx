@@ -4,6 +4,7 @@ import styles from "../styles/pages/home.module.scss"
 import pig from "../assets/images/gentleman.png"
 import Animal from '../components/animal/Animal'
 import Link from "next/link"
+import Event from '../components/event/Event'
 
 const dummyData = {
     events: [{
@@ -99,38 +100,13 @@ const Home = () => {
                     </li>)}
                 </ul>
                 <div className={styles.eventsContainer}>
-                    {dummyData.events.map(({title, info, map, id}, index) => <div key={id} className={styles.event + " " + (eventIndex === index ? styles.show : "")}>
-                        <div className={styles.map}>
-                            {map}
-                        </div>
-                        <div className={styles.eventInfo}>
-                            <div className={styles.eventTitle}>
-                                {title}
-                            </div>
-                            <div className={styles.simple}>
-                                <p className={styles.desc}>
-                                    {info.desc}
-                                </p>
-                                <div className={styles.details}>
-                                    <div>
-                                        Location: {info.location}
-                                    </div>
-                                    <div>
-                                        Date: {info.date}
-                                    </div>
-                                    <div>
-                                        Time: {info.time}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>)}
+                    {dummyData.events.map(({id, ...props}, index) => <Event key={id} id={id} show={index === eventIndex} {...props}/>)}
                 </div>
             </div>
             <div className={styles.animals}>
                 <h2 className={styles.heading}>Featured Animals</h2>
                 <div className={styles.animalsContainer}>
-                    {dummyData.animals.map(({id, ...animal}) => <Animal key={id} id={id} {...animal} />)}
+                    {dummyData.animals.map(({id, ...animal}) => <Animal key={id} id={id}{...animal} />)}
                 </div>
                 <Link href="/animals">
                     <button className={styles.allAnimals}>
