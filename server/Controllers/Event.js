@@ -19,6 +19,7 @@ const getAllEvents = async (req, res) => {
         .limit(size)
         .sort({ createdAt: -1 })
     }
+    console.log(events);
     return res.status(200).json(events);
   } catch (error) {
     console.log(error);
