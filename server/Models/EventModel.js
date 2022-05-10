@@ -20,10 +20,7 @@ const EventSchema = new Schema({
   purpose: {
     type: String,
   },
-  createdAt: {
-    type: Date,
-    require: true
-  }
-});
+}, {timestamps: true}
+);
 
 module.exports = mongoose.model("Event", EventSchema);
