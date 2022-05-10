@@ -1,14 +1,13 @@
-const EventModel = require("../Models/EventModel");
+const EventModel = require("../Models/EventModel")
 
 const getDisplayEvents = async (req, res) => {
   const size = 3;
 
   try {
-    let events = await EventModel.find()
+    let events = await EventModel.find({})
       .limit(3)
       .sort({ createdAt: -1 })
-      .populate("animal");
-      console.log(EventModel);
+      console.log(events);
     return res.status(200).json(events);
   } catch (error) {
     console.log(error);

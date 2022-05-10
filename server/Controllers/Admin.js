@@ -56,17 +56,11 @@ const deleteEvent = async (req, res) => {
     const { userId } = req;
     const { animalId } = req.params;
 
-    const animal = await PostModel.findById(animalId);
+    const animal = await EventModel.findById(animalId);
 
     if (!animal) return res.status(403).send("Animal not found");
 
-    const user = await UserModel.findById(userId);
-    if (user.role === "teacher" || user.role === "student") {
-      await animal.remove();
-      return res.status(200).send("Animal removed successfully");
-    } else if (user.role !== "teacher" && user.role !== "student") {
-      return res.status(401).send("Unauthorized");
-    }
+
 
     await animal.remove();
     return res.status(200).send("Post deleted successfully");

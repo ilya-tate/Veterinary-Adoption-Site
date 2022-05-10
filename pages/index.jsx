@@ -13,7 +13,6 @@ const Home = () => {
   const [weekAnimals, setWeekAnimals] = useState([]);
   const [weekEvents, setWeekEvents] = useState([]);
 
-
   const displayAnis = async () => {
     let { data } = await axios.get("/api/v1/animals/");
     setWeekAnimals(data);
