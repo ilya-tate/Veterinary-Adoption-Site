@@ -10,6 +10,7 @@ const socials = [{
     link: "https://instagram.com",
     icon: <Instagram className={styles.icon}/>,
     id: 0,
+    
 },{
     link: "https://facebook.com",
     icon: <Facebook className={styles.icon}/>,
@@ -51,17 +52,18 @@ const Foot = () => {
         <footer className={styles.footer}>
             <div className={styles.normal}>
 
-                <div className={styles.toTop} onClick={toTop}>
+                <div className={styles.toTop} onClick={toTop} >
                     <Up className={styles.arrow} />
                 </div>
                 <h6 className={styles.title}>
-                    <span>West-Mec Veterinary</span>
-                    <span>Adoption Portal</span>
+                    <span><title>West-Mec Veterinary</title></span>
+                    <span><title>Adoption Portal</title></span>
                 </h6>
                 <div className={styles.socails}>
                     {socials.map(({link, icon, id}) =>
                         <a 
-                            href={link} 
+                            href={link}
+                            title="Socials" 
                             target="_blank" 
                             rel="noreferrer noopener"
                             key={id}

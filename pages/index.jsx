@@ -15,7 +15,7 @@ const dummyData = {
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
         },
-        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus"  className={styles.elem}width="100%" height="100%" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>,
+        map: <iframe aria-label='Google Map Adoption Event' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus"  className={styles.elem}width="100%" height="100%" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>,
         id: 1,
     }, {
         title: "Mass Adoption Event 2",
@@ -25,7 +25,7 @@ const dummyData = {
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
         },
-        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus"  className={styles.elem}width="100%" height="100%" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>,
+        map: <iframe aria-label='Google Map Adoption Event' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus"  className={styles.elem}width="100%" height="100%" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>,
         id: 2,
     }, {
         title: "Mass Adoption Event 3",
@@ -35,7 +35,7 @@ const dummyData = {
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
         },
-        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus"  className={styles.elem}width="100%" height="100%" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>,
+        map: <iframe aria-label='Google Map Adoption Event' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus"  className={styles.elem}width="100%" height="100%" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>,
         id: 3,
     },],
     animals: [{
@@ -64,7 +64,7 @@ const dummyData = {
 
 const Home = () => {
     const [eventIndex, setEventIndex] = useState(0);
-
+        
     return (
         <WithBoth className={styles.home}>
             <h1 className={styles.title}>West Mec Veterinary Program Adoption Portal</h1>
