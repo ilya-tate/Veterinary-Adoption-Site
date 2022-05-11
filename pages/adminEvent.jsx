@@ -5,7 +5,7 @@ const event = () => {
   const [clicked, setClicked] = useState(false);
   const [newEvent, setNewEvent] = useState({
     title: "",
-    time: "",
+    time: Date.now(),
     date: Date.now(),
     description: "",
     location: "",
