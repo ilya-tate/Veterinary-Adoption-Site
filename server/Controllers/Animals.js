@@ -1,33 +1,15 @@
 const AnimalModel = require("../Models/AnimalModel");
 
-const getAnimals = async(req, res) => {
-  //will get all animals and will have filters
-}
-
 const getAllAnimals = async (req, res) => {
-  const { page } = req.query;
-
-  const pageNumber = Number(page);
-  const size = 8;
-
   try {
-    if (pageNumber === 1) {
-      let animals = await AnimalModel.find()
-        .limit(size)
-        .sort({ createdAt: -1 })
-        .populate("animal")
-    } else {
-      const skips = size * (pageNumber - 1);
-      let animals = await AnimalModel.find()
-        .skip(skips)
-        .limit(size)
-        .sort({ createdAt: -1 })
-        .populate("animal")
-    }
+    console.log("hi");
+    let animals = await AnimalModel.find({})
+      .sort({ createdAt: -1 })
+      console.log("bye");
     return res.status(200).json(animals);
   } catch (error) {
     console.log(error);
-    return res.status(500).send("Server Error @ getAllAnimals in Controllers");
+    return res.status(500).send("Server Error @ getDisplayAnimals");
   }
 };
 
@@ -59,4 +41,4 @@ const getAnimalById = async (req, res) => {
   }
 };
 
-module.exports = {getDisplayAnimals, getAnimals};
+module.exports = {getDisplayAnimals, getAllAnimals};
