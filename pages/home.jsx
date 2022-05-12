@@ -131,7 +131,7 @@ const Home = () => {
             <div className={styles.animals}>
                 <h2 className={styles.heading}>Featured Animals</h2>
                 <div className={styles.animalsContainer}>
-                    {dummyData.animals.map(({id, ...animal}) => <Animal key={id} id={id} {...animal} />)}
+                    {dummyData.animals.map(({id, ...animal}) => "ANI")}
                 </div>
                 <Link href="/animals">
                     <button className={styles.allAnimals}>

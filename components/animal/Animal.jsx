@@ -27,7 +27,7 @@ const Animal = ({animal}) => {
                         <div className={styles.common}>
                             <p>{animal.gender === "f" || animal.gender === "F" || animal.gender === "female" || animal.gender === "Female" ? "Female" : "Male"}</p>
                             <div className={styles.decorator}></div>
-                            <p>{animal.age} years</p>
+                            <p>{animal.age < 1 ? "NEW BORN" : animal.age + " Years"}</p>
                         </div>
                         {/* <div className={styles.featured}>
                             {featured && <>
