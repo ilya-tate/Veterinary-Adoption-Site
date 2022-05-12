@@ -5,8 +5,9 @@ import Dropdown from "../assets/svgs/dropdown.svg";
 import pig from "../assets/images/gentleman.png";
 import Animal from "../components/animal/Animal";
 import Link from "next/link";
-import axios from "axios"
+import axios from "axios";
 import { setTimeout } from "timers";
+import {Image} from "semantic-ui-react"
 
 const Home = () => {
   const [eventIndex, setEventIndex] = useState(0);
@@ -16,20 +17,19 @@ const Home = () => {
   const displayAnis = async () => {
     let { data } = await axios.get("/api/v1/animals/");
     setWeekAnimals(data);
-    console.log("animal", data);
   };
-  const displayEvents = async() => {
+  const displayEvents = async () => {
     let { data } = await axios.get("/api/v1/events/");
     setWeekEvents(data);
-    console.log("event", data);      
-  }
-  
+  };
+
   useEffect(() => {
     displayEvents();
+    displayAnis();
     setTimeout(() => {
-      displayAnis()      
-    }, 5000);
-
+      console.log(weekAnimals);
+      console.log(weekEvents);
+    }, 1000);
   }, []);
   return (
     <WithBoth className={styles.home}>
@@ -75,67 +75,82 @@ const Home = () => {
           ))}
         </ul>
         <div className={styles.eventsContainer}>
-          {weekEvents ? weekEvents.map((event, index) => (
-            <div
-              key={event._id}
-              className={
-                styles.event + " " + (eventIndex === index ? styles.show : "")
-              }
-            >
-              <iframe className={styles.map} src={event.location}></iframe>
-              <div className={styles.eventInfo}>
-                <div className={styles.eventTitle}>Name: {event.title}</div>
-                <div className={styles.simple}>
-                  <p className={styles.desc}>{event.desc}</p>
-                  <div className={styles.details}>
-                    <div>Date: {event.date ? event.date.split("T")[0] : "UNKNOWN DATE"}</div>
-                    <div onClick={console.log(event)}>Time: {event.time ? event.time : "UNKNOWN TIME"}</div>
+          {weekEvents ? (
+            weekEvents.map((event, index) => (
+              <div
+                key={event._id}
+                className={
+                  styles.event + " " + (eventIndex === index ? styles.show : "")
+                }
+              >
+                <iframe className={styles.map} src={event.location}></iframe>
+                <div className={styles.eventInfo}>
+                  <div className={styles.eventTitle}>{event.title}</div>
+                  <div className={styles.simple}>
+                    <p className={styles.desc}>
+                      {event.description
+                        ? event.description
+                        : "DESCRIPTION UNAVAILABLE"}
+                    </p>
+                    <div className={styles.details}>
+                      <div>
+                        Date:{" "}
+                        {event.date ? event.date.split("T")[0] : "UNKNOWN DATE"}
+                      </div>
+                      <div>
+                        Time: {event.time ? event.time : "UNKNOWN TIME"}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+            ))
+          ) : (
+            <div>
+              <h1>NO EVENTS HERE</h1>
             </div>
-          )) : <div><h1>NO EVENTS HERE</h1></div>}
+          )}
         </div>
       </div>
       <div className={styles.animals}>
         <h2 className={styles.heading}>Featured Animals</h2>
         <div className={styles.animalsContainer}>
           {weekAnimals.map((animal) => (
-            <Link href={`/animals/${animal._id}`} key={animal._id}>
-              <div className={styles.animal}>
-                <div className={styles.image}>
-                  <img
-                    src={animal.pictures[0]}
-                    // alt={animal.name}
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="center"
-                    className={styles.elem}
-                    loading="lazy"
-                  />
-                </div>
-                <div className={styles.details}>
-                  <div className={styles.name}>{animal.name}</div>
-                  <div className={styles.other}>
-                    <div className={styles.common}>
-                      <p>{animal.gender}</p>
-                      <div className={styles.decorator}></div>
-                      <p>{animal.age} years</p>
-                    </div>
-                    <div className={styles.featured}>
-                      {animal.featured && (
-                        <>
-                          <p>Featured</p>
-                          <span className={styles.icon}>
-                            <Star />
-                          </span>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
+            <Animal key={animal._id} animal={animal}/>
+            // <Link href={`/animals/${animal._id}`}>
+            //   <div className={styles.animal}>
+            //     <div className={styles.image}>
+            //       <Image
+            //         src="/bulldog.jfif"
+            //         layout="fill"
+            //         objectFit="cover"
+            //         objectPosition="center"
+            //         className={styles.elem}
+            //         loading="lazy"
+            //       />
+            //     </div>
+            //     <div className={styles.details}>
+            //       <div className={styles.name}>{animal.name}</div>
+            //       <div className={styles.other}>
+            //         <div className={styles.common}>
+            //           <p>{animal.gender}</p>
+            //           <div className={styles.decorator}></div>
+            //           <p>{animal.age} years</p>
+            //         </div>
+            //         {/* <div className={styles.featured}> */}
+            //         {/* {featured && (
+            //             <>
+            //               <p>Featured</p>
+            //               <span className={styles.icon}>
+            //                 <Star />
+            //               </span>
+            //             </>
+            //           )} */}
+            //         {/* </div> */}
+            //       </div>
+            //     </div>
+            //   </div>
+            // </Link>
           ))}
         </div>
         <Link href="/animals">
