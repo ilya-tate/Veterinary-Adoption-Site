@@ -92,8 +92,9 @@
 
 .createAnimal {
   border-right: 1px solid black;
-  width: 50vw;
+  width: 40vw;
   height: 91vh;
+  margin-left: -10vw;
 }
 .createAnimal .animalInputs {
   margin-top: 5px;

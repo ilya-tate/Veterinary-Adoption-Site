@@ -1,6 +1,7 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Icon } from "semantic-ui-react";
+import DragNDrop from "./components/common/DragNDrop";
 
 const animal = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -18,15 +19,17 @@ const animal = () => {
     description: "",
     vaccines: "",
     spayed: "",
+    picture: ""
   });
   const [show, setShow] = useState(false);
   const [sucessful, setSucessful] = useState(false);
-
   const [trash, setTrash] = useState(false);
   const [del, setDel] = useState({});
   const [delId, setDelId] = useState("");
-  const [foundAnimal, setFoundAnimal] = useState("");
   const [animals, setAnimals] = useState([]);
+
+  const [preview, setPreview] = useState(null);
+  const inputRef = useRef(null);
 
   const chooseDrop = async (e) => {
     console.log("DROP");
@@ -66,14 +69,13 @@ const animal = () => {
     getInfo();
     console.log(animals, "ANIMALES");
     setSucessful(false);
-  }, [sucessful])
-  
+  }, [sucessful]);
 
   const handleChange = (e) => {
     const { name, files, value } = e.target;
-    if (name === "media") {
-      setMedia(files[0]);
-      setMediaPreview(URL.createObjectURL(files[0]));
+    if (name === "pictures") {
+      setPreview(() => URL.createObjectURL(files[0]));
+      setNewAnimal((prev) => ({ ...prev, [name]: value }));
     }
     // else if (name == "spayed") {
     //   setSpade(!spade);
@@ -90,18 +92,24 @@ const animal = () => {
 
     // if (media) {
     // const formData = new FormData();
-    // formData.append("image", media, {
+    // formData.append("picture", media, {
     //   headers: {
     //     "Content-Type": "multipart/form-data",
     //   },
     // });
-      const res = await axios.post("/api/v1/animals/admin", { ...newAnimal });
-      setSucessful(true)
+    const res = await axios.post("/api/v1/animals/admin", { ...newAnimal });
+    setSucessful(true);
     // }
   };
 
   return (
     <div className="animalMain">
+      <DragNDrop
+        inputRef={inputRef}
+        handleChange={handleChange}
+        preview={preview}
+        setPreview={setPreview}
+      />
       <form className="createAnimal" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -262,7 +270,7 @@ const animal = () => {
         )}
         {show && del !== "" && (
           <div className="delDiv">
-            <img src="/bulldog.jfif" alt="fff" className="delImg" />
+            <img src={del.pictures[0]} alt="fff" className="delImg" onClick={console.log(del)}/>
             <div className="delBot">
               {del.name ? (
                 <h1 className="delName">
@@ -276,14 +284,14 @@ const animal = () => {
                 onMouseEnter={() => setTrash(true)}
                 onMouseLeave={() => setTrash(false)}
                 onClick={() => {
-                  deleteAnimal()
-                  getInfo()
+                  deleteAnimal();
+                  getInfo();
                 }}
               >
                 <Icon
                   name={trash ? "trash alternate outline" : "trash"}
                   color="red"
-                  onClick={()=>setShow(false)}
+                  onClick={() => setShow(false)}
                 />
               </button>
             </div>
