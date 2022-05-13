@@ -8,9 +8,9 @@ const Animal = ({animal}) => {
         <Link href={`/animals/${animal._id}`}>
             <div className={styles.animal}>
                 <div className={styles.image}>
+                    {animal.pictures.length ? 
                     <Image
-                        src="/bulldog.jfif"
-                        alt={animal.name}
+                        src={animal.pictures}
                         layout="fill"
                         objectFit="cover"
                         objectPosition="center"
@@ -18,6 +18,17 @@ const Animal = ({animal}) => {
                         loading="lazy"
                         onClick={console.log("animal", animal)}
                     />
+                    :
+                    <Image
+                    src="/logo.png"
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="center"
+                    className={styles.image}
+                    loading="lazy"
+                    onClick={console.log("animal", animal)}
+                />
+                }
                 </div>
                 <div className={styles.details}>
                     <div className={styles.name}>
