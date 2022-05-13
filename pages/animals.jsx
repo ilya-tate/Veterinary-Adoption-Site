@@ -19,7 +19,7 @@ const animal = () => {
     description: "",
     vaccines: "",
     spayed: "",
-    picture: ""
+    picture: "",
   });
   const [show, setShow] = useState(false);
   const [sucessful, setSucessful] = useState(false);
@@ -29,11 +29,11 @@ const animal = () => {
   const [animals, setAnimals] = useState([]);
 
   const [preview, setPreview] = useState(null);
+  const [media, setMedia] = useState(null);
   const inputRef = useRef(null);
 
   const chooseDrop = async (e) => {
     console.log("DROP");
-    // const {data} = await axios.get("/api/v1/animals/oneAni", e.target.value)
     setDel(animals.find((animal) => e.target.value.toString() == animal.name));
   };
 
@@ -71,33 +71,44 @@ const animal = () => {
     setSucessful(false);
   }, [sucessful]);
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     const { name, files, value } = e.target;
     if (name === "pictures") {
-      setPreview(() => URL.createObjectURL(files[0]));
+      setMedia(files[0]);
+      setPreview(URL.createObjectURL(files[0]));
+    } else {
       setNewAnimal((prev) => ({ ...prev, [name]: value }));
     }
+
     // else if (name == "spayed") {
     //   setSpade(!spade);
     //   console.log(spade);
     //   setNewAnimal((prev) => ({ ...prev, [spayed]: spade }));
     // }
-    setNewAnimal((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
+    const { name, files, value } = e.target;
     e.preventDefault();
     // setLoading(true);
     // let picUrl;
+    let picUrl;
 
-    // if (media) {
-    // const formData = new FormData();
-    // formData.append("picture", media, {
-    //   headers: {
-    //     "Content-Type": "multipart/form-data",
-    //   },
-    // });
+    if (media) {
+      const formData = new FormData();
+      formData.append("image", media, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      const res = await axios.post("/api/v1/animals/upload", formData);
+      picUrl = res.data.src;
+      setNewAnimal((prev) => ({ ...prev, [name]: picUrl }));
+    }
     const res = await axios.post("/api/v1/animals/admin", { ...newAnimal });
+    console.log(newAnimal, "uploaded");
+    console.log(picUrl);
+    console.log("RES", res);
     setSucessful(true);
     // }
   };
@@ -270,7 +281,12 @@ const animal = () => {
         )}
         {show && del !== "" && (
           <div className="delDiv">
-            <img src={del.pictures[0]} alt="fff" className="delImg" onClick={console.log(del)}/>
+            <img
+              src={del.pictures[0]}
+              alt="fff"
+              className="delImg"
+              onClick={console.log(del)}
+            />
             <div className="delBot">
               {del.name ? (
                 <h1 className="delName">
