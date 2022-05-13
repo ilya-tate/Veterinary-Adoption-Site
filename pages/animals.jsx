@@ -19,7 +19,7 @@ const animal = () => {
     description: "",
     vaccines: "",
     spayed: "",
-    picture: "",
+    pictures: "",
   });
   const [show, setShow] = useState(false);
   const [sucessful, setSucessful] = useState(false);
@@ -73,9 +73,19 @@ const animal = () => {
 
   const handleChange = async (e) => {
     const { name, files, value } = e.target;
+    let picUrl;
     if (name === "pictures") {
       setMedia(files[0]);
       setPreview(URL.createObjectURL(files[0]));
+      const formData = new FormData();
+      formData.append("image", files[0], {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      const res = await axios.post("/api/v1/animals/upload", formData);
+      picUrl = res.data.src;
+      setNewAnimal((prev) => ({ ...prev, [name]: picUrl }));
     } else {
       setNewAnimal((prev) => ({ ...prev, [name]: value }));
     }
@@ -92,24 +102,10 @@ const animal = () => {
     e.preventDefault();
     // setLoading(true);
     // let picUrl;
-    let picUrl;
-
-    if (media) {
-      const formData = new FormData();
-      formData.append("image", media, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      const res = await axios.post("/api/v1/animals/upload", formData);
-      picUrl = res.data.src;
-      setNewAnimal((prev) => ({ ...prev, [name]: picUrl }));
-    }
+    // setTimeout(() => {
+    //   console.log("wait 2s");
+    // }, 2000);
     const res = await axios.post("/api/v1/animals/admin", { ...newAnimal });
-    console.log(newAnimal, "uploaded");
-    console.log(picUrl);
-    console.log("RES", res);
-    setSucessful(true);
     // }
   };
 

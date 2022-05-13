@@ -6,7 +6,7 @@ const addAnimal = async (req, res) => {
   console.log(params);
   console.log("Creating");
   try {
-    console.log("Creating.");
+    console.log("Creating.", params);
     const newAni = new AnimalModel({...params})
     await newAni.save();
     console.log("Creating..", newAni);
