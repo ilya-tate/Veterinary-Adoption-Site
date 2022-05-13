@@ -6,7 +6,6 @@ const addAnimal = async (req, res) => {
     const newAnimal = await new animalModel({ params }).save();
     const animalAdded = await animalModel
       .findById(animal._id)
-      .populate("animal");
     console.log("NEW ANIMAL");
     return res.status(200).json(animalAdded);
   } catch (err) {

@@ -117,10 +117,10 @@
 }
 .home .events .eventsContainer .event {
   flex-shrink: 2;
-  background-color: #2B363B;
+  background-color: black;
   color: #ffffff;
   border-radius: 1rem;
-  box-shadow: #f7931d 0.25rem 0.25rem 0 0;
+  box-shadow: #f7931d 0.25rem 0.01rem 0 0;
   font-size: 1rem;
   flex-basis: 100%;
   display: none;
@@ -141,6 +141,8 @@
 .home .events .eventsContainer .event .map {
   width: 100%;
   aspect-ratio: 1.25/1;
+  border-top-right-radius: 3%;
+  border-top-left-radius: 3%;
 }
 .home .events .eventsContainer .event .eventInfo {
   padding: 2rem;

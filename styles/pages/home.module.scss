@@ -126,10 +126,10 @@
 
             .event {
                 flex-shrink: 2;
-                background-color: $black;
+                background-color: black;
                 color: $white;
                 border-radius: 1rem;
-                box-shadow: $orange .25rem .25rem 0 0;
+                box-shadow: $orange .25rem .01rem 0 0;
                 font-size: 1rem;
                 flex-basis: 100%;
                 display: none;
@@ -149,6 +149,8 @@
                 .map {
                     width: 100%;
                     aspect-ratio: 1.25 / 1;
+                    border-top-right-radius: 3%;
+                    border-top-left-radius: 3%;                
                 }
     
                 .eventInfo {
