@@ -18,7 +18,7 @@ const animal = () => {
     details: "",
     description: "",
     vaccines: "",
-    spayed: "",
+    spayed: false,
     pictures: "",
   });
   const [show, setShow] = useState(false);
@@ -27,10 +27,12 @@ const animal = () => {
   const [del, setDel] = useState({});
   const [delId, setDelId] = useState("");
   const [animals, setAnimals] = useState([]);
-
+  const [clearAll, setClearAll] = useState(false);
   const [preview, setPreview] = useState(null);
   const [media, setMedia] = useState(null);
   const inputRef = useRef(null);
+  const [password, setPassword] = useState(99550);
+  const [spayed, setSpayed] = useState(false);
 
   const chooseDrop = async (e) => {
     console.log("DROP");
@@ -52,6 +54,13 @@ const animal = () => {
     const { data } = await axios.get("/api/v1/animals/adoption");
     console.log(data);
     setAnimals(data);
+  };
+
+  const clear = async () => {
+    const { data } = await axios.delete("/api/v1/animals/");
+    console.log(data);
+    setAnimals(data);
+    getInfo()
   };
 
   const deleteAnimal = async () => {
@@ -86,6 +95,10 @@ const animal = () => {
       const res = await axios.post("/api/v1/animals/upload", formData);
       picUrl = res.data.src;
       setNewAnimal((prev) => ({ ...prev, [name]: picUrl }));
+    } else if (name === "spayed") {
+      setSpayed(!spayed)
+      setNewAnimal((prev) => ({ ...prev, [name]: spayed }));
+      console.log(spayed, "SPAYED", newAnimal.spayed);
     } else {
       setNewAnimal((prev) => ({ ...prev, [name]: value }));
     }
@@ -248,13 +261,13 @@ const animal = () => {
             }}
           >
             <option value=""></option>
-            {animals.map((animal) => {
+            {animals.length ? animals.map((animal) => {
               return (
                 <option id={animal._id} value={animal.name}>
                   {animal.name}
                 </option>
               );
-            })}
+            }) : ""}
           </select>
         </label>
         <br />
@@ -309,6 +322,19 @@ const animal = () => {
             </div>
           </div>
         )}
+        <br />
+        <a
+          className="clear"
+          onClick={() => {
+            setClearAll(true)
+            console.log("CLEAR...SUCCESSFUL");
+          }}
+        >
+          {!clearAll && <p>Clear All?</p>}
+          {clearAll && <input type="number" placeholder="Enter Password" onBlur={(e)=>{
+            password === e.target.value && clearAll(false), clear(), setTimeout(()=>{window.location.replace("/animals")}, 100)
+          }}></input>}
+        </a>
       </div>
     </div>
   );

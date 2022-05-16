@@ -1,9 +1,9 @@
 const router = require("express").Router();
 
 const {getAllEvents} = require("../Controllers/Event")
-const {createEvent, deleteEvent} = require("../Controllers/Admin");
+const {createEvent, deleteEvent, clearEVENTS} = require("../Controllers/Admin");
 
-router.route("/event").get(getAllEvents)
+router.route("/").get(getAllEvents).delete(clearEVENTS)
 router.route("/admin").post(createEvent);
 router.route('/admin/:id').delete(deleteEvent);
 

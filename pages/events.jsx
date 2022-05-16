@@ -15,16 +15,24 @@ const event = () => {
   });
   const [show, setShow] = useState(false);
   const [sucessful, setSucessful] = useState(false);
-
   const [trash, setTrash] = useState(false);
   const [del, setDel] = useState({});
   const [delId, setDelId] = useState("");
   const [events, setEvents] = useState([]);
   const [newDate, setNewDate] = useState(new Date());
+  const [password, setPassword] = useState(99550);
+  const [clearAll, setClearAll] = useState(false);
 
   const getInfo = async () => {
-    const { data } = await axios.get("/api/v1/events/event");
+    const { data } = await axios.get("/api/v1/events");
     setEvents(data);
+  };
+
+  const clear = async () => {
+    const { data } = await axios.delete("/api/v1/events/");
+    console.log(data);
+    setEvents(data);
+    getInfo();
   };
 
   useEffect(() => {
@@ -76,7 +84,10 @@ const event = () => {
     //   },
     // });
     console.log(newEvent);
-    const res = await axios.post("/api/v1/events/admin", { ...newEvent, createdAt: Date.now() });
+    const res = await axios.post("/api/v1/events/admin", {
+      ...newEvent,
+      createdAt: Date.now(),
+    });
     console.log(res);
     setSucessful(true);
     // }
@@ -232,7 +243,9 @@ const event = () => {
                 loading="fast"
                 className="map"
               ></iframe>
-            ) : <iframe className="map"></iframe>}
+            ) : (
+              <iframe className="map"></iframe>
+            )}
             <div className="delBot">
               {del.title ? (
                 <h1 className="delName">
@@ -269,6 +282,32 @@ const event = () => {
             </div>
           </div>
         )}
+        <br />
+        <a
+          className="clear"
+          onClick={() => {
+            setClearAll(true);
+            console.log("CLEAR...SUCCESSFUL");
+          }}
+        >
+          {!clearAll && <p>Clear All?</p>}
+          {clearAll && (
+            <input
+              type="number"
+              placeholder="Enter Password"
+              onBlur={(e) => {
+                password === e.target.value
+                  ? () => {
+                      clear();
+                      setTimeout(() => {
+                        window.location.replace("/events");
+                      }, 100);
+                    }
+                  : clearAll(false);
+              }}
+            ></input>
+          )}
+        </a>
       </div>
     </div>
   );

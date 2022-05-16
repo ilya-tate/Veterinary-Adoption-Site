@@ -78,5 +78,37 @@ const deleteEvent = async (req, res) => {
   }
 };
 
+const clearANI = async(req, res) => {
+  try{
+    const found = await AnimalModel.find({})
+    if(!found){
+      return status(403).send("ERROR AT CLEAR")
+    }else{
+    const cleared = await AnimalModel.remove({})
+    console.log(AnimalModel);
+    return res.status(200).send("ALL ANIMALS REMOVES...SUCCESS");
+    }
+  }catch(err){
+    console.log("ERROR");
+    console.error(err);
+  }
+}
 
-module.exports = {addAnimal, removeAnimal, createEvent, deleteEvent}
+
+const clearEVENTS = async(req, res) => {
+  try{
+    const found = await EventModel.find({})
+    if(!found){
+      return status(403).send("ERROR AT CLEAR")
+    }else{
+    const cleared = await EventModel.remove({})
+    return res.status(200).send("ALL ANIMALS REMOVES...SUCCESS");
+    }
+  }catch(err){
+    console.log("ERROR");
+    console.error(err);
+  }
+}
+
+
+module.exports = {addAnimal, removeAnimal, createEvent, deleteEvent, clearANI, clearEVENTS}

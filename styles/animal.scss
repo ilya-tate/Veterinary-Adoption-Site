@@ -52,19 +52,19 @@
     }
     .delDiv{
       width: 40vw;
-      height: 60vh;
+      height: 65vh;
       margin-left: 5vw;
       justify-content: center;
       background-color: white;
       text-align: center;
       .delBot{
         display: inline-flex;
-        margin-top: -1vh;
+        // margin-top: -1vh;
         .delete{
           width: 90px;
           height: 40px;
           font-size: 20px;
-          margin-top: 3vh;
+          margin-top: 1.5vh;
           margin-left: 5vw;
           filter: brightness(0%);
           background: url("/");
@@ -77,15 +77,22 @@
           }
         }
         .delName{
-          font-size: 60px;
-          margin-left: 13vw;
+          font-size: 35px;
+          margin-left: 5vw;
+          margin-top: 1vh;
         }
       }
       .delImg{
-        height: 49vh;
-        width: 38vw;
+        height: 55vh;
+        width: 39vw;
         margin-top: 1vh;
         background-color: white;
+      }
+    }
+    a{
+      margin-left: 43%;
+      p{
+        margin-left: 47%;
       }
     }
 }
