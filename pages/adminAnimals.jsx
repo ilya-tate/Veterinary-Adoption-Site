@@ -1,7 +1,7 @@
 import { React, useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Icon } from "semantic-ui-react";
-import DragNDrop from "./components/common/DragNDrop";
+import DragNDrop from "../components/common/DragNDrop";
 
 const adminAnimal = () => {
   const [submitted, setSubmitted] = useState(false);
