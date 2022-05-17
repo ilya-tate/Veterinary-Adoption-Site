@@ -1,9 +1,9 @@
 import { React, useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Icon } from "semantic-ui-react";
-import DragNDrop from "../components/common/DragNDrop";
+import DragNDrop from "./components/common/DragNDrop";
 
-const adminAnimal = () => {
+const adminAnimals = () => {
   const [submitted, setSubmitted] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [spade, setSpade] = useState(false);
@@ -111,6 +111,7 @@ const adminAnimal = () => {
   };
 
   const handleSubmit = async (e) => {
+    const { name, files, value } = e.target;
     e.preventDefault();
     // setLoading(true);
     // let picUrl;
@@ -118,7 +119,6 @@ const adminAnimal = () => {
     //   console.log("wait 2s");
     // }, 2000);
     const res = await axios.post("/api/v1/animals/admin", { ...newAnimal });
-    getInfo();
     // }
   };
 
@@ -340,4 +340,4 @@ const adminAnimal = () => {
   );
 };
 
-export default adminAnimal;
+export default adminAnimals;
