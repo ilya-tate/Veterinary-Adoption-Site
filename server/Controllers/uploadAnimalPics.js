@@ -1,7 +1,7 @@
 const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
 
-const uploadAnimalPic = async (req, res) => {
+const uploadAnimalPics = async (req, res) => {
   try {
     // console.log("stuff");
     const src = await cloudinary.uploader.upload(req.files.image.tempFilePath, {
@@ -20,4 +20,4 @@ const uploadAnimalPic = async (req, res) => {
   }
 };
 
-module.exports = { uploadAnimalPic };
+module.exports = { uploadAnimalPics };
