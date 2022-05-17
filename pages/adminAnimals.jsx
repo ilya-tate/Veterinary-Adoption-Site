@@ -111,7 +111,6 @@ const adminAnimal = () => {
   };
 
   const handleSubmit = async (e) => {
-    const { name, files, value } = e.target;
     e.preventDefault();
     // setLoading(true);
     // let picUrl;
@@ -119,6 +118,7 @@ const adminAnimal = () => {
     //   console.log("wait 2s");
     // }, 2000);
     const res = await axios.post("/api/v1/animals/admin", { ...newAnimal });
+    getInfo();
     // }
   };
 
