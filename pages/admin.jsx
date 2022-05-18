@@ -12,7 +12,7 @@ const admin = () => {
             </a>
           </div>
           <div className="events">
-            <a href="/events">
+            <a href="/adminEvents">
               <button className="adminButton">Events</button>
             </a>
           </div>

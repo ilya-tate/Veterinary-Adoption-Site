@@ -7,12 +7,13 @@ import Animal from "../components/animal/Animal";
 import Link from "next/link";
 import axios from "axios";
 import { setTimeout } from "timers";
-import {Image} from "semantic-ui-react"
+import { Image } from "semantic-ui-react";
 
 const Home = () => {
   const [eventIndex, setEventIndex] = useState(0);
   const [weekAnimals, setWeekAnimals] = useState([]);
   const [weekEvents, setWeekEvents] = useState([]);
+  const [more, setMore] = useState(false);
 
   const displayAnis = async () => {
     let { data } = await axios.get("/api/v1/animals/");
@@ -88,9 +89,22 @@ const Home = () => {
                   <div className={styles.eventTitle}>{event.title}</div>
                   <div className={styles.simple}>
                     <p className={styles.desc}>
-                      {event.description
-                        ? event.description
-                        : "DESCRIPTION UNAVAILABLE"}
+                      {event.description ? (
+                        <div>
+                            <p>
+                              {!more ? event.description.slice(0, -event.description.length * 0.5) + "..." : event.description}
+                            </p>
+                          <p
+                            className="seeMore"
+                            onClick={() => setMore(!more)}
+                            style={{ cursor: "pointer" }}
+                          >
+                            {!more ? "See More..." : "See Less..."}
+                          </p>
+                        </div>
+                      ) : (
+                        "DESCRIPTION UNAVAILABLE"
+                      )}
                     </p>
                     <div className={styles.details}>
                       <div>
@@ -106,9 +120,7 @@ const Home = () => {
               </div>
             ))
           ) : (
-            <div>
-              <h1>NO EVENTS HERE</h1>
-            </div>
+            <h1>NO EVENTS HERE</h1>
           )}
         </div>
       </div>
@@ -116,7 +128,7 @@ const Home = () => {
         <h2 className={styles.heading}>Featured Animals</h2>
         <div className={styles.animalsContainer}>
           {weekAnimals.map((animal) => (
-            <Animal key={animal._id} animal={animal}/>
+            <Animal key={animal._id} animal={animal} />
             // <Link href={`/animals/${animal._id}`}>
             //   <div className={styles.animal}>
             //     <div className={styles.image}>

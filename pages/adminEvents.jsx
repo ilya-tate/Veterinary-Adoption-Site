@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import axios from "axios";
 import { Icon } from "semantic-ui-react";
 
-const event = () => {
+const adminEvents = () => {
   const [submitted, setSubmitted] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [newEvent, setNewEvent] = useState({
@@ -313,4 +313,4 @@ const event = () => {
   );
 };
 
-export default event;
+export default adminEvents;

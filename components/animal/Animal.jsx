@@ -5,10 +5,13 @@ import Link from "next/link";
 
 const Animal = ({animal}) => {
     return (
-        <Link href={`/animals/${animal._id}`}>
+        <Link href={{
+            pathname:`/animals/${animal._id}`,
+            query: animal
+        }}>
             <div className={styles.animal}>
                 <div className={styles.image}>
-                    {animal.pictures.length ? 
+                    {animal.pictures[0].length > 0 ? 
                     <Image
                         src={animal.pictures}
                         layout="fill"

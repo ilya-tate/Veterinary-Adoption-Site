@@ -1,7 +1,7 @@
 import { React, useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Icon } from "semantic-ui-react";
-import DragNDrop from "./components/common/DragNDrop";
+import DragNDrop from "../components/common/DragNDrop";
 
 const adminAnimals = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -38,7 +38,6 @@ const adminAnimals = () => {
     console.log("DROP");
     setDel(animals.find((animal) => e.target.value.toString() == animal.name));
   };
-
   const changeSubmit = () => {
     setTimeout(() => {
       setSubmitted(true);
@@ -49,37 +48,31 @@ const adminAnimals = () => {
     }, 3000);
     setSucessful(true);
   };
-
   const getInfo = async () => {
     const { data } = await axios.get("/api/v1/animals/adoption");
     console.log(data);
     setAnimals(data);
   };
-
   const clear = async () => {
     const { data } = await axios.delete("/api/v1/animals/");
     console.log(data);
     setAnimals(data);
     getInfo()
   };
-
   const deleteAnimal = async () => {
     await axios.delete(`/api/v1/animals/admin/${delId}`);
     setSucessful(true);
     setShow(false);
   };
-
   useEffect(() => {
     getInfo();
     console.log(animals);
   }, []);
-
   useEffect(() => {
     getInfo();
     console.log(animals, "ANIMALES");
     setSucessful(false);
   }, [sucessful]);
-
   const handleChange = async (e) => {
     const { name, files, value } = e.target;
     let picUrl;
@@ -102,26 +95,12 @@ const adminAnimals = () => {
     } else {
       setNewAnimal((prev) => ({ ...prev, [name]: value }));
     }
-
-    // else if (name == "spayed") {
-    //   setSpade(!spade);
-    //   console.log(spade);
-    //   setNewAnimal((prev) => ({ ...prev, [spayed]: spade }));
-    // }
   };
-
   const handleSubmit = async (e) => {
     const { name, files, value } = e.target;
     e.preventDefault();
-    // setLoading(true);
-    // let picUrl;
-    // setTimeout(() => {
-    //   console.log("wait 2s");
-    // }, 2000);
     const res = await axios.post("/api/v1/animals/admin", { ...newAnimal });
-    // }
   };
-
   return (
     <div className="animalMain">
       <DragNDrop

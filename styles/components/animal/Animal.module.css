@@ -57,7 +57,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(43, 54, 59, 0) 67.19%, rgba(43, 54, 59, 0.85) 79.69%, #2B363B 100%);
+  background: linear-gradient(180deg, rgba(43, 54, 59, 0) 70.19%, rgba(43, 54, 59, 0.6) 79.69%, #2B363B 100%);
   border-radius: 1.5rem;
 }
 .animal .details {

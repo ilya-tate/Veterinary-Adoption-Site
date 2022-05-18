@@ -5,54 +5,54 @@ const Schema = mongoose.Schema;
 const AnimalSchema = new Schema({
   name: {
     type: String,
-    required: false
+    // required: false
   },
   age: {
     type: Number,
-    required: true
+    // required: true
   },
   gender: {
     type: String,
     enum: ["f", "m", "female", "male"],
-    required: true
+    // required: true
   },
   animal: {
     type: String,
-    required: true
+    // required: true
   },
   breed: {
     type: String,
-    required: true
+    // required: true
   },
   background: {
     type: String,
-    required: false
+    // required: false
   },
   colors: [
     {
       type: String,
-      required: true
+      // required: true
     }
   ],
   needs: [
     {
       type: String,
-      required: true
+      // required: true
     }
   ],
   description: {
     type: String,
-    required: true
+    // required: true
   },
   vaccinations: [
     {
       type: String,
-      required: true
+      // required: true
     }
   ],
   spayed: {
     type: Boolean,
-    required: true
+    // required: true
   },
   featured: {
     type: Boolean,
@@ -60,7 +60,7 @@ const AnimalSchema = new Schema({
   pictures: [
     {
       type: String,
-      required: true
+      // required: true
     }
   ],
   videos: [
