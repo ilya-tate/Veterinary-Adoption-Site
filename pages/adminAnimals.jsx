@@ -1,5 +1,6 @@
 import { React, useState, useEffect, useRef } from "react";
 import axios from "axios";
+import WithBoth from "../components/layout/with/WithBoth";
 import { Icon } from "semantic-ui-react";
 import DragNDrop from "../components/common/DragNDrop";
 
@@ -102,6 +103,7 @@ const adminAnimals = () => {
     const res = await axios.post("/api/v1/animals/admin", { ...newAnimal });
   };
   return (
+    <WithBoth>
     <div className="animalMain">
       <DragNDrop
         inputRef={inputRef}
@@ -253,6 +255,7 @@ const adminAnimals = () => {
         <br />
         {!show && (
           <button
+          style={{marginLeft: "18vw"}}
             onClick={() => {
               getInfo();
               setShow(true);
@@ -309,13 +312,14 @@ const adminAnimals = () => {
             console.log("CLEAR...SUCCESSFUL");
           }}
         >
-          {!clearAll && <p>Clear All?</p>}
-          {clearAll && <input type="number" placeholder="Enter Password" onBlur={(e)=>{
+          {!clearAll && <p style={{marginLeft: "21vw"}}>Clear All?</p>}
+          {clearAll && <input style={{marginLeft: "21vw"}} type="number" placeholder="Enter Password" onBlur={(e)=>{
             password === e.target.value && clearAll(false), clear(), setTimeout(()=>{window.location.replace("/animals")}, 100)
           }}></input>}
         </a>
       </div>
     </div>
+    </WithBoth>
   );
 };
 

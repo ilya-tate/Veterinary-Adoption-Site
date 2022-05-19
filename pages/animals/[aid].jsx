@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import WithBoth from "../../components/layout/with/WithBoth";
 import styles from "../../styles/pages/animals/[aid].module.scss";
-import Image from "next/image";
+import { Image } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import gentleman from "../../assets/images/gentleman.png";
 import hotdog from "../../assets/images/hotdog.jpg";
@@ -16,14 +16,12 @@ const IndividualAnimal = () => {
   const { aid } = router.query;
   const [animal, setAnimal] = useState([]);
   const [success, setSuccess] = useState(false);
+  const [index, setIndex] = useState(0);
 
   const getInfo = async () => {
     try {
-      const data  = await axios.get(
-        `/api/v1/animals/admin/${router.query._id}`
-      );
+      const data = await axios.get(`/api/v1/animals/admin/${router.query._id}`);
       setAnimal(data.data.animal);
-      console.log(animal);
     } catch (err) {
       console.log("ERROR ERROR");
       console.log(err);
@@ -36,7 +34,7 @@ const IndividualAnimal = () => {
   }, []);
 
   return success ? (
-    (console.log(animal),
+    (console.log(animal, "ANI"),
     (
       <WithBoth className={styles.indivAnimal}>
         <div className={styles.side}>
@@ -47,9 +45,7 @@ const IndividualAnimal = () => {
                   <div
                     className={styles.left}
                     onClick={() =>
-                      setImage((i) =>
-                        i - 1 < 0 ? animal.images.length - 1 : i - 1
-                      )
+                      setIndex(index--)
                     }
                   >
                     <Left className={styles.icon} />
@@ -58,11 +54,12 @@ const IndividualAnimal = () => {
                 <div className={styles.image}>
                   {animal.pictures ? (
                     <Image
-                      src={animal.pictures[0]}
+                      src={animal.pictures[index]}
                       layout="fill"
                       objectFit="cover"
                       objectPosition="center"
                       className={styles.elem}
+                      style={{height: "100%", width: "100%"}}
                     />
                   ) : (
                     <Image
@@ -78,9 +75,7 @@ const IndividualAnimal = () => {
                   <div
                     className={styles.right}
                     onClick={() =>
-                      setImage((i) =>
-                        i + 1 > animal.images.length - 1 ? 0 : i + 1
-                      )
+                      setIndex(index++)
                     }
                   >
                     <Right className={styles.icon} />
@@ -118,7 +113,11 @@ const IndividualAnimal = () => {
                 </li>
                 <li className={styles.item}>
                   <p className={styles.title}>Sex:</p>
-                  <p className={styles.details}>{animal.gender}</p>
+                  <p className={styles.details}>
+                    {animal.gender === "f" || "F" || "Female"
+                      ? "Female"
+                      : "Male"}
+                  </p>
                 </li>
                 <li className={styles.item}>
                   <p className={styles.title}>Neutered:</p>

@@ -220,6 +220,7 @@ const adminEvents = () => {
         <br />
         {!show && (
           <button
+          style={{marginLeft: "19.5vw"}}
             onClick={() => {
               getInfo();
               setShow(true);
@@ -229,9 +230,9 @@ const adminEvents = () => {
                 }, 2000);
               }
             }}
-            className="findAni"
+            className="findEvent"
           >
-            Find event
+            Find Event
           </button>
         )}
         {show && del !== "" && (
@@ -290,9 +291,10 @@ const adminEvents = () => {
             console.log("CLEAR...SUCCESSFUL");
           }}
         >
-          {!clearAll && <p>Clear All?</p>}
+          {!clearAll && <p style={{marginLeft: "23vw"}}>Clear All?</p>}
           {clearAll && (
             <input
+            style={{marginLeft: "23vw"}}
               type="number"
               placeholder="Enter Password"
               onBlur={(e) => {
@@ -300,7 +302,7 @@ const adminEvents = () => {
                   ? () => {
                       clear();
                       setTimeout(() => {
-                        window.location.replace("/events");
+                        window.location.replace("/");
                       }, 100);
                     }
                   : clearAll(false);
