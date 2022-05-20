@@ -5,10 +5,12 @@ const DragNDrop = ({
   inputRef,
   handleChange,
   preview,
+  addImage,
+  submitImages,
 }) => {
   return (
     <>
-      <Form.Field style={{width: "20vw"}}>
+      <Form.Field style={{ width: "20vw", marginRight: "-9vw", marginLeft: "1vw", zIndex: "5" }}>
         <Segment placeholder basic secondary>
           <input
             style={{ display: "none" }}
@@ -37,10 +39,7 @@ const DragNDrop = ({
           >
             {preview === null ? (
               <>
-                <Segment
-                  placeholder
-                  basic
-                >
+                <Segment placeholder basic>
                   <Header icon>
                     <Icon name="file image outline" />
                     Drag N Drop image here to upload
@@ -63,6 +62,14 @@ const DragNDrop = ({
             )}
           </div>
         </Segment>
+        <div className="imageButtons" style={{display: "inline-flex"}}>
+        <button className="uploadImages" onClick={(e) => addImage(e)}>
+          Upload Image?
+        </button>
+        <button className="submitImages" onClick={(e) => submitImages(e)}>
+          Submit Images?
+        </button>
+        </div>
       </Form.Field>
     </>
   );

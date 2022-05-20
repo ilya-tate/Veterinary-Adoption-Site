@@ -41,7 +41,7 @@ const IndividualAnimal = () => {
           <div className={styles.important}>
             <div className={styles.main}>
               <div className={styles.slider}>
-                {animal.pictures ? (
+                {animal?.pictures?.length > 1 && (
                   <div
                     className={styles.left}
                     onClick={() =>
@@ -50,7 +50,7 @@ const IndividualAnimal = () => {
                   >
                     <Left className={styles.icon} />
                   </div>
-                ) : null}
+                )}
                 <div className={styles.image}>
                   {animal.pictures ? (
                     <Image
@@ -71,7 +71,7 @@ const IndividualAnimal = () => {
                     />
                   )}
                 </div>
-                {animal.pictures ? (
+                {animal?.pictures?.length > 1 && (
                   <div
                     className={styles.right}
                     onClick={() =>
@@ -80,7 +80,7 @@ const IndividualAnimal = () => {
                   >
                     <Right className={styles.icon} />
                   </div>
-                ) : null}
+                )}
               </div>
               <h2 className={styles.name}>{animal.name}</h2>
             </div>

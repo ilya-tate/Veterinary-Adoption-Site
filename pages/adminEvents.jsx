@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
 import { Icon } from "semantic-ui-react";
+import WithBoth from "../components/layout/with/WithBoth";
 
 const adminEvents = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -109,6 +110,7 @@ const adminEvents = () => {
   };
 
   return (
+    <WithBoth>
     <div className="eventMain">
       <form className="createEvent" onSubmit={handleSubmit}>
         <input
@@ -312,6 +314,7 @@ const adminEvents = () => {
         </a>
       </div>
     </div>
+    </WithBoth>
   );
 };
 
