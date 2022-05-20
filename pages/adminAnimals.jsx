@@ -143,8 +143,8 @@ const adminAnimals = () => {
         <DragNDrop
           inputRef={inputRef}
           handleChange={handleChange}
-          addImage={addImage}
-          submitImages={submitImages}
+          // addImage={addImage}
+          // submitImages={submitImages}
           preview={preview}
           setPreview={setPreview}
         />
