@@ -95,51 +95,43 @@
   font-size: large;
   text-align: center;
 }
-.removeAnimals .delDiv {
+.removeEvent .delDiv {
   width: 40vw;
-  height: 65vh;
+  height: 70vh;
   margin-left: 5vw;
   justify-content: center;
   background-color: white;
   text-align: center;
 }
-.removeAnimals .delDiv .delBot {
+.removeEvent .delDiv .delBot {
   display: inline-flex;
 }
-.removeAnimals .delDiv .delBot .delete {
+.removeEvent .delDiv .delBot .delete {
   width: 90px;
   height: 40px;
   font-size: 20px;
-  margin-top: 1.5vh;
-  margin-left: 5vw;
+  margin-top: 7vh;
   filter: brightness(0%);
   background: url("/");
   transition: 1s;
   border: none;
 }
-.removeAnimals .delDiv .delBot .delete:hover {
+.removeEvent .delDiv .delBot .delete:hover {
   filter: brightness(100%);
   cursor: pointer;
   transition: 1s;
 }
-.removeAnimals .delDiv .delBot .delName {
-  font-size: 35px;
-  margin-left: 5vw;
+.removeEvent .delDiv .delBot .delName {
+  width: 35vw;
+  font-size: 40px;
+  height: 18vh;
+  margin-left: 1vw;
+}
+.removeEvent .delDiv iframe {
+  height: 49vh;
+  width: 38vw;
   margin-top: 1vh;
 }
-.removeAnimals .delDiv .delImg {
-  height: 55vh;
-  width: 39vw;
-  margin-top: 1vh;
-  background-color: white;
-}
-.removeAnimals a {
-  margin-left: 43%;
-}
-.removeAnimals a p {
-  margin-left: 47%;
-}
-
 
 .createEvent {
   border-right: 1px solid black;

@@ -337,10 +337,9 @@ const adminAnimals = () => {
                   <Icon
                     name={trash ? "trash alternate outline" : "trash"}
                     color="red"
-                    onClick={() => {
+                    onClick={(e) => {
                       setShow(false)
                       setDel(null)
-                      e.target.parent.value = "";
                     }}
                   />
                 </button>

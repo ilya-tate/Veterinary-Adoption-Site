@@ -282,7 +282,6 @@ const adminEvents = () => {
                   onClick={() => {
                     setShow(false)
                     setDel(null);
-                    e.target.parent.value = "";
                   }}
                 />
               </button>
