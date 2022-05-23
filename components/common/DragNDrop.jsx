@@ -62,14 +62,14 @@ const DragNDrop = ({
             )}
           </div>
         </Segment>
-        <div className="imageButtons" style={{display: "inline-flex"}}>
-        <button className="uploadImages" onClick={(e) => addImage(e)}>
+        {/* <div className="imageButtons" style={{display: "inline-flex"}}> */}
+        {/* <button className="uploadImages" onClick={(e) => addImage(e)}>
           Upload Image?
         </button>
         <button className="submitImages" onClick={(e) => submitImages(e)}>
           Submit Images?
-        </button>
-        </div>
+        </button> */}
+        {/* </div> */}
       </Form.Field>
     </>
   );
