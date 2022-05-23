@@ -332,6 +332,9 @@ const adminAnimals = () => {
                   onClick={() => {
                     deleteAnimal();
                     getInfo();
+                    setTimeout(() => {
+                      window.relocate("/animals")
+                    }, 1000);
                   }}
                 >
                   <Icon

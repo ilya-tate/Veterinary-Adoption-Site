@@ -55,7 +55,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
               </a>
             </li>
             <li className="item">
-              <a className="item" href="/home" style={{ marginLeft: "15px" }}>
+              <a className="item" href="/" style={{ marginLeft: "15px" }}>
                 Home
               </a>
             </li>
@@ -116,7 +116,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
               </label>
             </li>
             <li className="item">
-              <a className="item" href="/home" style={{ marginLeft: "15px" }}>
+              <a className="item" href="/" style={{ marginLeft: "15px" }}>
                 Home
               </a>
             </li>
