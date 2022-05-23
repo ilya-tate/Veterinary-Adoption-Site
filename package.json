@@ -2,7 +2,10 @@
   "name": "social_media",
   "private": true,
   "version": "1.0.0",
-  
+  "main": "server.js",
+  "engines": {
+    "node": "16.x"
+  }
   "dependencies": {
     "@svgr/webpack": "^6.2.1",
     "axios": "^0.25.0",
