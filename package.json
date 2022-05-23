@@ -2,12 +2,7 @@
   "name": "social_media",
   "private": true,
   "version": "1.0.0",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+  
   "dependencies": {
     "@svgr/webpack": "^6.2.1",
     "axios": "^0.25.0",
