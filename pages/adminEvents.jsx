@@ -274,6 +274,10 @@ const adminEvents = () => {
                 onClick={() => {
                   deleteEvent();
                   getInfo();
+                  getInfo();
+                  setTimeout(() => {
+                    window.location.replace("#top");
+                  }, 499);
                 }}
               >
                 <Icon

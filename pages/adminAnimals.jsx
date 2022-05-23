@@ -333,8 +333,8 @@ const adminAnimals = () => {
                     deleteAnimal();
                     getInfo();
                     setTimeout(() => {
-                      window.relocate("/animals")
-                    }, 1000);
+                      window.location.replace("#top");
+                    }, 499);
                   }}
                 >
                   <Icon
@@ -367,7 +367,7 @@ const adminAnimals = () => {
                   password === e.target.value && clearAll(false),
                     clear(),
                     setTimeout(() => {
-                      window.location.replace("/animals");
+                      window.location.replace("/adoption");
                     }, 100);
                 }}
               ></input>
