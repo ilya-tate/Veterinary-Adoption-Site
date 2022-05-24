@@ -30,8 +30,8 @@ const adminAnimals = () => {
   const [animals, setAnimals] = useState([]);
   const [clearAll, setClearAll] = useState(false);
   const [preview, setPreview] = useState(null);
-  const [media, setMedia] = useState(null);
   const inputRef = useRef(null);
+  const [media, setMedia] = useState(null);
   const [password, setPassword] = useState(99550);
   const [spayed, setSpayed] = useState(false);
   let picUrl;
