@@ -11,7 +11,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
     return (
       <div
         className={darkmode ? "navbar dark" : "navbar"}
-        style={{ position: "fixed", top: 0, width: "100%" }}
+        style={{ position: "fixed", top: "0", width: "100%" }}
       >
         {admin ? (
           <ul

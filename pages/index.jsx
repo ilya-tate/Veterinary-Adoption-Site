@@ -97,7 +97,7 @@ const Home = () => {
                           <p
                             className="seeMore"
                             onClick={() => setMore(!more)}
-                            style={{ cursor: "pointer" }}
+                            // style={{ cursor: "pointer" }}
                           >
                             {!more ? "See More..." : "See Less..."}
                           </p>
