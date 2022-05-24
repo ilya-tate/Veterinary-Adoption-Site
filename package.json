@@ -6,12 +6,7 @@
   "engines": {
     "node": "16.x"
   },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+  
   "dependencies": {
     "@svgr/webpack": "^6.2.1",
     "axios": "^0.25.0",
