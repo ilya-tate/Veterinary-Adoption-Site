@@ -302,7 +302,7 @@ const AdminEvents = () => {
         >
           {!clearAll && <p {/**style={{marginLeft: "23vw"}}*/}>Clear All?</p>}
           {clearAll && (
-            <input
+            // <input
             // style={{marginLeft: "23vw"}}
               type="number"
               placeholder="Enter Password"
