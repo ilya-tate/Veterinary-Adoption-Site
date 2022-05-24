@@ -4,7 +4,7 @@ import WithBoth from "../components/layout/with/WithBoth";
 import { Icon } from "semantic-ui-react";
 import DragNDrop from "../components/common/DragNDrop";
 
-const adminAnimals = () => {
+const AdminAnimals = () => {
   const [submitted, setSubmitted] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [spade, setSpade] = useState(false);
@@ -282,7 +282,7 @@ const adminAnimals = () => {
               {animals.length
                 ? animals.map((animal) => {
                     return (
-                      <option id={animal._id} value={animal.name}>
+                      <option id={animal._id} value={animal.name} key={animal._id}>
                         {animal.name}
                       </option>
                     );
@@ -379,4 +379,4 @@ const adminAnimals = () => {
   );
 };
 
-export default adminAnimals;
+export default AdminAnimals;

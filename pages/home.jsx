@@ -15,7 +15,7 @@ const dummyData = {
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
         },
-        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
+        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}}  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
         id: 1,
     }, {
         title: "Mass Adoption Event 2",
@@ -25,7 +25,7 @@ const dummyData = {
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
         },
-        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
+        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}}  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
         id: 2,
     }, {
         title: "Mass Adoption Event 3",
@@ -35,7 +35,7 @@ const dummyData = {
             date: "March 18th, 2022",
             time: "9:00am - 2:00pm"
         },
-        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
+        map: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26574.423262644803!2d-112.345088!3d33.636351999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db553b54930177%3A0xc9d20627bfccf487!2sIn-N-Out%20Burger!5e0!3m2!1sen!2sus!4v1651274664093!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}}  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
         id: 3,
     },],
     animals: [{
@@ -78,7 +78,7 @@ const Home = () => {
                         title="YouTube video player"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
+                        
                         wmode="transparent"
                     ></iframe>
                 </div>
@@ -95,7 +95,7 @@ const Home = () => {
             <div className={styles.events}>
                 <h2 className={styles.heading}>Upcoming Events</h2>
                 <ul className={styles.choseEventMobile}>
-                    {dummyData.events.map((_, i) => <li className={styles.num} onClick={() => setEventIndex(i)}>
+                    {dummyData.events.map((_, i) => <li key = {i} className={styles.num} onClick={() => setEventIndex(i)}>
                         {i + 1}
                     </li>)}
                 </ul>

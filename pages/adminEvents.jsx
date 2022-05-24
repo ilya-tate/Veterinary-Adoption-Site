@@ -3,7 +3,7 @@ import axios from "axios";
 import { Icon } from "semantic-ui-react";
 import WithBoth from "../components/layout/with/WithBoth";
 
-const adminEvents = () => {
+const AdminEvents = () => {
   const [submitted, setSubmitted] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [newEvent, setNewEvent] = useState({
@@ -211,7 +211,7 @@ const adminEvents = () => {
             <option value=""></option>
             {events.map((event) => {
               return (
-                <option id={event._id} value={event.title}>
+                <option id={event._id} value={event.title} key = {event}>
                   {event.title}
                 </option>
               );
@@ -325,4 +325,4 @@ const adminEvents = () => {
   );
 };
 
-export default adminEvents;
+export default AdminEvents;

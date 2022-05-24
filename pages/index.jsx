@@ -70,7 +70,7 @@ const Home = () => {
         <h2 className={styles.heading}>Upcoming Events</h2>
         <ul className={styles.choseEventMobile}>
           {weekEvents.map((_, i) => (
-            <li className={styles.num} onClick={() => setEventIndex(i)}>
+            <li className={styles.num} key={i} onClick={() => setEventIndex(i)}>
               {i + 1}
             </li>
           ))}

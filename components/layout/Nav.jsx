@@ -2,6 +2,7 @@ import { ReactChild, useState } from "react";
 import { Image } from "semantic-ui-react";
 import { logoutUser } from "../../util/auth";
 import Router, { useRouter } from "next/router";
+import Link from "next/link";
 
 const Nav = ({ setDarkmode, darkmode }) => {
   const [admin, setAdmin] = useState(false);
@@ -50,23 +51,23 @@ const Nav = ({ setDarkmode, darkmode }) => {
               </label>
             </li>
             <li className="item">
-              <a href="/admin" className="item">
+              <Link href="/admin" className="item">
                 Admin
-              </a>
+              </Link>
             </li>
             <li className="item">
-              <a className="item" href="/" style={{ marginLeft: "15px" }}>
+              <Link className="item" href="/" style={{ marginLeft: "15px" }}>
                 Home
-              </a>
+              </Link>
             </li>
             <li className="item">
-              <a
+              <Link
                 className="item"
                 href="/adoption"
                 style={{ marginLeft: "15px" }}
               >
                 Adoption
-              </a>
+              </Link>
             </li>
             <li>
               <label className="switch">
@@ -116,18 +117,18 @@ const Nav = ({ setDarkmode, darkmode }) => {
               </label>
             </li>
             <li className="item">
-              <a className="item" href="/" style={{ marginLeft: "15px" }}>
+              <Link className="item" href="/" style={{ marginLeft: "15px" }}>
                 Home
-              </a>
+              </Link>
             </li>
             <li className="item">
-              <a
+              <Link
                 className="item"
                 href="/adoption"
                 style={{ marginLeft: "15px" }}
               >
                 Adoption
-              </a>
+              </Link>
             </li>
           </ul>
         )}

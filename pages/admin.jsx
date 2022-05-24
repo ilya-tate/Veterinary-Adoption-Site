@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import Layout from "../components/layout/Layout";
 
@@ -7,14 +8,14 @@ const admin = () => {
       <div className="adminMain">
         <div className="pages">
           <div className="animals">
-            <a href="/adminAnimals">
+            <Link href="/adminAnimals">
               <button className="adminButton">Animals</button>
-            </a>
+            </Link>
           </div>
           <div className="events">
-            <a href="/adminEvents">
+            <Link href="/adminEvents">
               <button className="adminButton">Events</button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

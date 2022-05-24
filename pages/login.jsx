@@ -16,7 +16,7 @@ import {
 import { setToken } from "../util/auth";
 import catchErrors from "../util/catchErrors";
 
-const login = () => {
+const Login = () => {
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -141,4 +141,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

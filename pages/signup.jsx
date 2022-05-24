@@ -6,7 +6,7 @@ import Layout from '../components/layout/Layout';
 import { setToken } from '../util/auth';
 
 
-const signup = ({darkmode, setDarkmode}) => {
+const Signup = ({darkmode, setDarkmode}) => {
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -112,4 +112,4 @@ const signup = ({darkmode, setDarkmode}) => {
   )
 }
 
-export default signup
+export default Signup

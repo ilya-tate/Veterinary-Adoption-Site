@@ -95,7 +95,7 @@ const animalsData = [{
     id: 10,
 }]
 
-const animals = () => {
+const Animal = () => {
     const [filter, setFilter] = useState(barContent);
     const [search, setSearch] = useState("");
 
@@ -134,4 +134,4 @@ const animals = () => {
     )
 }
 
-export default animals 
+export default Animal

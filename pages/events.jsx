@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import Layout from "../components/layout/Layout";
 
-const events = ({darkmode, setDarkmode}) => {
+const Events = ({darkmode, setDarkmode}) => {
   const [submitted, setSubmitted] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [newEvent, setNewEvent] = useState({
@@ -209,4 +209,4 @@ const events = ({darkmode, setDarkmode}) => {
   );
 };
 
-export default events;
+export default Events;
