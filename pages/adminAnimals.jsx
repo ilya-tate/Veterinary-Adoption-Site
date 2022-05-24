@@ -294,7 +294,7 @@ const AdminAnimals = () => {
           <br />
           {!show && (
             <button
-              style={{ marginLeft: "18vw" }}
+              // style={{ marginLeft: "18vw" }}
               onClick={() => {
                 getInfo();
                 setShow(true);
@@ -357,10 +357,10 @@ const AdminAnimals = () => {
               console.log("CLEAR...SUCCESSFUL");
             }}
           >
-            {!clearAll && <p style={{ marginLeft: "21vw" }}>Clear All?</p>}
+            {!clearAll && <p {/**style={{ marginLeft: "21vw" }}*/}>Clear All?</p>}
             {clearAll && (
               <input
-                style={{ marginLeft: "21vw" }}
+                // style={{ marginLeft: "21vw" }}
                 type="number"
                 placeholder="Enter Password"
                 onBlur={(e) => {

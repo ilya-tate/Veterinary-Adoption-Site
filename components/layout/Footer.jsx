@@ -3,12 +3,12 @@ import { Divider, Grid } from "semantic-ui-react";
 const Footer = ({ darkmode }) => {
   return (
     <div
-      style={{
-        position: "relative",
-        bottom: "0",
-        background: "black",
-        color: "white",
-      }}
+      // style={{
+      //   position: "relative",
+      //   bottom: "0",
+      //   background: "black",
+      //   color: "white",
+      // }}
     >
       <Grid centered>
         <a
@@ -46,7 +46,7 @@ const Footer = ({ darkmode }) => {
         <Grid.Row>
           <Grid.Column>
             <h3>Socials:</h3>
-            <ul style={{ listStyle: "none", paddingLeft: "0" }}>
+            <ul {/**listStyle: "none", paddingLeft: "0" }}*/}>
               <li>
                 <a
                   href="https://www.instagram.com/westmecvetsciences/"

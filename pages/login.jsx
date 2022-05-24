@@ -68,7 +68,7 @@ const Login = () => {
 
   return (
     <>
-      <Container style={{ paddingTop: "1rem" }}>
+      <Container {/**style={{ paddingTop: "1rem" }}*/}>
         <HeaderMessage />
         <Form
           loading={formLoading}
@@ -116,13 +116,13 @@ const Login = () => {
               onClick={() => {
                 changePages();
               }}
-              style={{
-                border: "none",
-                width: "100px",
-                height: "40px",
-                borderRadius: "0px",
-                marginRight: "20px",
-              }}
+              // style={{
+              //   border: "none",
+              //   width: "100px",
+              //   height: "40px",
+              //   borderRadius: "0px",
+              //   marginRight: "20px",
+              // }}
             >
               Go Back
             </button>
@@ -141,4 +141,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default login;

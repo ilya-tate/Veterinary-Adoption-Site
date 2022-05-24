@@ -10,10 +10,10 @@ const DragNDrop = ({
 }) => {
   return (
     <>
-      <Form.Field style={{ width: "20vw", marginRight: "-9vw", marginLeft: "1vw", zIndex: "5" }}>
+      <Form.Field {/**style={{ width: "20vw", marginRight: "-9vw", marginLeft: "1vw", zIndex: "5" }}*/}>
         <Segment placeholder basic secondary>
           <input
-            style={{ display: "none" }}
+            {/**style={{ display: "none" }}*/}
             type="file"
             accept="image/*"
             onChange={handleChange}
@@ -21,7 +21,7 @@ const DragNDrop = ({
             ref={inputRef}
           />
           <div
-            style={{ cursor: "pointer" }}
+            {/**style={{ cursor: "pointer" }}*/}
             onDragOver={(e) => {
               e.preventDefault();
             }}
@@ -54,7 +54,7 @@ const DragNDrop = ({
                       src={preview}
                       size="medium"
                       centered
-                      style={{ cursor: "pointer" }}
+                      {/**style={{ cursor: "pointer" }}*/}
                     />
                   </Segment>
                 </>

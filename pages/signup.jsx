@@ -56,7 +56,7 @@ const Signup = ({darkmode, setDarkmode}) => {
 
   return (
     <Layout>
-      <Segment style={{ justifyContent: 'center' }}>
+      <Segment {/**style={{ justifyContent: 'center' }}*/}>
 
 
         <Message content="Sign up" header="Sign in" icon="meh" color='orange' />

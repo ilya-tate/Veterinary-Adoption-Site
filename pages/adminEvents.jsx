@@ -222,7 +222,7 @@ const AdminEvents = () => {
         <br />
         {!show && (
           <button
-          style={{marginLeft: "19.5vw"}}
+          // style={{marginLeft: "19.5vw"}}
             onClick={() => {
               getInfo();
               setShow(true);
@@ -300,10 +300,10 @@ const AdminEvents = () => {
             console.log("CLEAR...SUCCESSFUL");
           }}
         >
-          {!clearAll && <p style={{marginLeft: "23vw"}}>Clear All?</p>}
+          {!clearAll && <p {/**style={{marginLeft: "23vw"}}*/}>Clear All?</p>}
           {clearAll && (
             <input
-            style={{marginLeft: "23vw"}}
+            // style={{marginLeft: "23vw"}}
               type="number"
               placeholder="Enter Password"
               onBlur={(e) => {

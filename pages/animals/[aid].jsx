@@ -59,7 +59,10 @@ const IndividualAnimal = () => {
                       objectFit="cover"
                       objectPosition="center"
                       className={styles.elem}
-                      style={{height: "100%", width: "100%"}}
+                      // style={{
+                      //   height: "100%", 
+                      //   width: "100%",
+                      // }}
                     />
                   ) : (
                     <Image

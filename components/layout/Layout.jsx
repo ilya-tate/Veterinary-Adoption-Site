@@ -8,7 +8,7 @@ const Layout = ({ children, user, darkmode, setDarkmode, index }) => {
   return (
     <>
       <Nav setDarkmode={setDarkmode} darkmode={darkmode} />
-      <div style={{paddingTop: '1rem'}}>
+      <div {/**style={{paddingTop: '1rem'}}*/}>
         {children}
       </div>
     </>

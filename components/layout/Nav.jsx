@@ -11,34 +11,34 @@ const Nav = ({ setDarkmode, darkmode }) => {
     return (
       <div
         className={darkmode ? "navbar dark" : "navbar"}
-        style={{ position: "fixed", top: "0", width: "100%" }}
+        // style={{ position: "fixed", top: "0", width: "100%" }}
       >
         {admin ? (
           <ul
             className="pageList"
-            style={{ listStyle: "none", display: "inline-flex" }}
+            // style={{ listStyle: "none", display: "inline-flex" }}
           >
             <li
-              className="item"
-              style={{
-                display: "inline-flex",
-                fontSize: "25px",
-                marginTop: "-5px",
-              }}
+              // className="item"
+              // style={{
+              //   display: "inline-flex",
+              //   fontSize: "25px",
+              //   marginTop: "-5px",
+              // }}
             >
               <Image
                 src="./DarkLogo.png"
-                style={{
-                  width: "50px",
-                  height: "40px",
-                  paddingRight: "10px",
-                  paddingBottom: "0",
-                }}
+                // style={{
+                //   width: "50px",
+                //   height: "40px",
+                //   paddingRight: "10px",
+                //   paddingBottom: "0",
+                // }}
                 className="logo"
               />
               West-MEC Veterinary
             </li>
-            <li style={{ marginRight: "15px", marginLeft: "-20vw" }}>
+            <li {/**style={{ marginRight: "15px", marginLeft: "-20vw" }}*/}>
               <label className="switch">
                 <input
                   type="checkbox"
@@ -56,7 +56,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
               </Link>
             </li>
             <li className="item">
-              <Link className="item" href="/" style={{ marginLeft: "15px" }}>
+              <Link className="item" href="/" {/**style={{ marginLeft: "15px" }}*/}>
                 Home
               </Link>
             </li>
@@ -64,7 +64,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
               <Link
                 className="item"
                 href="/adoption"
-                style={{ marginLeft: "15px" }}
+                // style={{ marginLeft: "15px" }}
               >
                 Adoption
               </Link>
@@ -85,26 +85,26 @@ const Nav = ({ setDarkmode, darkmode }) => {
         ) : (
           <ul
             className="pageList"
-            style={{ listStyle: "none", display: "inline-flex" }}
+            // style={{ listStyle: "none", display: "inline-flex" }}
           >
             <li
               className="item"
-              style={{ display: "inline-flex", fontSize: "40px" }}
+              // style={{ display: "inline-flex", fontSize: "40px" }}
             >
               <Image
                 src="./DarkLogo.png"
-                style={{
-                  width: "50px",
-                  height: "40px",
-                  paddingRight: "10px",
-                  paddingBottom: "0",
-                  marginTop: "-7px",
-                }}
+                // style={{
+                //   width: "50px",
+                //   height: "40px",
+                //   paddingRight: "10px",
+                //   paddingBottom: "0",
+                //   marginTop: "-7px",
+                // }}
                 className="logo"
               />
               West-MEC Veterinary
             </li>
-            <li style={{ marginLeft: "-32vw", marginRight: "5px" }}>
+            <li {/**style={{ marginLeft: "-32vw", marginRight: "5px" }}*/}>
               <label className="switch">
                 <input
                   type="checkbox"
@@ -117,7 +117,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
               </label>
             </li>
             <li className="item">
-              <Link className="item" href="/" style={{ marginLeft: "15px" }}>
+              <Link className="item" href="/" {/**style={{ marginLeft: "15px" }}*/}>
                 Home
               </Link>
             </li>
@@ -125,7 +125,7 @@ const Nav = ({ setDarkmode, darkmode }) => {
               <Link
                 className="item"
                 href="/adoption"
-                style={{ marginLeft: "15px" }}
+                // style={{ marginLeft: "15px" }}
               >
                 Adoption
               </Link>
