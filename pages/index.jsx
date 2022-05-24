@@ -76,7 +76,7 @@ const Home = () => {
           ))}
         </ul>
         <div className={styles.eventsContainer}>
-          {weekEvents ? (
+          {weekEvents.length > 0 ? (
             weekEvents.map((event, index) => (
               <div
                 key={event._id}
@@ -126,8 +126,8 @@ const Home = () => {
       </div>
       <div className={styles.animals}>
         <h2 className={styles.heading}>Featured Animals</h2>
-        <div className={styles.animalsContainer}>
-          {weekAnimals.map((animal) => (
+        <div className={styles.animalsContainer} style={!weekAnimals.length > 0 && {justifyContent: "center"}}>
+          {weekAnimals.length > 0 ? ( weekAnimals.map((animal) => (
             <Animal key={animal._id} animal={animal} />
             // <Link href={`/animals/${animal._id}`}>
             //   <div className={styles.animal}>
@@ -163,7 +163,7 @@ const Home = () => {
             //     </div>
             //   </div>
             // </Link>
-          ))}
+          ))) : <h1>No Animals Currently Up for Adoption</h1>}
         </div>
         <Link href="/animals">
           <button className={styles.allAnimals}>See All Animals</button>
